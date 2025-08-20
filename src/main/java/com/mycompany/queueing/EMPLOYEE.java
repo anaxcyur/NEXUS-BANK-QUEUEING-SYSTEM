@@ -42,7 +42,7 @@ public class EMPLOYEE extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocation(new java.awt.Point(0, 80));
-        setMinimumSize(new java.awt.Dimension(778, 700));
+        setMinimumSize(new java.awt.Dimension(1440, 900));
         setUndecorated(true);
         getContentPane().setLayout(null);
 
@@ -108,8 +108,10 @@ public class EMPLOYEE extends javax.swing.JFrame {
         show.setContentAreaFilled(false);
         jPanel1.add(show);
         show.setBounds(990, 510, 40, 30);
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/login.png"))); // NOI18N
         jPanel1.add(jLabel1);
-        jLabel1.setBounds(0, 0, 0, 900);
+        jLabel1.setBounds(0, 0, 1440, 900);
 
         getContentPane().add(jPanel1);
         jPanel1.setBounds(0, 0, 1440, 900);

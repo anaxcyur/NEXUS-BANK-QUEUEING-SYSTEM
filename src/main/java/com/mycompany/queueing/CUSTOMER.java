@@ -122,6 +122,8 @@ public class CUSTOMER extends javax.swing.JFrame {
         });
         main.add(bills);
         bills.setBounds(250, 180, 310, 40);
+
+        dashboard.setIcon(new javax.swing.ImageIcon(getClass().getResource("/customer dashboard.png"))); // NOI18N
         main.add(dashboard);
         dashboard.setBounds(0, 0, 800, 400);
 
@@ -162,6 +164,8 @@ public class CUSTOMER extends javax.swing.JFrame {
         });
         BP.add(confirm);
         confirm.setBounds(410, 360, 90, 30);
+
+        BPbg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/customer bills payment.png"))); // NOI18N
         BP.add(BPbg);
         BPbg.setBounds(0, 0, 800, 400);
 
@@ -243,6 +247,8 @@ public class CUSTOMER extends javax.swing.JFrame {
         });
         APLI.add(confirm1);
         confirm1.setBounds(410, 360, 90, 30);
+
+        APLIbg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/customer application.png"))); // NOI18N
         APLI.add(APLIbg);
         APLIbg.setBounds(0, 0, 800, 400);
 
@@ -287,6 +293,8 @@ public class CUSTOMER extends javax.swing.JFrame {
         change.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         FE.add(change);
         change.setBounds(150, 210, 240, 30);
+
+        FEbg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/customer foreign exchange.png"))); // NOI18N
         FE.add(FEbg);
         FEbg.setBounds(0, 0, 800, 400);
 
@@ -300,6 +308,8 @@ public class CUSTOMER extends javax.swing.JFrame {
         queuenum.setToolTipText("");
         queue.add(queuenum);
         queuenum.setBounds(260, 150, 270, 150);
+
+        queuebg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/queue.png"))); // NOI18N
         queue.add(queuebg);
         queuebg.setBounds(0, 0, 800, 400);
 

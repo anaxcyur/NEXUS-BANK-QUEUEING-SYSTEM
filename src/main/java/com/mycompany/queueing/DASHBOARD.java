@@ -167,8 +167,10 @@ public class DASHBOARD extends javax.swing.JFrame {
         });
         billsdash.add(logout);
         logout.setBounds(30, 510, 100, 20);
+
+        Bbg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bills payment dashboard.png"))); // NOI18N
         billsdash.add(Bbg);
-        Bbg.setBounds(-5, 0, 900, 0);
+        Bbg.setBounds(-5, 0, 900, 550);
 
         container1.add(billsdash, "BDASH");
 
@@ -282,8 +284,10 @@ public class DASHBOARD extends javax.swing.JFrame {
         email.setEnabled(false);
         applidash.add(email);
         email.setBounds(630, 370, 220, 22);
+
+        Abg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/application dashboard.png"))); // NOI18N
         applidash.add(Abg);
-        Abg.setBounds(-5, 0, 900, 0);
+        Abg.setBounds(-5, 0, 900, 550);
 
         container1.add(applidash, "ADASH");
 
@@ -373,8 +377,10 @@ public class DASHBOARD extends javax.swing.JFrame {
         convert.setEnabled(false);
         exchangedash.add(convert);
         convert.setBounds(270, 416, 290, 30);
+
+        Abg1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/foreign ex dashboard.png"))); // NOI18N
         exchangedash.add(Abg1);
-        Abg1.setBounds(-5, 0, 900, 0);
+        Abg1.setBounds(-5, 0, 900, 550);
 
         container1.add(exchangedash, "EDASH");
 
