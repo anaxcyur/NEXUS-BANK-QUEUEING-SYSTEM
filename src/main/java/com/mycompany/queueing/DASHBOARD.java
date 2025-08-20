@@ -4,9 +4,11 @@
  */
 package com.mycompany.queueing;
 
+import static com.mycompany.queueing.QUEUEING.queueA;
 import java.awt.CardLayout;
 import java.awt.Color;
 import javax.swing.JOptionPane;
+import javax.swing.Timer;
 
 /**
  *
@@ -21,7 +23,15 @@ public class DASHBOARD extends javax.swing.JFrame {
         initComponents();
         convert.setOpaque(false); 
         convert.setBackground(new Color(0, 0, 0, 0)); 
+        
+    
+         
     }
+    public static void updateQueueNumber(String queueNumberA) {
+           if (jLabel1 != null) {
+               jLabel1.setText(queueNumberA);
+           }
+   }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -45,6 +55,7 @@ public class DASHBOARD extends javax.swing.JFrame {
         confirm = new javax.swing.JButton();
         edit = new javax.swing.JButton();
         logout = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
         Bbg = new javax.swing.JLabel();
         applidash = new javax.swing.JPanel();
         billspayment = new javax.swing.JButton();
@@ -117,6 +128,11 @@ public class DASHBOARD extends javax.swing.JFrame {
 
         next.setBorderPainted(false);
         next.setContentAreaFilled(false);
+        next.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nextActionPerformed(evt);
+            }
+        });
         billsdash.add(next);
         next.setBounds(410, 30, 140, 50);
 
@@ -167,6 +183,12 @@ public class DASHBOARD extends javax.swing.JFrame {
         });
         billsdash.add(logout);
         logout.setBounds(30, 510, 100, 20);
+
+        jLabel1.setFont(new java.awt.Font("Arial Black", 1, 54)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(153, 0, 0));
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        billsdash.add(jLabel1);
+        jLabel1.setBounds(220, 70, 140, 120);
 
         Bbg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bills payment dashboard.png"))); // NOI18N
         billsdash.add(Bbg);
@@ -425,6 +447,7 @@ public class DASHBOARD extends javax.swing.JFrame {
 
     private void applicationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_applicationActionPerformed
         ((CardLayout)container1.getLayout()).show(container1, "ADASH");
+        
     }//GEN-LAST:event_applicationActionPerformed
 
     private void exchangeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exchangeActionPerformed
@@ -510,7 +533,12 @@ public class DASHBOARD extends javax.swing.JFrame {
             break; // Input is valid; continue with the rest of the code
         }
     }
+        
     }//GEN-LAST:event_confirmActionPerformed
+
+    private void nextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_nextActionPerformed
 
     /**
      * @param args the command line arguments
@@ -580,6 +608,7 @@ public class DASHBOARD extends javax.swing.JFrame {
     private javax.swing.JButton exchange;
     private javax.swing.JButton exchange1;
     private javax.swing.JPanel exchangedash;
+    public static javax.swing.JLabel jLabel1;
     private javax.swing.JButton logout;
     private javax.swing.JButton logout1;
     private javax.swing.JButton logout2;

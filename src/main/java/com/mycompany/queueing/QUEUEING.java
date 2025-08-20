@@ -35,19 +35,20 @@ public static ArrayList<String> changeFE = new ArrayList<>();
 public static ArrayList<String> convertFE = new ArrayList<>();
 public static ArrayList<String> amountFE = new ArrayList<>();
 
-public static Queue <String> queueA = new LinkedList<String>();
+static Queue <String> queueA = new LinkedList<String>();
 public static int counterA = 1;
 
-public static Queue <String> queueB = new LinkedList<String>();
+ static Queue <String> queueB = new LinkedList<String>();
 public static int counterB = 1;
 
-public static Queue <String> queueC = new LinkedList<String>();
+ static Queue <String> queueC = new LinkedList<String>();
 public static int counterC = 1;
 
 
 
     public static void main(String[] args) {
         new START_UP().setVisible(true);
+        
         
     }
 

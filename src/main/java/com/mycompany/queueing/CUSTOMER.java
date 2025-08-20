@@ -3,6 +3,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package com.mycompany.queueing;
+import static com.mycompany.queueing.QUEUEING.nameA;
+import static com.mycompany.queueing.QUEUEING.queueA;
 import java.awt.CardLayout;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
@@ -34,7 +36,7 @@ public class CUSTOMER extends javax.swing.JFrame {
         name3.setBackground(new Color(0, 0, 0, 0));
         amount3.setBackground(new Color(0, 0, 0, 0));
         
-                
+                    
 
     }
 
@@ -431,7 +433,11 @@ public class CUSTOMER extends javax.swing.JFrame {
 
             if (enteredName.isEmpty() || enteredAmount.isEmpty() || selectedPayTo == null || selectedPayTo.trim().isEmpty()) {
                 JOptionPane.showMessageDialog(null, "Please fill in all fields", "Input Error", JOptionPane.ERROR_MESSAGE);
+                name.setText("");
+                amount.setText("");
+                paytoOptions.setSelectedIndex(0);
                 return; 
+       
             } else {
                 break; 
             }
@@ -444,11 +450,15 @@ public class CUSTOMER extends javax.swing.JFrame {
         QUEUEING.payToBP.add(selected);
         
             String qnum = ("A"+String.valueOf(QUEUEING.counterA));
+            QUEUEING.counterA++;
             QUEUEING.queueA.add(qnum);
             queuenum.setText(qnum);
-            QUEUEING.counterA++;
+            
+             
+            
+            DASHBOARD.updateQueueNumber(qnum);
+            
 
-        
         int delay = 5000; // 5 seconds
 
         Timer timer = new Timer(delay, new ActionListener() {
@@ -461,7 +471,7 @@ public class CUSTOMER extends javax.swing.JFrame {
         timer.setRepeats(false); 
         timer.start();
     }//GEN-LAST:event_confirmActionPerformed
-
+ 
     /**
      * @param args the command line arguments
      */
@@ -515,7 +525,7 @@ public class CUSTOMER extends javax.swing.JFrame {
     private javax.swing.JButton cancel3;
     private javax.swing.JComboBox<String> change;
     private javax.swing.JButton confirm;
-    private javax.swing.JButton confirm1;
+    public static javax.swing.JButton confirm1;
     private javax.swing.JButton confirm3;
     private javax.swing.JPanel container;
     private javax.swing.JComboBox<String> convert;

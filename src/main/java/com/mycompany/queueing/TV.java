@@ -34,8 +34,9 @@ public class TV extends javax.swing.JFrame {
         setMinimumSize(new java.awt.Dimension(790, 400));
         setUndecorated(true);
         setPreferredSize(new java.awt.Dimension(790, 480));
+        getContentPane().setLayout(null);
 
-        TVbg.setIcon(new javax.swing.ImageIcon("C:\\Users\\lucky\\OneDrive\\Documents\\NetBeansProjects\\QUEUEING\\src\\main\\java\\com\\mycompany\\queueing\\TV.png")); // NOI18N
+        TVbg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/TV.png"))); // NOI18N
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -48,16 +49,8 @@ public class TV extends javax.swing.JFrame {
             .addComponent(TVbg, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
+        getContentPane().add(jPanel1);
+        jPanel1.setBounds(0, 0, 790, 400);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
