@@ -9,6 +9,8 @@ package com.mycompany.queueing;
  * @author lucky
  */
 public class TV extends javax.swing.JFrame {
+
+    
     
     /**
      * Creates new form TV
@@ -107,7 +109,7 @@ public class TV extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel TVbg;
     private javax.swing.JPanel jPanel1;
-    public javax.swing.JLabel serveA;
+    public static javax.swing.JLabel serveA;
     public javax.swing.JLabel serveB;
     public javax.swing.JLabel serveC;
     // End of variables declaration//GEN-END:variables

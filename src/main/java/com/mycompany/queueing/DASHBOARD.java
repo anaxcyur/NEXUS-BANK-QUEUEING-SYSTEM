@@ -586,8 +586,7 @@ public class DASHBOARD extends javax.swing.JFrame {
               amount.setText(servedAmount);
               serveA.setText("A" + servedNum);
               
-              TV newTV = new TV();
-              newTV.serveA.setText("A"+servedNum);
+              TV.serveA.setText("A" + servedNum);
              
           } else {
               serveA.setText("0");

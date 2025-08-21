@@ -18,11 +18,13 @@ import javax.swing.Timer;
  * @author lucky
  */
 public class CUSTOMER extends javax.swing.JFrame {
-
+    
+    private DASHBOARD dash;
+    private TV tv;
     /**
      * Creates new form CUSTOMER
      */
-    public CUSTOMER() {
+    public CUSTOMER(DASHBOARD dash, TV tv) {
         initComponents();
         name.setBackground(new Color(0, 0, 0, 0));
         amount.setBackground(new Color(0, 0, 0, 0));
@@ -443,6 +445,7 @@ public class CUSTOMER extends javax.swing.JFrame {
         int qnum = QUEUEING.counterA++;
         QUEUEING.queueA.add(qnum);
         queuenum.setText("A" + qnum);
+        
        
    
     int delay = 5000;
@@ -458,6 +461,9 @@ public class CUSTOMER extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
+    public CUSTOMER() {
+    this(new DASHBOARD(), new TV());
+}
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
