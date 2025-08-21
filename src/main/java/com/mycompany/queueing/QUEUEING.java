@@ -17,11 +17,15 @@ public static String username = "LaquiAng";
 public static String password = "12345";
 
 // for Bills Payment:
+public static Queue <Integer> queueA = new LinkedList<Integer>();
+public static int counterA = 1;
 public static ArrayList<String> nameBP = new ArrayList<>();
 public static ArrayList<String> payToBP = new ArrayList<>();
 public static ArrayList<String> amountBP = new ArrayList<>();
 
 // for Application:
+public static Queue <Integer> queueB = new LinkedList<Integer>();
+public static int counterB = 1;
 public static ArrayList<String> nameA = new ArrayList<>();
 public static ArrayList<String> numberA = new ArrayList<>();
 public static ArrayList<String> addressA = new ArrayList<>();
@@ -30,19 +34,13 @@ public static ArrayList<String> occupationA = new ArrayList<>();
 public static ArrayList<String> emailA = new ArrayList<>();
 
 // for Foreign Exchange:
+public static Queue <Integer> queueC = new LinkedList<Integer>();
+public static int counterC = 1;
 public static ArrayList<String> nameFE = new ArrayList<>();
 public static ArrayList<String> changeFE = new ArrayList<>();
 public static ArrayList<String> convertFE = new ArrayList<>();
 public static ArrayList<String> amountFE = new ArrayList<>();
 
-static Queue <String> queueA = new LinkedList<String>();
-public static int counterA = 1;
-
- static Queue <String> queueB = new LinkedList<String>();
-public static int counterB = 1;
-
- static Queue <String> queueC = new LinkedList<String>();
-public static int counterC = 1;
 
 
 

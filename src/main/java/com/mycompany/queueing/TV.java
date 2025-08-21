@@ -9,14 +9,14 @@ package com.mycompany.queueing;
  * @author lucky
  */
 public class TV extends javax.swing.JFrame {
-
+    
     /**
      * Creates new form TV
      */
     public TV() {
         initComponents();
     }
-
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -27,6 +27,9 @@ public class TV extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
+        serveB = new javax.swing.JLabel();
+        serveC = new javax.swing.JLabel();
+        serveA = new javax.swing.JLabel();
         TVbg = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -36,18 +39,29 @@ public class TV extends javax.swing.JFrame {
         setPreferredSize(new java.awt.Dimension(790, 480));
         getContentPane().setLayout(null);
 
-        TVbg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/TV.png"))); // NOI18N
+        jPanel1.setLayout(null);
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(TVbg, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(TVbg, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
+        serveB.setFont(new java.awt.Font("Arial Black", 1, 48)); // NOI18N
+        serveB.setForeground(new java.awt.Color(153, 0, 0));
+        serveB.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jPanel1.add(serveB);
+        serveB.setBounds(320, 130, 150, 80);
+
+        serveC.setFont(new java.awt.Font("Arial Black", 1, 48)); // NOI18N
+        serveC.setForeground(new java.awt.Color(153, 0, 0));
+        serveC.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jPanel1.add(serveC);
+        serveC.setBounds(560, 130, 150, 80);
+
+        serveA.setFont(new java.awt.Font("Arial Black", 1, 48)); // NOI18N
+        serveA.setForeground(new java.awt.Color(153, 0, 0));
+        serveA.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jPanel1.add(serveA);
+        serveA.setBounds(90, 140, 150, 80);
+
+        TVbg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/TV.png"))); // NOI18N
+        jPanel1.add(TVbg);
+        TVbg.setBounds(0, 0, 794, 400);
 
         getContentPane().add(jPanel1);
         jPanel1.setBounds(0, 0, 790, 400);
@@ -93,5 +107,8 @@ public class TV extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel TVbg;
     private javax.swing.JPanel jPanel1;
+    public javax.swing.JLabel serveA;
+    public javax.swing.JLabel serveB;
+    public javax.swing.JLabel serveC;
     // End of variables declaration//GEN-END:variables
 }

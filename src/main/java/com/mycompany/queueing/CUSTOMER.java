@@ -367,10 +367,9 @@ public class CUSTOMER extends javax.swing.JFrame {
         String selectedconvert = (String) convert.getSelectedItem();
         QUEUEING.convertFE.add(selectedconvert);
         
-        String qnum = ("C"+String.valueOf(QUEUEING.counterC));
-            QUEUEING.queueC.add(qnum);
-            queuenum.setText(qnum);
-            QUEUEING.counterC++;
+        int qnum = QUEUEING.counterC++;
+        QUEUEING.queueC.add(qnum);
+        queuenum.setText("C" + qnum);
         
         int delay = 5000; // 5 seconds
 
@@ -407,10 +406,10 @@ public class CUSTOMER extends javax.swing.JFrame {
         QUEUEING.occupationA.add(occupation.getText());
         QUEUEING.emailA.add(email.getText());
         
-         String qnum = ("B"+String.valueOf(QUEUEING.counterB));
-            QUEUEING.queueB.add(qnum);
-            queuenum.setText(qnum);
-            QUEUEING.counterB++;
+        int qnum = QUEUEING.counterB++;
+        QUEUEING.queueB.add(qnum);
+        queuenum.setText("B" + qnum);
+        
         
         int delay = 5000; // 5 seconds
 
@@ -426,50 +425,34 @@ public class CUSTOMER extends javax.swing.JFrame {
     }//GEN-LAST:event_confirm1ActionPerformed
 
     private void confirmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmActionPerformed
-            while (true) {
-            String enteredName = name.getText().trim();
-            String enteredAmount = amount.getText().trim();
-            String selectedPayTo = (String) paytoOptions.getSelectedItem();
-
-            if (enteredName.isEmpty() || enteredAmount.isEmpty() || selectedPayTo == null || selectedPayTo.trim().isEmpty()) {
-                JOptionPane.showMessageDialog(null, "Please fill in all fields", "Input Error", JOptionPane.ERROR_MESSAGE);
-                name.setText("");
-                amount.setText("");
-                paytoOptions.setSelectedIndex(0);
-                return; 
-       
-            } else {
-                break; 
-            }
-        }
         ((CardLayout)container.getLayout()).show(container, "queue");
-        QUEUEING.nameBP.add(name.getText());
-        QUEUEING.amountBP.add(amount.getText());
+        String enteredName = name.getText().trim();
+        String enteredAmount = amount.getText().trim();
+        String selectedPayTo = (String) paytoOptions.getSelectedItem();
+
+        if (enteredName.isEmpty() || enteredAmount.isEmpty() || selectedPayTo == null || selectedPayTo.trim().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Please fill in all fields", "Input Error", JOptionPane.ERROR_MESSAGE);
+            return; 
+        } else{
+        QUEUEING.nameBP.add(enteredName);
+        QUEUEING.payToBP.add(selectedPayTo);
+        QUEUEING.amountBP.add(enteredAmount);
+        }
         
-        String selected = (String) paytoOptions.getSelectedItem();
-        QUEUEING.payToBP.add(selected);
-        
-            String qnum = ("A"+String.valueOf(QUEUEING.counterA));
-            QUEUEING.counterA++;
-            QUEUEING.queueA.add(qnum);
-            queuenum.setText(qnum);
             
-             
-            
-            DASHBOARD.updateQueueNumber(qnum);
-            
-
-        int delay = 5000; // 5 seconds
-
-        Timer timer = new Timer(delay, new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                ((CardLayout)container.getLayout()).show(container, "main");
-                
-            }
-        });
-
-        timer.setRepeats(false); 
-        timer.start();
+        int qnum = QUEUEING.counterA++;
+        QUEUEING.queueA.add(qnum);
+        queuenum.setText("A" + qnum);
+       
+   
+    int delay = 5000;
+    Timer timer = new Timer(delay, new ActionListener() {
+        public void actionPerformed(ActionEvent e) {
+            ((CardLayout)container.getLayout()).show(container, "main");
+        }
+    });
+    timer.setRepeats(false); 
+    timer.start();
     }//GEN-LAST:event_confirmActionPerformed
  
     /**

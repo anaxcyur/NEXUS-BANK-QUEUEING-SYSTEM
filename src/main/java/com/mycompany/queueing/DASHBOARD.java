@@ -16,6 +16,8 @@ import javax.swing.Timer;
  */
 public class DASHBOARD extends javax.swing.JFrame {
 
+   
+
     /**
      * Creates new form DASHBOARD
      */
@@ -26,12 +28,11 @@ public class DASHBOARD extends javax.swing.JFrame {
         
     
          
-    }
-    public static void updateQueueNumber(String queueNumberA) {
-           if (jLabel1 != null) {
-               jLabel1.setText(queueNumberA);
-           }
+    
+            
+            
    }
+     
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -55,7 +56,7 @@ public class DASHBOARD extends javax.swing.JFrame {
         confirm = new javax.swing.JButton();
         edit = new javax.swing.JButton();
         logout = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
+        serveA = new javax.swing.JLabel();
         Bbg = new javax.swing.JLabel();
         applidash = new javax.swing.JPanel();
         billspayment = new javax.swing.JButton();
@@ -72,6 +73,7 @@ public class DASHBOARD extends javax.swing.JFrame {
         address1 = new javax.swing.JTextField();
         occupation = new javax.swing.JTextField();
         email = new javax.swing.JTextField();
+        serveB = new javax.swing.JLabel();
         Abg = new javax.swing.JLabel();
         exchangedash = new javax.swing.JPanel();
         billspayment1 = new javax.swing.JButton();
@@ -86,6 +88,7 @@ public class DASHBOARD extends javax.swing.JFrame {
         edit2 = new javax.swing.JButton();
         logout2 = new javax.swing.JButton();
         convert = new javax.swing.JComboBox<>();
+        serveC = new javax.swing.JLabel();
         Abg1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -118,6 +121,11 @@ public class DASHBOARD extends javax.swing.JFrame {
 
         call.setBorderPainted(false);
         call.setContentAreaFilled(false);
+        call.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                callActionPerformed(evt);
+            }
+        });
         billsdash.add(call);
         call.setBounds(410, 90, 140, 40);
 
@@ -184,11 +192,11 @@ public class DASHBOARD extends javax.swing.JFrame {
         billsdash.add(logout);
         logout.setBounds(30, 510, 100, 20);
 
-        jLabel1.setFont(new java.awt.Font("Arial Black", 1, 54)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(153, 0, 0));
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        billsdash.add(jLabel1);
-        jLabel1.setBounds(220, 70, 140, 120);
+        serveA.setFont(new java.awt.Font("Arial Black", 1, 54)); // NOI18N
+        serveA.setForeground(new java.awt.Color(153, 0, 0));
+        serveA.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        billsdash.add(serveA);
+        serveA.setBounds(220, 70, 140, 120);
 
         Bbg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bills payment dashboard.png"))); // NOI18N
         billsdash.add(Bbg);
@@ -225,11 +233,21 @@ public class DASHBOARD extends javax.swing.JFrame {
 
         cancel1.setBorderPainted(false);
         cancel1.setContentAreaFilled(false);
+        cancel1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cancel1ActionPerformed(evt);
+            }
+        });
         applidash.add(cancel1);
         cancel1.setBounds(410, 150, 140, 40);
 
         next1.setBorderPainted(false);
         next1.setContentAreaFilled(false);
+        next1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                next1ActionPerformed(evt);
+            }
+        });
         applidash.add(next1);
         next1.setBounds(410, 30, 140, 50);
 
@@ -307,6 +325,12 @@ public class DASHBOARD extends javax.swing.JFrame {
         applidash.add(email);
         email.setBounds(630, 370, 220, 22);
 
+        serveB.setFont(new java.awt.Font("Arial Black", 1, 54)); // NOI18N
+        serveB.setForeground(new java.awt.Color(153, 0, 0));
+        serveB.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        applidash.add(serveB);
+        serveB.setBounds(220, 70, 140, 120);
+
         Abg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/application dashboard.png"))); // NOI18N
         applidash.add(Abg);
         Abg.setBounds(-5, 0, 900, 550);
@@ -347,6 +371,11 @@ public class DASHBOARD extends javax.swing.JFrame {
 
         next2.setBorderPainted(false);
         next2.setContentAreaFilled(false);
+        next2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                next2ActionPerformed(evt);
+            }
+        });
         exchangedash.add(next2);
         next2.setBounds(410, 30, 140, 50);
 
@@ -399,6 +428,12 @@ public class DASHBOARD extends javax.swing.JFrame {
         convert.setEnabled(false);
         exchangedash.add(convert);
         convert.setBounds(270, 416, 290, 30);
+
+        serveC.setFont(new java.awt.Font("Arial Black", 1, 54)); // NOI18N
+        serveC.setForeground(new java.awt.Color(153, 0, 0));
+        serveC.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        exchangedash.add(serveC);
+        serveC.setBounds(220, 70, 140, 120);
 
         Abg1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/foreign ex dashboard.png"))); // NOI18N
         exchangedash.add(Abg1);
@@ -528,17 +563,103 @@ public class DASHBOARD extends javax.swing.JFrame {
 
         if (enteredName.isEmpty() || enteredPay.isEmpty() || enteredAmount.isEmpty()) {
             JOptionPane.showMessageDialog(null, "Please fill in all fields: Name, Pay To, and Amount", "Input Error", JOptionPane.ERROR_MESSAGE);
-            return; // Exit the method and wait for user to re-trigger the event after correcting inputs
+            return; 
         } else {
-            break; // Input is valid; continue with the rest of the code
+            break;
         }
     }
         
     }//GEN-LAST:event_confirmActionPerformed
 
     private void nextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextActionPerformed
-        // TODO add your handling code here:
+       //BILLS PAYMENT
+       
+        Integer servedNum = QUEUEING.queueA.poll();
+          if (servedNum != null) {
+              int index = servedNum - 1; 
+              String servedName = QUEUEING.nameBP.get(index);
+              String servedpayTo = QUEUEING.payToBP.get(index);
+              String servedAmount = QUEUEING.amountBP.get(index);
+              
+              name.setText(servedName);
+              pay.setText(servedpayTo);
+              amount.setText(servedAmount);
+              serveA.setText("A" + servedNum);
+              
+              TV newTV = new TV();
+              newTV.serveA.setText("A"+servedNum);
+             
+          } else {
+              serveA.setText("0");
+          }
+
     }//GEN-LAST:event_nextActionPerformed
+
+    private void callActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_callActionPerformed
+        
+      
+    }//GEN-LAST:event_callActionPerformed
+
+    private void next1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_next1ActionPerformed
+      //APPLICATION
+        Integer servedNum = QUEUEING.queueB.poll();
+          if (servedNum != null) {
+              int index = servedNum - 1; 
+              String servedName = QUEUEING.nameA.get(index);
+              String servedNumber = QUEUEING.numberA.get(index);
+              String servedAddress = QUEUEING.addressA.get(index);
+              String servedBirthday = QUEUEING.bdayA.get(index);
+              String servedOccupation = QUEUEING.occupationA.get(index);
+              String servedEmail = QUEUEING.emailA.get(index);
+              
+              name1.setText(servedName);
+              number.setText(servedNumber);
+              address1.setText(servedAddress);
+              bday.setText(servedBirthday);
+              occupation.setText(servedOccupation);
+              email.setText(servedEmail);
+              
+              serveB.setText("B" + servedNum);
+          } else {
+              name1.setText("");
+              number.setText("");
+              address1.setText("");
+              bday.setText("");
+              occupation.setText("");
+              email.setText("");
+          }
+    }//GEN-LAST:event_next1ActionPerformed
+
+    private void next2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_next2ActionPerformed
+        //FOREIGN EXCHANGE
+        Integer servedNum = QUEUEING.queueC.poll();
+            if (servedNum != null) {
+                int index = servedNum - 1; 
+                
+                String servedName = QUEUEING.nameFE.get(index);
+                String servedChange = QUEUEING.changeFE.get(index);
+                String servedConvert = QUEUEING.convertFE.get(index);
+                String servedAmount = QUEUEING.amountFE.get(index);
+
+               
+                name.setText(servedName);
+                change.setText(servedChange);
+                convert.setSelectedItem(servedConvert);
+                amount.setText(servedAmount);
+                serveC.setText("C" + servedNum);
+            } else {
+                serveC.setText("0");
+
+                name2.setText("");
+                change.setText("");
+                convert.setSelectedItem("");
+                amount3.setText("");
+            }
+    }//GEN-LAST:event_next2ActionPerformed
+
+    private void cancel1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancel1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cancel1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -608,11 +729,10 @@ public class DASHBOARD extends javax.swing.JFrame {
     private javax.swing.JButton exchange;
     private javax.swing.JButton exchange1;
     private javax.swing.JPanel exchangedash;
-    public static javax.swing.JLabel jLabel1;
     private javax.swing.JButton logout;
     private javax.swing.JButton logout1;
     private javax.swing.JButton logout2;
-    private javax.swing.JTextField name;
+    public static javax.swing.JTextField name;
     private javax.swing.JTextField name1;
     private javax.swing.JTextField name2;
     private javax.swing.JButton next;
@@ -621,5 +741,8 @@ public class DASHBOARD extends javax.swing.JFrame {
     private javax.swing.JTextField number;
     private javax.swing.JTextField occupation;
     private javax.swing.JTextField pay;
+    private static javax.swing.JLabel serveA;
+    private static javax.swing.JLabel serveB;
+    private static javax.swing.JLabel serveC;
     // End of variables declaration//GEN-END:variables
 }
