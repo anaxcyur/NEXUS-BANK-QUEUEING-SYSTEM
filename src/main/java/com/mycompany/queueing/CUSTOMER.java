@@ -359,20 +359,34 @@ public class CUSTOMER extends javax.swing.JFrame {
     }//GEN-LAST:event_numberActionPerformed
 
     private void confirm3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirm3ActionPerformed
+        String enteredName = name3.getText().trim();
+        String enteredAmount = amount3.getText().trim();
+        String selectedChange = (String) change.getSelectedItem();
+        String selectedConvert = (String) convert.getSelectedItem();
+
+        if (enteredName.isEmpty() || enteredAmount.isEmpty() ||
+            selectedChange == null || selectedChange.trim().isEmpty() ||
+            selectedConvert == null || selectedConvert.trim().isEmpty()) {
+
+            JOptionPane.showMessageDialog(null, "Please fill in all fields", "Input Error", JOptionPane.ERROR_MESSAGE);
+            return; 
+        } else {
+            QUEUEING.nameFE.add(enteredName);
+            QUEUEING.amountFE.add(enteredAmount);
+            QUEUEING.changeFE.add(selectedChange);
+            QUEUEING.convertFE.add(selectedConvert);
+        }
+
         ((CardLayout)container.getLayout()).show(container, "queue");
-        QUEUEING.nameFE.add(name3.getText());
-        QUEUEING.amountFE.add(amount3.getText());
-        
-        String selectedchange = (String) change.getSelectedItem();
-        QUEUEING.changeFE.add(selectedchange);
-        
-        String selectedconvert = (String) convert.getSelectedItem();
-        QUEUEING.convertFE.add(selectedconvert);
+       
         
         int qnum = QUEUEING.counterC++;
         QUEUEING.queueC.add(qnum);
         queuenum.setText("C" + qnum);
         
+     
+        QUEUEING.showCurrentC(); 
+    
         int delay = 5000; // 5 seconds
 
         Timer timer = new Timer(delay, new ActionListener() {
@@ -400,19 +414,37 @@ public class CUSTOMER extends javax.swing.JFrame {
     }//GEN-LAST:event_cancel3ActionPerformed
 
     private void confirm1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirm1ActionPerformed
+       
+        String fnameVal = fname.getText().trim();
+        String numberVal = number.getText().trim();
+        String addressVal = address.getText().trim();
+        String bdayVal = bday.getText().trim();
+        String occupationVal = occupation.getText().trim();
+        String emailVal = email.getText().trim();
+
+        if (fnameVal.isEmpty() || numberVal.isEmpty() || addressVal.isEmpty() ||
+            bdayVal.isEmpty() || occupationVal.isEmpty() || emailVal.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Please fill in all fields", "Input Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        } else {
+            QUEUEING.nameA.add(fnameVal);
+            QUEUEING.numberA.add(numberVal);
+            QUEUEING.addressA.add(addressVal);
+            QUEUEING.bdayA.add(bdayVal);
+            QUEUEING.occupationA.add(occupationVal);
+            QUEUEING.emailA.add(emailVal);
+}
+
         ((CardLayout)container.getLayout()).show(container, "queue");
-        QUEUEING.nameA.add(fname.getText());
-        QUEUEING.numberA.add(number.getText());
-        QUEUEING.addressA.add(address.getText());
-        QUEUEING.bdayA.add(bday.getText());
-        QUEUEING.occupationA.add(occupation.getText());
-        QUEUEING.emailA.add(email.getText());
+       
         
         int qnum = QUEUEING.counterB++;
         QUEUEING.queueB.add(qnum);
         queuenum.setText("B" + qnum);
         
-        
+       
+        QUEUEING.showCurrentB(); 
+    
         int delay = 5000; // 5 seconds
 
         Timer timer = new Timer(delay, new ActionListener() {
@@ -427,7 +459,7 @@ public class CUSTOMER extends javax.swing.JFrame {
     }//GEN-LAST:event_confirm1ActionPerformed
 
     private void confirmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmActionPerformed
-        ((CardLayout)container.getLayout()).show(container, "queue");
+        
         String enteredName = name.getText().trim();
         String enteredAmount = amount.getText().trim();
         String selectedPayTo = (String) paytoOptions.getSelectedItem();
@@ -446,8 +478,9 @@ public class CUSTOMER extends javax.swing.JFrame {
         QUEUEING.queueA.add(qnum);
         queuenum.setText("A" + qnum);
         
+        QUEUEING.showCurrentA(); 
        
-   
+   ((CardLayout)container.getLayout()).show(container, "queue");
     int delay = 5000;
     Timer timer = new Timer(delay, new ActionListener() {
         public void actionPerformed(ActionEvent e) {

@@ -32,13 +32,15 @@ public class TV extends javax.swing.JFrame {
         serveB = new javax.swing.JLabel();
         serveC = new javax.swing.JLabel();
         serveA = new javax.swing.JLabel();
+        waitingB = new javax.swing.JTextField();
+        waitingC = new javax.swing.JTextField();
+        waitingA = new javax.swing.JTextField();
         TVbg = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocation(new java.awt.Point(755, 383));
         setMinimumSize(new java.awt.Dimension(790, 400));
         setUndecorated(true);
-        setPreferredSize(new java.awt.Dimension(790, 480));
         getContentPane().setLayout(null);
 
         jPanel1.setLayout(null);
@@ -60,6 +62,21 @@ public class TV extends javax.swing.JFrame {
         serveA.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jPanel1.add(serveA);
         serveA.setBounds(90, 140, 150, 80);
+
+        waitingB.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
+        waitingB.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jPanel1.add(waitingB);
+        waitingB.setBounds(310, 260, 180, 130);
+
+        waitingC.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
+        waitingC.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jPanel1.add(waitingC);
+        waitingC.setBounds(550, 260, 180, 130);
+
+        waitingA.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
+        waitingA.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jPanel1.add(waitingA);
+        waitingA.setBounds(80, 260, 180, 130);
 
         TVbg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/TV.png"))); // NOI18N
         jPanel1.add(TVbg);
@@ -110,7 +127,10 @@ public class TV extends javax.swing.JFrame {
     private javax.swing.JLabel TVbg;
     private javax.swing.JPanel jPanel1;
     public static javax.swing.JLabel serveA;
-    public javax.swing.JLabel serveB;
-    public javax.swing.JLabel serveC;
+    public static javax.swing.JLabel serveB;
+    public static javax.swing.JLabel serveC;
+    public static javax.swing.JTextField waitingA;
+    public static javax.swing.JTextField waitingB;
+    public static javax.swing.JTextField waitingC;
     // End of variables declaration//GEN-END:variables
 }

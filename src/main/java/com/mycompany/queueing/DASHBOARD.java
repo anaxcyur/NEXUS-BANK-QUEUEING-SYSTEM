@@ -574,23 +574,16 @@ public class DASHBOARD extends javax.swing.JFrame {
     private void nextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextActionPerformed
        //BILLS PAYMENT
        
-        Integer servedNum = QUEUEING.queueA.poll();
-          if (servedNum != null) {
-              int index = servedNum - 1; 
-              String servedName = QUEUEING.nameBP.get(index);
-              String servedpayTo = QUEUEING.payToBP.get(index);
-              String servedAmount = QUEUEING.amountBP.get(index);
-              
-              name.setText(servedName);
-              pay.setText(servedpayTo);
-              amount.setText(servedAmount);
-              serveA.setText("A" + servedNum);
-              
-              TV.serveA.setText("A" + servedNum);
-             
-          } else {
-              serveA.setText("0");
-          }
+        Integer servedNum = QUEUEING.queueA.poll(); // remove current
+    if (servedNum != null) {
+        QUEUEING.showCurrentA();
+    } else {
+        serveA.setText("0");
+        TV.serveA.setText("0");
+        name.setText("");
+        pay.setText("");
+        amount.setText("");
+    }
 
     }//GEN-LAST:event_nextActionPerformed
 
@@ -604,21 +597,7 @@ public class DASHBOARD extends javax.swing.JFrame {
         Integer servedNum = QUEUEING.queueB.poll();
           if (servedNum != null) {
               int index = servedNum - 1; 
-              String servedName = QUEUEING.nameA.get(index);
-              String servedNumber = QUEUEING.numberA.get(index);
-              String servedAddress = QUEUEING.addressA.get(index);
-              String servedBirthday = QUEUEING.bdayA.get(index);
-              String servedOccupation = QUEUEING.occupationA.get(index);
-              String servedEmail = QUEUEING.emailA.get(index);
-              
-              name1.setText(servedName);
-              number.setText(servedNumber);
-              address1.setText(servedAddress);
-              bday.setText(servedBirthday);
-              occupation.setText(servedOccupation);
-              email.setText(servedEmail);
-              
-              serveB.setText("B" + servedNum);
+              QUEUEING.showCurrentB();
           } else {
               name1.setText("");
               number.setText("");
@@ -634,18 +613,7 @@ public class DASHBOARD extends javax.swing.JFrame {
         Integer servedNum = QUEUEING.queueC.poll();
             if (servedNum != null) {
                 int index = servedNum - 1; 
-                
-                String servedName = QUEUEING.nameFE.get(index);
-                String servedChange = QUEUEING.changeFE.get(index);
-                String servedConvert = QUEUEING.convertFE.get(index);
-                String servedAmount = QUEUEING.amountFE.get(index);
-
-               
-                name.setText(servedName);
-                change.setText(servedChange);
-                convert.setSelectedItem(servedConvert);
-                amount.setText(servedAmount);
-                serveC.setText("C" + servedNum);
+               QUEUEING.showCurrentC();
             } else {
                 serveC.setText("0");
 
@@ -699,13 +667,13 @@ public class DASHBOARD extends javax.swing.JFrame {
     private javax.swing.JLabel Abg;
     private javax.swing.JLabel Abg1;
     private javax.swing.JLabel Bbg;
-    private javax.swing.JTextField address1;
-    private javax.swing.JTextField amount;
-    private javax.swing.JTextField amount3;
+    public static javax.swing.JTextField address1;
+    public static javax.swing.JTextField amount;
+    public static javax.swing.JTextField amount3;
     private javax.swing.JButton application;
     private javax.swing.JButton application2;
     private javax.swing.JPanel applidash;
-    private javax.swing.JTextField bday;
+    public static javax.swing.JTextField bday;
     private javax.swing.JPanel billsdash;
     private javax.swing.JButton billspayment;
     private javax.swing.JButton billspayment1;
@@ -715,16 +683,16 @@ public class DASHBOARD extends javax.swing.JFrame {
     private javax.swing.JButton cancel;
     private javax.swing.JButton cancel1;
     private javax.swing.JButton cancel2;
-    private javax.swing.JTextField change;
+    public static javax.swing.JTextField change;
     private javax.swing.JButton confirm;
     private javax.swing.JButton confirm1;
     private javax.swing.JButton confirm2;
     private javax.swing.JPanel container1;
-    private javax.swing.JComboBox<String> convert;
+    public static javax.swing.JComboBox<String> convert;
     private javax.swing.JButton edit;
     private javax.swing.JButton edit1;
     private javax.swing.JButton edit2;
-    private javax.swing.JTextField email;
+    public static javax.swing.JTextField email;
     private javax.swing.JButton exchange;
     private javax.swing.JButton exchange1;
     private javax.swing.JPanel exchangedash;
@@ -732,16 +700,16 @@ public class DASHBOARD extends javax.swing.JFrame {
     private javax.swing.JButton logout1;
     private javax.swing.JButton logout2;
     public static javax.swing.JTextField name;
-    private javax.swing.JTextField name1;
-    private javax.swing.JTextField name2;
+    public static javax.swing.JTextField name1;
+    public static javax.swing.JTextField name2;
     private javax.swing.JButton next;
     private javax.swing.JButton next1;
     private javax.swing.JButton next2;
-    private javax.swing.JTextField number;
-    private javax.swing.JTextField occupation;
-    private javax.swing.JTextField pay;
-    private static javax.swing.JLabel serveA;
-    private static javax.swing.JLabel serveB;
-    private static javax.swing.JLabel serveC;
+    public static javax.swing.JTextField number;
+    public static javax.swing.JTextField occupation;
+    public static javax.swing.JTextField pay;
+    public static javax.swing.JLabel serveA;
+    public static javax.swing.JLabel serveB;
+    public static javax.swing.JLabel serveC;
     // End of variables declaration//GEN-END:variables
 }
