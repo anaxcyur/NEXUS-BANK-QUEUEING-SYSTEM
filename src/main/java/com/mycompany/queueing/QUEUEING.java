@@ -147,7 +147,7 @@ public static ArrayList<String> amountFE = new ArrayList<>();
                     DASHBOARD.name2.setText(servedName);
                     DASHBOARD.change.setText(servedChange);
                     DASHBOARD.convert.setSelectedItem(servedConvert);
-                    DASHBOARD.amount3.setText(servedAmount);
+                    
 
 
 
