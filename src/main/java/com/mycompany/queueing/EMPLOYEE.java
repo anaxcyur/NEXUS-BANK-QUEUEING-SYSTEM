@@ -20,6 +20,7 @@ public class EMPLOYEE extends javax.swing.JFrame {
        this.setLocationRelativeTo(null);
        uname.setBackground(new Color(0, 0, 0, 0));
        pass.setBackground(new Color(0, 0, 0, 0));
+       
     }
 
     /**
@@ -128,6 +129,7 @@ public class EMPLOYEE extends javax.swing.JFrame {
             new CUSTOMER().setVisible(true);
             new TV().setVisible(true);
             new DASHBOARD().setVisible(true);
+            
         } else if (un.equals(QUEUEING.username) && !p.equals(QUEUEING.password)){
             JOptionPane.showMessageDialog(null,"INVALID PASSWORD!", "Error", JOptionPane.WARNING_MESSAGE);
         } else if (!un.equals(QUEUEING.username) && p.equals(QUEUEING.password)){
@@ -137,6 +139,7 @@ public class EMPLOYEE extends javax.swing.JFrame {
         } else {
             JOptionPane.showMessageDialog(null,"PLEASE INPUT USERNAME and PASSWORD!", "Error", JOptionPane.WARNING_MESSAGE);
         }
+        
     }//GEN-LAST:event_loginActionPerformed
 
     private void passActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passActionPerformed

@@ -3,6 +3,7 @@
  */
 
 package com.mycompany.queueing;
+import static com.mycompany.queueing.DASHBOARD.noOfServedA;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Queue;
@@ -22,6 +23,7 @@ public static int counterA = 1;
 public static ArrayList<String> nameBP = new ArrayList<>();
 public static ArrayList<String> payToBP = new ArrayList<>();
 public static ArrayList<String> amountBP = new ArrayList<>();
+public static int servedCountA = 0; 
 
 // for Application:
 public static Queue <Integer> queueB = new LinkedList<Integer>();
@@ -32,6 +34,7 @@ public static ArrayList<String> addressA = new ArrayList<>();
 public static ArrayList<String> bdayA = new ArrayList<>();
 public static ArrayList<String> occupationA = new ArrayList<>();
 public static ArrayList<String> emailA = new ArrayList<>();
+public static int servedCountB = 0; 
 
 // for Foreign Exchange:
 public static Queue <Integer> queueC = new LinkedList<Integer>();
@@ -40,8 +43,37 @@ public static ArrayList<String> nameFE = new ArrayList<>();
 public static ArrayList<String> changeFE = new ArrayList<>();
 public static ArrayList<String> convertFE = new ArrayList<>();
 public static ArrayList<String> amountFE = new ArrayList<>();
+public static int servedCountC = 0; 
 
+/*RECEIPT
+    public static void printReceiptA() {
+    Integer servedNum = queueA.peek(); 
+    if (servedNum != null) {
+        int index = servedNum - 1;
 
+        if (index >= 0 && index < nameBP.size()) {
+            String servedName   = nameBP.get(index);
+            String servedPayTo  = payToBP.get(index);
+            String servedAmount = amountBP.get(index);
+
+            // Print receipt to console
+            System.out.println("================================");
+            System.out.println("         PAYMENT RECEIPT        ");
+            System.out.println("================================");
+            System.out.println("Queue Number : A" + servedNum);
+            System.out.println("Customer Name: " + servedName);
+            System.out.println("Pay To       : " + servedPayTo);
+            System.out.println("Amount       : " + servedAmount);
+            System.out.println("================================");
+            System.out.println("   Thank you for your payment!  ");
+            System.out.println("================================");
+        }
+    } else {
+        System.out.println("No customer is being served.");
+    }
+}
+
+*/
 //FOR COUNTER A SYNC :)))
        public static void showCurrentA() {
            if (queueA.size() > 1) {
@@ -55,7 +87,7 @@ public static ArrayList<String> amountFE = new ArrayList<>();
                     }
                     TV.waitingA.setText(waitingList.toString());
                 } else {
-                    TV.waitingA.setText("");
+                    TV.waitingA.setText(null);
                 }
            
             Integer servedNum = queueA.peek(); 
@@ -73,13 +105,17 @@ public static ArrayList<String> amountFE = new ArrayList<>();
                     DASHBOARD.amount.setText(servedAmount);
 
                     TV.serveA.setText("A" + servedNum);
+                    
                 }
 
 
+            }else{
+               TV.serveA.setText(null);
+               DASHBOARD.serveA.setText(null);
             }
         }
 
-        //FOR COUNTER B SYNC :)))
+//FOR COUNTER B SYNC :)))
         public static void showCurrentB() {
             if (queueB.size() > 1) {
                     StringBuilder waitingList = new StringBuilder();
@@ -119,7 +155,7 @@ public static ArrayList<String> amountFE = new ArrayList<>();
                 TV.serveB.setText("B" + servedNum);
             }
         }
-        //FOR COUNTER C SYNC :)))
+ //FOR COUNTER C SYNC :)))
         public static void showCurrentC() {
             if (queueC.size() > 1) {
                     StringBuilder waitingList = new StringBuilder();
@@ -147,7 +183,7 @@ public static ArrayList<String> amountFE = new ArrayList<>();
                     DASHBOARD.name2.setText(servedName);
                     DASHBOARD.change.setText(servedChange);
                     DASHBOARD.convert.setSelectedItem(servedConvert);
-                    
+                    DASHBOARD.amount3.setText(servedAmount);
 
 
 
@@ -157,9 +193,8 @@ public static ArrayList<String> amountFE = new ArrayList<>();
 
 
     public static void main(String[] args) {
-        new START_UP().setVisible(true);
-        
-        
+           new START_UP().setVisible(true);
+           
     }
 
     static void add(int i) {

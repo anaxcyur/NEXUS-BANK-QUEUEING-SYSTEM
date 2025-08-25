@@ -37,7 +37,7 @@ public class CUSTOMER extends javax.swing.JFrame {
         change.setBackground(new Color(0, 0, 0, 0));
         name3.setBackground(new Color(0, 0, 0, 0));
         amount3.setBackground(new Color(0, 0, 0, 0));
-        
+        paytoOptions.setSelectedItem(null);
                     
 
     }
@@ -478,7 +478,7 @@ public class CUSTOMER extends javax.swing.JFrame {
         QUEUEING.queueA.add(qnum);
         queuenum.setText("A" + qnum);
         
-        QUEUEING.showCurrentA(); 
+        QUEUEING.showCurrentA();
        
    ((CardLayout)container.getLayout()).show(container, "queue");
     int delay = 5000;

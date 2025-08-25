@@ -26,9 +26,7 @@ public class DASHBOARD extends javax.swing.JFrame {
         convert.setOpaque(false); 
         convert.setBackground(new Color(0, 0, 0, 0)); 
         
-    
-         
-    
+   
             
             
    }
@@ -57,6 +55,7 @@ public class DASHBOARD extends javax.swing.JFrame {
         edit = new javax.swing.JButton();
         logout = new javax.swing.JButton();
         serveA = new javax.swing.JLabel();
+        noOfServedA = new javax.swing.JLabel();
         Bbg = new javax.swing.JLabel();
         applidash = new javax.swing.JPanel();
         billspayment = new javax.swing.JButton();
@@ -74,6 +73,7 @@ public class DASHBOARD extends javax.swing.JFrame {
         occupation = new javax.swing.JTextField();
         email = new javax.swing.JTextField();
         serveB = new javax.swing.JLabel();
+        noOfServedB = new javax.swing.JLabel();
         Abg = new javax.swing.JLabel();
         exchangedash = new javax.swing.JPanel();
         billspayment1 = new javax.swing.JButton();
@@ -89,11 +89,14 @@ public class DASHBOARD extends javax.swing.JFrame {
         logout2 = new javax.swing.JButton();
         convert = new javax.swing.JComboBox<>();
         serveC = new javax.swing.JLabel();
+        noOfServedC = new javax.swing.JLabel();
         Abg1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocation(new java.awt.Point(0, 50));
+        setMinimumSize(new java.awt.Dimension(891, 546));
         setUndecorated(true);
+        getContentPane().setLayout(null);
 
         container1.setLayout(new java.awt.CardLayout());
 
@@ -131,6 +134,11 @@ public class DASHBOARD extends javax.swing.JFrame {
 
         cancel.setBorderPainted(false);
         cancel.setContentAreaFilled(false);
+        cancel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cancelActionPerformed(evt);
+            }
+        });
         billsdash.add(cancel);
         cancel.setBounds(410, 150, 140, 40);
 
@@ -197,6 +205,12 @@ public class DASHBOARD extends javax.swing.JFrame {
         serveA.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         billsdash.add(serveA);
         serveA.setBounds(220, 70, 140, 120);
+
+        noOfServedA.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
+        noOfServedA.setForeground(new java.awt.Color(153, 51, 0));
+        noOfServedA.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        billsdash.add(noOfServedA);
+        noOfServedA.setBounds(820, 30, 40, 50);
 
         Bbg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bills payment dashboard.png"))); // NOI18N
         billsdash.add(Bbg);
@@ -331,6 +345,12 @@ public class DASHBOARD extends javax.swing.JFrame {
         applidash.add(serveB);
         serveB.setBounds(220, 70, 140, 120);
 
+        noOfServedB.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
+        noOfServedB.setForeground(new java.awt.Color(153, 51, 0));
+        noOfServedB.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        applidash.add(noOfServedB);
+        noOfServedB.setBounds(820, 30, 40, 50);
+
         Abg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/application dashboard.png"))); // NOI18N
         applidash.add(Abg);
         Abg.setBounds(-5, 0, 900, 550);
@@ -366,6 +386,11 @@ public class DASHBOARD extends javax.swing.JFrame {
 
         cancel2.setBorderPainted(false);
         cancel2.setContentAreaFilled(false);
+        cancel2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cancel2ActionPerformed(evt);
+            }
+        });
         exchangedash.add(cancel2);
         cancel2.setBounds(410, 150, 140, 40);
 
@@ -435,22 +460,20 @@ public class DASHBOARD extends javax.swing.JFrame {
         exchangedash.add(serveC);
         serveC.setBounds(220, 70, 140, 120);
 
+        noOfServedC.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
+        noOfServedC.setForeground(new java.awt.Color(153, 51, 0));
+        noOfServedC.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        exchangedash.add(noOfServedC);
+        noOfServedC.setBounds(820, 30, 40, 50);
+
         Abg1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/foreign ex dashboard.png"))); // NOI18N
         exchangedash.add(Abg1);
         Abg1.setBounds(-5, 0, 900, 550);
 
         container1.add(exchangedash, "EDASH");
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(container1, javax.swing.GroupLayout.DEFAULT_SIZE, 893, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(container1, javax.swing.GroupLayout.DEFAULT_SIZE, 548, Short.MAX_VALUE)
-        );
+        getContentPane().add(container1);
+        container1.setBounds(0, 0, 893, 548);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -556,6 +579,7 @@ public class DASHBOARD extends javax.swing.JFrame {
     }//GEN-LAST:event_edit2ActionPerformed
 
     private void confirmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmActionPerformed
+        
         while (true) {
         String enteredName = name.getText().trim();
         String enteredPay = pay.getText().trim();
@@ -573,16 +597,20 @@ public class DASHBOARD extends javax.swing.JFrame {
 
     private void nextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextActionPerformed
        //BILLS PAYMENT
-       
-        Integer servedNum = QUEUEING.queueA.poll(); // remove current
-    if (servedNum != null) {
-        QUEUEING.showCurrentA();
-    } else {
-        serveA.setText("0");
-        TV.serveA.setText("0");
-        name.setText("");
-        pay.setText("");
-        amount.setText("");
+      
+        Integer servedNum = QUEUEING.queueA.poll(); 
+            if (servedNum != null) {
+                int index = servedNum - 1; 
+                QUEUEING.servedCountA++;;
+                noOfServedA.setText(String.valueOf(QUEUEING.servedCountA));
+                QUEUEING.showCurrentA();
+                System.out.println(queueA);
+            } else {
+                serveA.setText(null);
+                TV.serveA.setText(null);
+                name.setText("");
+                pay.setText("");
+                amount.setText("");
     }
 
     }//GEN-LAST:event_nextActionPerformed
@@ -597,8 +625,13 @@ public class DASHBOARD extends javax.swing.JFrame {
         Integer servedNum = QUEUEING.queueB.poll();
           if (servedNum != null) {
               int index = servedNum - 1; 
+              
               QUEUEING.showCurrentB();
+              QUEUEING.servedCountB++;;
+              noOfServedB.setText(String.valueOf(QUEUEING.servedCountB));
           } else {
+              serveB.setText(null);
+              TV.serveB.setText(null);
               name1.setText("");
               number.setText("");
               address1.setText("");
@@ -614,9 +647,11 @@ public class DASHBOARD extends javax.swing.JFrame {
             if (servedNum != null) {
                 int index = servedNum - 1; 
                QUEUEING.showCurrentC();
+               QUEUEING.servedCountC++;;
+              noOfServedC.setText(String.valueOf(QUEUEING.servedCountC));
             } else {
-                serveC.setText("0");
-
+                serveC.setText(null);
+                TV.serveC.setText(null);
                 name2.setText("");
                 change.setText("");
                 convert.setSelectedItem("");
@@ -625,8 +660,52 @@ public class DASHBOARD extends javax.swing.JFrame {
     }//GEN-LAST:event_next2ActionPerformed
 
     private void cancel1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancel1ActionPerformed
-        // TODO add your handling code here:
+         //APPLICATION
+        Integer servedNum = QUEUEING.queueB.poll();
+          if (servedNum != null) {
+              int index = servedNum - 1; 
+              QUEUEING.showCurrentB();
+          } else {
+              serveB.setText(null);
+              TV.serveB.setText(null);
+              name1.setText("");
+              number.setText("");
+              address1.setText("");
+              bday.setText("");
+              occupation.setText("");
+              email.setText("");
+          }
     }//GEN-LAST:event_cancel1ActionPerformed
+
+    private void cancel2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancel2ActionPerformed
+       //FOREIGN EXCHANGE
+        Integer servedNum = QUEUEING.queueC.poll();
+            if (servedNum != null) {
+                int index = servedNum - 1; 
+               QUEUEING.showCurrentC();
+            } else {
+                serveC.setText(null);
+                TV.serveC.setText(null);
+                name2.setText("");
+                change.setText("");
+                convert.setSelectedItem("");
+                amount3.setText("");
+            }
+    }//GEN-LAST:event_cancel2ActionPerformed
+
+    private void cancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelActionPerformed
+        //BILLS PAYMENT
+        Integer servedNum = QUEUEING.queueA.poll(); 
+            if (servedNum != null) {
+                QUEUEING.showCurrentA();
+            } else {
+                serveA.setText(null);
+                TV.serveA.setText(null);
+                name.setText("");
+                pay.setText("");
+                amount.setText("");
+    }
+    }//GEN-LAST:event_cancelActionPerformed
 
     /**
      * @param args the command line arguments
@@ -705,6 +784,9 @@ public class DASHBOARD extends javax.swing.JFrame {
     private javax.swing.JButton next;
     private javax.swing.JButton next1;
     private javax.swing.JButton next2;
+    public static javax.swing.JLabel noOfServedA;
+    public static javax.swing.JLabel noOfServedB;
+    public static javax.swing.JLabel noOfServedC;
     public static javax.swing.JTextField number;
     public static javax.swing.JTextField occupation;
     public static javax.swing.JTextField pay;
