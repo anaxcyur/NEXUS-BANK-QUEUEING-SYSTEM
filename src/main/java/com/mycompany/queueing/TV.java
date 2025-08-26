@@ -14,7 +14,7 @@ import java.awt.Color;
 public class TV extends javax.swing.JFrame {
 
 
-//    fsjdfkasjfk
+//    fsjdfkasjfkfdss
     public TV() {
         initComponents();
          waitingA.setBackground(new Color(0, 0, 0, 0)); 
