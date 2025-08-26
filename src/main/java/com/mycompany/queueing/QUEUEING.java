@@ -101,7 +101,7 @@ public static int servedCountC = 0;
 
                     DASHBOARD.serveA.setText("A" + servedNum);
                     DASHBOARD.name.setText(servedName);
-                    DASHBOARD.pay.setText(servedPayTo);
+                    DASHBOARD.pay.setSelectedItem(servedPayTo);
                     DASHBOARD.amount.setText(servedAmount);
 
                     TV.serveA.setText("A" + servedNum);

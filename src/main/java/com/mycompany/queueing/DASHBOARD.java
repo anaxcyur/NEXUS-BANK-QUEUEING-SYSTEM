@@ -48,12 +48,12 @@ public class DASHBOARD extends javax.swing.JFrame {
         call = new javax.swing.JButton();
         cancel = new javax.swing.JButton();
         next = new javax.swing.JButton();
-        pay = new javax.swing.JTextField();
         amount = new javax.swing.JTextField();
         name = new javax.swing.JTextField();
         confirm = new javax.swing.JButton();
         edit = new javax.swing.JButton();
         logout = new javax.swing.JButton();
+        pay = new javax.swing.JComboBox<>();
         serveA = new javax.swing.JLabel();
         noOfServedA = new javax.swing.JLabel();
         Bbg = new javax.swing.JLabel();
@@ -152,13 +152,6 @@ public class DASHBOARD extends javax.swing.JFrame {
         billsdash.add(next);
         next.setBounds(410, 30, 140, 50);
 
-        pay.setBackground(new java.awt.Color(255, 255, 255));
-        pay.setForeground(new java.awt.Color(0, 0, 0));
-        pay.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        pay.setEnabled(false);
-        billsdash.add(pay);
-        pay.setBounds(270, 380, 330, 20);
-
         amount.setBackground(new java.awt.Color(255, 255, 255));
         amount.setForeground(new java.awt.Color(0, 0, 0));
         amount.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
@@ -203,6 +196,10 @@ public class DASHBOARD extends javax.swing.JFrame {
         });
         billsdash.add(logout);
         logout.setBounds(30, 510, 100, 20);
+
+        pay.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        billsdash.add(pay);
+        pay.setBounds(280, 370, 310, 40);
 
         serveA.setFont(new java.awt.Font("Arial Black", 1, 54)); // NOI18N
         serveA.setForeground(new java.awt.Color(153, 0, 0));
@@ -341,12 +338,12 @@ public class DASHBOARD extends javax.swing.JFrame {
         occupation.setBackground(new java.awt.Color(255, 255, 255));
         occupation.setEnabled(false);
         applidash.add(occupation);
-        occupation.setBounds(620, 320, 230, 26);
+        occupation.setBounds(620, 320, 230, 22);
 
         email.setBackground(new java.awt.Color(255, 255, 255));
         email.setEnabled(false);
         applidash.add(email);
-        email.setBounds(630, 370, 220, 26);
+        email.setBounds(630, 370, 220, 22);
 
         serveB.setFont(new java.awt.Font("Arial Black", 1, 54)); // NOI18N
         serveB.setForeground(new java.awt.Color(153, 0, 0));
@@ -467,7 +464,6 @@ public class DASHBOARD extends javax.swing.JFrame {
         logout2.setBounds(30, 510, 100, 20);
 
         convert.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "MAYNILAD", "MERALCO", "GLOBE", "PLDT", "SMART" }));
-        convert.setSelectedIndex(-1);
         convert.setEnabled(false);
         exchangedash.add(convert);
         convert.setBounds(270, 416, 290, 30);
@@ -600,7 +596,7 @@ public class DASHBOARD extends javax.swing.JFrame {
         
         while (true) {
         String enteredName = name.getText().trim();
-        String enteredPay = pay.getText().trim();
+        String enteredPay = (String) pay.getSelectedItem();
         String enteredAmount = amount.getText().trim();
 
         if (enteredName.isEmpty() && enteredPay.isEmpty() && enteredAmount.isEmpty()) {
@@ -645,7 +641,7 @@ public class DASHBOARD extends javax.swing.JFrame {
                 serveA.setText(null);
                 TV.serveA.setText(null);
                 name.setText("");
-                pay.setText("");
+                pay.setSelectedItem(null);
                 amount.setText("");
     }
 
@@ -738,7 +734,7 @@ public class DASHBOARD extends javax.swing.JFrame {
                 serveA.setText(null);
                 TV.serveA.setText(null);
                 name.setText("");
-                pay.setText("");
+                pay.setSelectedItem(null);
                 amount.setText("");
     }
     }//GEN-LAST:event_cancelActionPerformed
@@ -910,7 +906,7 @@ public class DASHBOARD extends javax.swing.JFrame {
     public static javax.swing.JLabel noOfServedC;
     public static javax.swing.JTextField number;
     public static javax.swing.JTextField occupation;
-    public static javax.swing.JTextField pay;
+    public static javax.swing.JComboBox<String> pay;
     public static javax.swing.JLabel serveA;
     public static javax.swing.JLabel serveB;
     public static javax.swing.JLabel serveC;
