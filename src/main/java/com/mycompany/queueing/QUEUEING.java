@@ -13,6 +13,7 @@ import java.util.Queue;
  * @author lucky
  */
 
+//mark kenneth f. ricaborda
 public class QUEUEING {
 public static String username = "LaquiAng";
 public static String password = "12345";
