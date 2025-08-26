@@ -14,7 +14,7 @@ import javax.swing.JOptionPane;
 import javax.swing.Timer;
 
 /**
- *
+
  * @author lucky
  */
 public class CUSTOMER extends javax.swing.JFrame {
@@ -39,7 +39,7 @@ public class CUSTOMER extends javax.swing.JFrame {
         amount3.setBackground(new Color(0, 0, 0, 0));
         paytoOptions.setSelectedItem(null);
                     
-
+//fajhsfkjasa
     }
 
     /**
@@ -135,7 +135,8 @@ public class CUSTOMER extends javax.swing.JFrame {
 
         BP.setLayout(null);
 
-        paytoOptions.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        paytoOptions.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Maynilad ", "Meralco", "Globe ", "Pldt", "Smart", " " }));
+        paytoOptions.setSelectedIndex(-1);
         BP.add(paytoOptions);
         paytoOptions.setBounds(90, 210, 300, 30);
 
@@ -285,8 +286,7 @@ public class CUSTOMER extends javax.swing.JFrame {
         FE.add(cancel3);
         cancel3.setBounds(300, 360, 100, 30);
 
-        change.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "USD", "EUR", "JPY", "PHP" }));
-        change.setSelectedIndex(-1);
+        change.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "USD", "EUR", "JPY" }));
         FE.add(change);
         change.setBounds(150, 210, 240, 30);
 
