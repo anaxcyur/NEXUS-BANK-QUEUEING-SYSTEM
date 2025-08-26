@@ -194,7 +194,7 @@ public static int servedCountC = 0;
 
     public static void main(String[] args) {
            new START_UP().setVisible(true);
-           System.out.println("Laqui ganda");
+           System.out.println("Laqui");
     }
 
     static void add(int i) {
