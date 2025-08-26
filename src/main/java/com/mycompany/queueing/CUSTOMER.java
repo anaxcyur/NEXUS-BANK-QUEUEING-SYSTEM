@@ -39,7 +39,7 @@ public class CUSTOMER extends javax.swing.JFrame {
         amount3.setBackground(new Color(0, 0, 0, 0));
         paytoOptions.setSelectedItem(null);
                     
-//fajhsfkjasa
+//fajhsfkjasafsadfsaf
     }
 
     /**
