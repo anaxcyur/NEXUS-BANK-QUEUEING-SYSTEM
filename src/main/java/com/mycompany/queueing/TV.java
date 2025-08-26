@@ -4,6 +4,8 @@
  */
 package com.mycompany.queueing;
 
+import java.awt.Color;
+
 /**
  *
  * @author lucky
@@ -17,6 +19,9 @@ public class TV extends javax.swing.JFrame {
      */
     public TV() {
         initComponents();
+         waitingA.setBackground(new Color(0, 0, 0, 0)); 
+         waitingB.setBackground(new Color(0, 0, 0, 0)); 
+         waitingC.setBackground(new Color(0, 0, 0, 0)); 
     }
     
     /**
@@ -34,7 +39,8 @@ public class TV extends javax.swing.JFrame {
         serveA = new javax.swing.JLabel();
         waitingB = new javax.swing.JTextField();
         waitingC = new javax.swing.JTextField();
-        waitingA = new javax.swing.JTextField();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        waitingA = new javax.swing.JTextArea();
         TVbg = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -73,10 +79,12 @@ public class TV extends javax.swing.JFrame {
         jPanel1.add(waitingC);
         waitingC.setBounds(550, 260, 180, 130);
 
-        waitingA.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
-        waitingA.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jPanel1.add(waitingA);
-        waitingA.setBounds(80, 260, 180, 130);
+        waitingA.setColumns(20);
+        waitingA.setRows(5);
+        jScrollPane1.setViewportView(waitingA);
+
+        jPanel1.add(jScrollPane1);
+        jScrollPane1.setBounds(70, 260, 220, 130);
 
         TVbg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/TV.png"))); // NOI18N
         jPanel1.add(TVbg);
@@ -126,10 +134,11 @@ public class TV extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel TVbg;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
     public static javax.swing.JLabel serveA;
     public static javax.swing.JLabel serveB;
     public static javax.swing.JLabel serveC;
-    public static javax.swing.JTextField waitingA;
+    public static javax.swing.JTextArea waitingA;
     public static javax.swing.JTextField waitingB;
     public static javax.swing.JTextField waitingC;
     // End of variables declaration//GEN-END:variables
