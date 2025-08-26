@@ -38,7 +38,7 @@ public class EMPLOYEE extends javax.swing.JFrame {
         login = new javax.swing.JButton();
         clear = new javax.swing.JButton();
         back = new javax.swing.JButton();
-        show = new javax.swing.JButton();
+        showPassword = new javax.swing.JToggleButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -49,7 +49,6 @@ public class EMPLOYEE extends javax.swing.JFrame {
 
         jPanel1.setLayout(null);
 
-        uname.setBackground(new java.awt.Color(255, 255, 255));
         uname.setFont(new java.awt.Font("Leelawadee UI Semilight", 1, 24)); // NOI18N
         uname.setBorder(null);
         uname.addActionListener(new java.awt.event.ActionListener() {
@@ -60,7 +59,6 @@ public class EMPLOYEE extends javax.swing.JFrame {
         jPanel1.add(uname);
         uname.setBounds(540, 390, 430, 70);
 
-        pass.setBackground(new java.awt.Color(255, 255, 255));
         pass.setFont(new java.awt.Font("Leelawadee UI Semilight", 1, 24)); // NOI18N
         pass.setBorder(null);
         pass.addActionListener(new java.awt.event.ActionListener() {
@@ -72,7 +70,6 @@ public class EMPLOYEE extends javax.swing.JFrame {
         pass.setBounds(540, 490, 430, 70);
 
         login.setBackground(new java.awt.Color(0, 153, 0));
-        login.setForeground(new java.awt.Color(0, 0, 0));
         login.setBorderPainted(false);
         login.setContentAreaFilled(false);
         login.addActionListener(new java.awt.event.ActionListener() {
@@ -84,7 +81,6 @@ public class EMPLOYEE extends javax.swing.JFrame {
         login.setBounds(480, 590, 480, 60);
 
         clear.setBackground(new java.awt.Color(204, 204, 0));
-        clear.setForeground(new java.awt.Color(0, 0, 0));
         clear.setBorderPainted(false);
         clear.setContentAreaFilled(false);
         clear.addActionListener(new java.awt.event.ActionListener() {
@@ -105,10 +101,15 @@ public class EMPLOYEE extends javax.swing.JFrame {
         jPanel1.add(back);
         back.setBounds(730, 680, 240, 70);
 
-        show.setBorderPainted(false);
-        show.setContentAreaFilled(false);
-        jPanel1.add(show);
-        show.setBounds(990, 510, 40, 30);
+        showPassword.setBorder(null);
+        showPassword.setContentAreaFilled(false);
+        showPassword.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                showPasswordActionPerformed(evt);
+            }
+        });
+        jPanel1.add(showPassword);
+        showPassword.setBounds(980, 500, 60, 50);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/login.png"))); // NOI18N
         jPanel1.add(jLabel1);
@@ -166,6 +167,15 @@ public class EMPLOYEE extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_unameActionPerformed
 
+    private void showPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showPasswordActionPerformed
+        // TODO add your handling code here:
+        if (showPassword.isSelected()) {
+        pass.setEchoChar((char) 0); 
+    } else {
+        pass.setEchoChar('*'); 
+    }
+    }//GEN-LAST:event_showPasswordActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -208,7 +218,7 @@ public class EMPLOYEE extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JButton login;
     private javax.swing.JPasswordField pass;
-    private javax.swing.JButton show;
+    private javax.swing.JToggleButton showPassword;
     private javax.swing.JTextField uname;
     // End of variables declaration//GEN-END:variables
 }
