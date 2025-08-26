@@ -10,8 +10,9 @@ import javax.swing.*;
  *
  * @author lucky
  */
-public class EMPLOYEE extends javax.swing.JFrame {
 
+public class EMPLOYEE extends javax.swing.JFrame {
+ private boolean passwordVisible = false;
     /**
      * Creates new form EMPLOYEE
      */
@@ -20,6 +21,7 @@ public class EMPLOYEE extends javax.swing.JFrame {
        this.setLocationRelativeTo(null);
        uname.setBackground(new Color(0, 0, 0, 0));
        pass.setBackground(new Color(0, 0, 0, 0));
+       
        
     }
 
@@ -172,7 +174,14 @@ public class EMPLOYEE extends javax.swing.JFrame {
     }//GEN-LAST:event_unameActionPerformed
 
     private void showActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showActionPerformed
-        // TODO add your handling code here:
+        if (passwordVisible) {
+            pass.setEchoChar('•');
+        } else {
+            pass.setEchoChar((char) 0);
+        }
+        passwordVisible = !passwordVisible;
+                                        
+
     }//GEN-LAST:event_showActionPerformed
 
     /**
