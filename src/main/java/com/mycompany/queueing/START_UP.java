@@ -51,7 +51,7 @@ public class START_UP extends javax.swing.JFrame {
         jPanel2.add(jButton1);
         jButton1.setBounds(70, 700, 390, 90);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/startup.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/startup.jpg"))); // NOI18N
         jPanel2.add(jLabel1);
         jLabel1.setBounds(0, 0, 1440, 900);
 

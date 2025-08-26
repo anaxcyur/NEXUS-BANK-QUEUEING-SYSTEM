@@ -107,6 +107,11 @@ public class EMPLOYEE extends javax.swing.JFrame {
 
         show.setBorderPainted(false);
         show.setContentAreaFilled(false);
+        show.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                showActionPerformed(evt);
+            }
+        });
         jPanel1.add(show);
         show.setBounds(990, 510, 40, 30);
 
@@ -166,6 +171,10 @@ public class EMPLOYEE extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_unameActionPerformed
 
+    private void showActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_showActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -197,7 +206,6 @@ public class EMPLOYEE extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new EMPLOYEE().setVisible(true);
-                System.out.println("Ana");
             }
         });
     }
