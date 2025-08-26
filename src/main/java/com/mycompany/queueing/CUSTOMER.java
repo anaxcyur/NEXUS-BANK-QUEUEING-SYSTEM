@@ -139,12 +139,10 @@ public class CUSTOMER extends javax.swing.JFrame {
         BP.add(paytoOptions);
         paytoOptions.setBounds(90, 210, 300, 30);
 
-        name.setBackground(new java.awt.Color(255, 255, 255));
         name.setBorder(null);
         BP.add(name);
         name.setBounds(80, 160, 320, 30);
 
-        amount.setBackground(new java.awt.Color(255, 255, 255));
         amount.setBorder(null);
         BP.add(amount);
         amount.setBounds(470, 160, 300, 30);
@@ -177,7 +175,6 @@ public class CUSTOMER extends javax.swing.JFrame {
 
         APLI.setLayout(null);
 
-        address.setBackground(new java.awt.Color(255, 255, 255));
         address.setBorder(null);
         address.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -187,12 +184,10 @@ public class CUSTOMER extends javax.swing.JFrame {
         APLI.add(address);
         address.setBounds(110, 260, 270, 20);
 
-        fname.setBackground(new java.awt.Color(255, 255, 255));
         fname.setBorder(null);
         APLI.add(fname);
         fname.setBounds(110, 146, 270, 30);
 
-        bday.setBackground(new java.awt.Color(255, 255, 255));
         bday.setBorder(null);
         bday.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -202,7 +197,6 @@ public class CUSTOMER extends javax.swing.JFrame {
         APLI.add(bday);
         bday.setBounds(110, 310, 270, 30);
 
-        email.setBackground(new java.awt.Color(255, 255, 255));
         email.setBorder(null);
         email.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -212,7 +206,6 @@ public class CUSTOMER extends javax.swing.JFrame {
         APLI.add(email);
         email.setBounds(500, 200, 260, 30);
 
-        occupation.setBackground(new java.awt.Color(255, 255, 255));
         occupation.setBorder(null);
         occupation.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -222,7 +215,6 @@ public class CUSTOMER extends javax.swing.JFrame {
         APLI.add(occupation);
         occupation.setBounds(490, 150, 270, 20);
 
-        number.setBackground(new java.awt.Color(255, 255, 255));
         number.setBorder(null);
         number.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -260,17 +252,16 @@ public class CUSTOMER extends javax.swing.JFrame {
 
         FE.setLayout(null);
 
-        amount3.setBackground(new java.awt.Color(255, 255, 255));
         amount3.setBorder(null);
         FE.add(amount3);
         amount3.setBounds(470, 210, 290, 30);
 
-        name3.setBackground(new java.awt.Color(255, 255, 255));
         name3.setBorder(null);
         FE.add(name3);
         name3.setBounds(80, 160, 310, 30);
 
-        convert.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        convert.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "PHP" }));
+        convert.setSelectedIndex(-1);
         FE.add(convert);
         convert.setBounds(470, 160, 290, 30);
 
@@ -294,7 +285,8 @@ public class CUSTOMER extends javax.swing.JFrame {
         FE.add(cancel3);
         cancel3.setBounds(300, 360, 100, 30);
 
-        change.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        change.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "USD", "EUR", "JPY", "PHP" }));
+        change.setSelectedIndex(-1);
         FE.add(change);
         change.setBounds(150, 210, 240, 30);
 
