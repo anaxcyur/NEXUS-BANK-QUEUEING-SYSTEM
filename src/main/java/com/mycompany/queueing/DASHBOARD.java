@@ -25,8 +25,8 @@ public class DASHBOARD extends javax.swing.JFrame {
         initComponents();
         convert.setOpaque(false); 
         convert.setBackground(new Color(0, 0, 0, 0)); 
-        
-   
+        pay.setOpaque(false); 
+        pay.setBackground(new Color(0, 0, 0, 0)); 
             
             
    }
