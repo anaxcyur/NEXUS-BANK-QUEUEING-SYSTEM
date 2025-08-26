@@ -153,19 +153,23 @@ public class DASHBOARD extends javax.swing.JFrame {
         next.setBounds(410, 30, 140, 50);
 
         pay.setBackground(new java.awt.Color(255, 255, 255));
-        pay.setBorder(null);
+        pay.setForeground(new java.awt.Color(0, 0, 0));
+        pay.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         pay.setEnabled(false);
         billsdash.add(pay);
         pay.setBounds(270, 380, 330, 20);
 
         amount.setBackground(new java.awt.Color(255, 255, 255));
-        amount.setBorder(null);
+        amount.setForeground(new java.awt.Color(0, 0, 0));
+        amount.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         amount.setEnabled(false);
         billsdash.add(amount);
         amount.setBounds(280, 430, 320, 20);
 
         name.setBackground(new java.awt.Color(255, 255, 255));
-        name.setBorder(null);
+        name.setForeground(new java.awt.Color(0, 0, 0));
+        name.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        name.setCaretColor(new java.awt.Color(255, 255, 255));
         name.setEnabled(false);
         billsdash.add(name);
         name.setBounds(270, 330, 330, 20);
@@ -295,6 +299,11 @@ public class DASHBOARD extends javax.swing.JFrame {
 
         confirm1.setBorderPainted(false);
         confirm1.setContentAreaFilled(false);
+        confirm1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                confirm1ActionPerformed(evt);
+            }
+        });
         applidash.add(confirm1);
         confirm1.setBounds(700, 420, 100, 20);
 
@@ -332,12 +341,12 @@ public class DASHBOARD extends javax.swing.JFrame {
         occupation.setBackground(new java.awt.Color(255, 255, 255));
         occupation.setEnabled(false);
         applidash.add(occupation);
-        occupation.setBounds(620, 320, 230, 22);
+        occupation.setBounds(620, 320, 230, 26);
 
         email.setBackground(new java.awt.Color(255, 255, 255));
         email.setEnabled(false);
         applidash.add(email);
-        email.setBounds(630, 370, 220, 22);
+        email.setBounds(630, 370, 220, 26);
 
         serveB.setFont(new java.awt.Font("Arial Black", 1, 54)); // NOI18N
         serveB.setForeground(new java.awt.Color(153, 0, 0));
@@ -406,11 +415,13 @@ public class DASHBOARD extends javax.swing.JFrame {
 
         change.setBackground(new java.awt.Color(255, 255, 255));
         change.setBorder(null);
+        change.setEnabled(false);
         exchangedash.add(change);
         change.setBounds(320, 370, 240, 20);
 
         amount3.setBackground(new java.awt.Color(255, 255, 255));
         amount3.setBorder(null);
+        amount3.setEnabled(false);
         amount3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 amount3ActionPerformed(evt);
@@ -421,11 +432,17 @@ public class DASHBOARD extends javax.swing.JFrame {
 
         name2.setBackground(new java.awt.Color(255, 255, 255));
         name2.setBorder(null);
+        name2.setEnabled(false);
         exchangedash.add(name2);
         name2.setBounds(270, 320, 290, 20);
 
         confirm2.setBorderPainted(false);
         confirm2.setContentAreaFilled(false);
+        confirm2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                confirm2ActionPerformed(evt);
+            }
+        });
         exchangedash.add(confirm2);
         confirm2.setBounds(390, 500, 90, 30);
 
@@ -449,7 +466,8 @@ public class DASHBOARD extends javax.swing.JFrame {
         exchangedash.add(logout2);
         logout2.setBounds(30, 510, 100, 20);
 
-        convert.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        convert.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "MAYNILAD", "MERALCO", "GLOBE", "PLDT", "SMART" }));
+        convert.setSelectedIndex(-1);
         convert.setEnabled(false);
         exchangedash.add(convert);
         convert.setBounds(270, 416, 290, 30);
@@ -585,10 +603,28 @@ public class DASHBOARD extends javax.swing.JFrame {
         String enteredPay = pay.getText().trim();
         String enteredAmount = amount.getText().trim();
 
-        if (enteredName.isEmpty() || enteredPay.isEmpty() || enteredAmount.isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Please fill in all fields: Name, Pay To, and Amount", "Input Error", JOptionPane.ERROR_MESSAGE);
+        if (enteredName.isEmpty() && enteredPay.isEmpty() && enteredAmount.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Please fill in all fields", "Input Error", JOptionPane.ERROR_MESSAGE);
             return; 
+        } else if (enteredName.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Please input your Name", "Input Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        } else if (enteredPay.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Please fill in Pay To field", "Input Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        } else if (enteredAmount.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Please input an Amount", "Input Error", JOptionPane.ERROR_MESSAGE);
+            return;
         } else {
+            int c = JOptionPane.showConfirmDialog(null,"Are you sure the information is correct?","Confirmation",JOptionPane.OK_CANCEL_OPTION      );
+            
+            if (c == JOptionPane.OK_OPTION) {
+                JOptionPane.showMessageDialog(null,"Your information has been saved.","Success",JOptionPane.INFORMATION_MESSAGE);
+                name2.setEnabled(false);
+                change.setEnabled(false);
+                amount.setEnabled(false);
+                convert.setEnabled(false);
+            } 
             break;
         }
     }
@@ -706,6 +742,91 @@ public class DASHBOARD extends javax.swing.JFrame {
                 amount.setText("");
     }
     }//GEN-LAST:event_cancelActionPerformed
+
+    private void confirm1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirm1ActionPerformed
+        
+        while (true) {
+        String fullname = name1.getText().trim();
+        String num = number.getText().trim();
+        String bda = bday.getText().trim();
+        String add = address1.getText().trim();
+        String occu = occupation.getText().trim();
+        String ema = email.getText().trim();
+
+        if (fullname.isEmpty() && num.isEmpty() && bda.isEmpty() && add.isEmpty() && occu.isEmpty() && ema.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Please fill in all fields", "Input Error", JOptionPane.ERROR_MESSAGE);
+            return; 
+        } else if (fullname.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Please input your Name", "Input Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        } else if (num.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Please input your Number", "Input Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        } else if (add.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Please input your Address", "Input Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        } else if (bda.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Please input your Birthday", "Input Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        } else if (occu.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Please input your Occupation", "Input Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        } else if (ema.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Please input your Email Address", "Input Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        } else {
+            int c = JOptionPane.showConfirmDialog(null,"Are you sure the information is correct?","Confirmation",JOptionPane.OK_CANCEL_OPTION      );
+            
+            if (c == JOptionPane.OK_OPTION) {
+                JOptionPane.showMessageDialog(null,"Your information has been saved.","Success",JOptionPane.INFORMATION_MESSAGE);
+                name1.setEnabled(false);
+                number.setEnabled(false);
+                address1.setEnabled(false);
+                bday.setEnabled(false);
+                occupation.setEnabled(false);
+                email.setEnabled(false);
+            } 
+            break;
+        }
+    }
+    }//GEN-LAST:event_confirm1ActionPerformed
+
+    private void confirm2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirm2ActionPerformed
+        while (true) {
+        String nameFE = name2.getText().trim();
+        String chang = change.getText().trim();
+        String am = amount3.getText().trim();
+        String conver = (String) convert.getSelectedItem();
+
+        if (nameFE.isEmpty() && chang.isEmpty() && am.isEmpty() && conver.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Please fill in all fields", "Input Error", JOptionPane.ERROR_MESSAGE);
+            return; 
+        } else if (nameFE.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Please input your Name", "Input Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        } else if (chang.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Please select Currency to Change", "Input Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        } else if (am.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Please input amount", "Input Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        } else if (conver.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Please select Conversion", "Input Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        } else {
+            int c = JOptionPane.showConfirmDialog(null,"Are you sure the information is correct?","Confirmation",JOptionPane.OK_CANCEL_OPTION      );
+            
+            if (c == JOptionPane.OK_OPTION) {
+                JOptionPane.showMessageDialog(null,"Your information has been saved.","Success",JOptionPane.INFORMATION_MESSAGE);
+                name2.setEnabled(false);
+                change.setEnabled(false);
+                amount3.setEnabled(false);
+                convert.setEnabled(false);
+            } 
+            break;
+        }
+        }
+    }//GEN-LAST:event_confirm2ActionPerformed
 
     /**
      * @param args the command line arguments

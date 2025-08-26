@@ -131,7 +131,8 @@ public class CUSTOMER extends javax.swing.JFrame {
 
         BP.setLayout(null);
 
-        paytoOptions.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        paytoOptions.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "MAYNILAD", "MERALCO", "GLOBE", "PLDT", "SMART" }));
+        paytoOptions.setSelectedIndex(-1);
         BP.add(paytoOptions);
         paytoOptions.setBounds(90, 210, 300, 30);
 
