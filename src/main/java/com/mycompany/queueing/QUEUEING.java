@@ -45,6 +45,8 @@ public static ArrayList<String> convertFE = new ArrayList<>();
 public static ArrayList<String> amountFE = new ArrayList<>();
 public static int servedCountC = 0; 
 
+
+
 /*RECEIPT
     public static void printReceiptA() {
     Integer servedNum = queueA.peek(); 
@@ -108,7 +110,7 @@ public static int servedCountC = 0;
                     
                 }
 
-
+//FHDAHFHA
             }else{
                TV.serveA.setText(null);
                DASHBOARD.serveA.setText(null);
