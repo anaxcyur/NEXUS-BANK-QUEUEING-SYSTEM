@@ -38,7 +38,7 @@ public class CUSTOMER extends javax.swing.JFrame {
         amount3.setBackground(new Color(0, 0, 0, 0));
         paytoOptions.setSelectedItem(null);
                     
-//fajhsfkjasafsadfsaf
+
     }
 
     /**
@@ -134,7 +134,7 @@ public class CUSTOMER extends javax.swing.JFrame {
 
         BP.setLayout(null);
 
-        paytoOptions.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Maynilad ", "Meralco", "Globe ", "Pldt", "Smart", " " }));
+        paytoOptions.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Maynilad", "Meralco", "Globe", "PLDT", "Smart", "" }));
         paytoOptions.setSelectedIndex(-1);
         BP.add(paytoOptions);
         paytoOptions.setBounds(90, 210, 300, 30);
