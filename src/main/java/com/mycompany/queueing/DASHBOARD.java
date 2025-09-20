@@ -491,7 +491,7 @@ public class DASHBOARD extends javax.swing.JFrame {
         exchangedash.add(convert);
         convert.setBounds(270, 416, 290, 30);
 
-        change.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "PHP", "EURO", "YEN", " " }));
+        change.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "USD", "EUR", "JPYN", " " }));
         change.setBorder(null);
         exchangedash.add(change);
         change.setBounds(320, 370, 240, 20);

@@ -136,6 +136,7 @@ public class CUSTOMER extends javax.swing.JFrame {
 
         paytoOptions.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Maynilad", "Meralco", "Globe", "PLDT", "Smart", "" }));
         paytoOptions.setSelectedIndex(-1);
+        paytoOptions.setBorder(null);
         BP.add(paytoOptions);
         paytoOptions.setBounds(90, 210, 300, 30);
 
@@ -262,6 +263,7 @@ public class CUSTOMER extends javax.swing.JFrame {
 
         convert.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "PHP" }));
         convert.setSelectedIndex(-1);
+        convert.setBorder(null);
         FE.add(convert);
         convert.setBounds(470, 160, 290, 30);
 
@@ -286,6 +288,7 @@ public class CUSTOMER extends javax.swing.JFrame {
         cancel3.setBounds(300, 360, 100, 30);
 
         change.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "USD", "EUR", "JPY" }));
+        change.setBorder(null);
         FE.add(change);
         change.setBounds(150, 210, 240, 30);
 
