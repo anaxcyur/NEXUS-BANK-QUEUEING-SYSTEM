@@ -116,7 +116,7 @@ public static int servedCountC = 0;
                     DASHBOARD.amount.setText(servedAmount);
 
                     TV.serveA.setText("A" + servedNum);
-                    
+                    DASHBOARD.inQueueA.setText(String.valueOf(queueA.size()-1));
                 }
 
             }else{
@@ -224,7 +224,6 @@ public static int servedCountC = 0;
 //DING SOUND
    public static void playClickSound() {
             try {
-        // Use YourClassName.class in static context
         InputStream audioSrc = QUEUEING.class.getResourceAsStream("/wav/ding.wav");
         if (audioSrc == null) {
             System.out.println("Sound file not found!");

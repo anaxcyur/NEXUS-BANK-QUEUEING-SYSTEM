@@ -389,6 +389,10 @@ public class CUSTOMER extends javax.swing.JFrame {
 
         timer.setRepeats(false); 
         timer.start();
+        name3.setText(null);
+        amount3.setText(null);
+        change.setSelectedItem(null);
+        convert.setSelectedItem(null);
         
     }//GEN-LAST:event_confirm3ActionPerformed
 
@@ -447,6 +451,12 @@ public class CUSTOMER extends javax.swing.JFrame {
 
         timer.setRepeats(false); 
         timer.start();
+        fname.setText(null);
+        number.setText(null);
+        address.setText(null);
+        bday.setText(null);
+        occupation.setText(null);
+        email.setText(null);
     }//GEN-LAST:event_confirm1ActionPerformed
 
     private void confirmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmActionPerformed
@@ -480,6 +490,9 @@ public class CUSTOMER extends javax.swing.JFrame {
     });
     timer.setRepeats(false); 
     timer.start();
+    name.setText(null);
+    amount.setText(null);
+    paytoOptions.setSelectedItem(null);
     }//GEN-LAST:event_confirmActionPerformed
  
     /**
