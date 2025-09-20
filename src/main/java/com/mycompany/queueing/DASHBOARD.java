@@ -359,12 +359,12 @@ public class DASHBOARD extends javax.swing.JFrame {
         occupation.setBackground(new java.awt.Color(255, 255, 255));
         occupation.setEnabled(false);
         applidash.add(occupation);
-        occupation.setBounds(620, 320, 230, 26);
+        occupation.setBounds(620, 320, 230, 22);
 
         email.setBackground(new java.awt.Color(255, 255, 255));
         email.setEnabled(false);
         applidash.add(email);
-        email.setBounds(630, 370, 220, 26);
+        email.setBounds(630, 370, 220, 22);
         applidash.add(inQueueB);
         inQueueB.setBounds(800, 120, 50, 60);
 
@@ -380,7 +380,7 @@ public class DASHBOARD extends javax.swing.JFrame {
         applidash.add(noOfServedB);
         noOfServedB.setBounds(820, 30, 40, 50);
 
-        Abg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/application dashboard.png"))); // NOI18N
+        Abg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/application dashboard_1.png"))); // NOI18N
         applidash.add(Abg);
         Abg.setBounds(-5, 0, 900, 550);
 
