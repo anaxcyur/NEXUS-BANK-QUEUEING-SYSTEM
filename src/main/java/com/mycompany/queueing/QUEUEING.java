@@ -3,10 +3,21 @@
  */
 
 package com.mycompany.queueing;
-import static com.mycompany.queueing.DASHBOARD.noOfServedA;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Queue;
+import static com.mycompany.queueing.DASHBOARD.noOfServedA;
+import java.io.BufferedInputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
+import javax.sound.sampled.*;
 
 /**
  *
@@ -14,7 +25,7 @@ import java.util.Queue;
  */
 
 public class QUEUEING {
-public static String username = "LaquiAng";
+public static String username = "BankQueue";
 public static String password = "12345";
 
 // for Bills Payment:
@@ -47,7 +58,6 @@ public static int servedCountC = 0;
 
 
 
-/*RECEIPT
     public static void printReceiptA() {
     Integer servedNum = queueA.peek(); 
     if (servedNum != null) {
@@ -75,7 +85,6 @@ public static int servedCountC = 0;
     }
 }
 
-*/
 //FOR COUNTER A SYNC :)))
        public static void showCurrentA() {
            if (queueA.size() > 1) {
@@ -110,10 +119,12 @@ public static int servedCountC = 0;
                     
                 }
 
-//FHDAHFHA
             }else{
-               TV.serveA.setText(null);
-               DASHBOARD.serveA.setText(null);
+                DASHBOARD.serveA.setText("");
+                DASHBOARD.name.setText("");
+                DASHBOARD.pay.setSelectedItem(null);
+                DASHBOARD.amount.setText("");
+                TV.serveA.setText("");
             }
         }
 
@@ -155,8 +166,17 @@ public static int servedCountC = 0;
 
 
                 TV.serveB.setText("B" + servedNum);
-            }
-        }
+            }else {
+                DASHBOARD.serveB.setText("");
+                DASHBOARD.name1.setText("");
+                DASHBOARD.number.setText("");
+                DASHBOARD.address1.setText("");
+                DASHBOARD.bday.setText("");
+                DASHBOARD.occupation.setText("");
+                DASHBOARD.email.setText("");
+
+                TV.serveB.setText("");
+        }}
  //FOR COUNTER C SYNC :)))
         public static void showCurrentC() {
             if (queueC.size() > 1) {
@@ -190,10 +210,42 @@ public static int servedCountC = 0;
 
 
                 TV.serveC.setText("C" + servedNum);
-            }
+            }else {
+        
+                DASHBOARD.serveC.setText("");
+                DASHBOARD.name2.setText("");
+                DASHBOARD.change.setText("");
+                DASHBOARD.convert.setSelectedItem(null);
+                DASHBOARD.amount3.setText("");
+
+                TV.serveC.setText("");
+    }
+        }
+//DING SOUND
+   public static void playClickSound() {
+            try {
+        // Use YourClassName.class in static context
+        InputStream audioSrc = QUEUEING.class.getResourceAsStream("/wav/ding.wav");
+        if (audioSrc == null) {
+            System.out.println("Sound file not found!");
+            return;
         }
 
+        Clip clip = AudioSystem.getClip();
+        clip.open(AudioSystem.getAudioInputStream(audioSrc));
+        clip.start();
 
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
+        }
+
+      
+      
+      
+      
+      
+      
     public static void main(String[] args) {
            new START_UP().setVisible(true);
     }

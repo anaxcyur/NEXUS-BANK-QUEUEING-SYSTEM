@@ -7,6 +7,11 @@ package com.mycompany.queueing;
 import static com.mycompany.queueing.QUEUEING.queueA;
 import java.awt.CardLayout;
 import java.awt.Color;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.InputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
 import javax.swing.JOptionPane;
 import javax.swing.Timer;
 
@@ -54,6 +59,7 @@ public class DASHBOARD extends javax.swing.JFrame {
         edit = new javax.swing.JButton();
         logout = new javax.swing.JButton();
         pay = new javax.swing.JComboBox<>();
+        inQueueA = new javax.swing.JLabel();
         serveA = new javax.swing.JLabel();
         noOfServedA = new javax.swing.JLabel();
         Bbg = new javax.swing.JLabel();
@@ -197,18 +203,25 @@ public class DASHBOARD extends javax.swing.JFrame {
         billsdash.add(logout);
         logout.setBounds(30, 510, 100, 20);
 
-        pay.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        pay.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Maynilad", "Meralco", "Globe", "PLDT", "Smart" }));
+        pay.setSelectedItem(null);
         billsdash.add(pay);
         pay.setBounds(280, 370, 310, 40);
 
+        inQueueA.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
+        inQueueA.setForeground(new java.awt.Color(255, 153, 0));
+        inQueueA.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        billsdash.add(inQueueA);
+        inQueueA.setBounds(810, 120, 40, 50);
+
         serveA.setFont(new java.awt.Font("Arial Black", 1, 54)); // NOI18N
-        serveA.setForeground(new java.awt.Color(153, 0, 0));
+        serveA.setForeground(new java.awt.Color(255, 153, 0));
         serveA.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         billsdash.add(serveA);
         serveA.setBounds(220, 70, 140, 120);
 
         noOfServedA.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
-        noOfServedA.setForeground(new java.awt.Color(153, 51, 0));
+        noOfServedA.setForeground(new java.awt.Color(255, 153, 0));
         noOfServedA.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         billsdash.add(noOfServedA);
         noOfServedA.setBounds(820, 30, 40, 50);
@@ -243,6 +256,11 @@ public class DASHBOARD extends javax.swing.JFrame {
 
         call1.setBorderPainted(false);
         call1.setContentAreaFilled(false);
+        call1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                call1ActionPerformed(evt);
+            }
+        });
         applidash.add(call1);
         call1.setBounds(410, 90, 140, 40);
 
@@ -346,13 +364,13 @@ public class DASHBOARD extends javax.swing.JFrame {
         email.setBounds(630, 370, 220, 22);
 
         serveB.setFont(new java.awt.Font("Arial Black", 1, 54)); // NOI18N
-        serveB.setForeground(new java.awt.Color(153, 0, 0));
+        serveB.setForeground(new java.awt.Color(255, 204, 0));
         serveB.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         applidash.add(serveB);
         serveB.setBounds(220, 70, 140, 120);
 
         noOfServedB.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
-        noOfServedB.setForeground(new java.awt.Color(153, 51, 0));
+        noOfServedB.setForeground(new java.awt.Color(255, 204, 51));
         noOfServedB.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         applidash.add(noOfServedB);
         noOfServedB.setBounds(820, 30, 40, 50);
@@ -387,6 +405,11 @@ public class DASHBOARD extends javax.swing.JFrame {
 
         call2.setBorderPainted(false);
         call2.setContentAreaFilled(false);
+        call2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                call2ActionPerformed(evt);
+            }
+        });
         exchangedash.add(call2);
         call2.setBounds(410, 90, 140, 40);
 
@@ -469,13 +492,13 @@ public class DASHBOARD extends javax.swing.JFrame {
         convert.setBounds(270, 416, 290, 30);
 
         serveC.setFont(new java.awt.Font("Arial Black", 1, 54)); // NOI18N
-        serveC.setForeground(new java.awt.Color(153, 0, 0));
+        serveC.setForeground(new java.awt.Color(255, 204, 0));
         serveC.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         exchangedash.add(serveC);
         serveC.setBounds(220, 70, 140, 120);
 
         noOfServedC.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
-        noOfServedC.setForeground(new java.awt.Color(153, 51, 0));
+        noOfServedC.setForeground(new java.awt.Color(255, 204, 0));
         noOfServedC.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         exchangedash.add(noOfServedC);
         noOfServedC.setBounds(820, 30, 40, 50);
@@ -615,12 +638,23 @@ public class DASHBOARD extends javax.swing.JFrame {
             int c = JOptionPane.showConfirmDialog(null,"Are you sure the information is correct?","Confirmation",JOptionPane.OK_CANCEL_OPTION      );
             
             if (c == JOptionPane.OK_OPTION) {
-                JOptionPane.showMessageDialog(null,"Your information has been saved.","Success",JOptionPane.INFORMATION_MESSAGE);
-                name2.setEnabled(false);
-                change.setEnabled(false);
-                amount.setEnabled(false);
-                convert.setEnabled(false);
-            } 
+                 Integer servedNum = QUEUEING.queueA.peek(); 
+                if (servedNum != null) {
+                    int index = servedNum - 1;
+                    if (index >= 0 && index < QUEUEING.nameBP.size()) {
+                        QUEUEING.nameBP.set(index, enteredName);
+                        QUEUEING.payToBP.set(index, enteredPay);
+                        QUEUEING.amountBP.set(index, enteredAmount);
+                    }
+                }
+
+                JOptionPane.showMessageDialog(null,
+                        "Information has been updated and saved.",
+                        "Success",
+                        JOptionPane.INFORMATION_MESSAGE);
+                QUEUEING.printReceiptA();
+                
+            }
             break;
         }
     }
@@ -648,7 +682,7 @@ public class DASHBOARD extends javax.swing.JFrame {
     }//GEN-LAST:event_nextActionPerformed
 
     private void callActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_callActionPerformed
-        
+       QUEUEING.playClickSound();
       
     }//GEN-LAST:event_callActionPerformed
 
@@ -824,6 +858,14 @@ public class DASHBOARD extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_confirm2ActionPerformed
 
+    private void call1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_call1ActionPerformed
+       QUEUEING.playClickSound();
+    }//GEN-LAST:event_call1ActionPerformed
+
+    private void call2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_call2ActionPerformed
+        QUEUEING.playClickSound();
+    }//GEN-LAST:event_call2ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -892,6 +934,7 @@ public class DASHBOARD extends javax.swing.JFrame {
     private javax.swing.JButton exchange;
     private javax.swing.JButton exchange1;
     private javax.swing.JPanel exchangedash;
+    public static javax.swing.JLabel inQueueA;
     private javax.swing.JButton logout;
     private javax.swing.JButton logout1;
     private javax.swing.JButton logout2;
