@@ -8,7 +8,7 @@ import javax.swing.*;
 
 /**
  *
- * @author lucky
+ * 
  */
 
 public class EMPLOYEE extends javax.swing.JFrame {
