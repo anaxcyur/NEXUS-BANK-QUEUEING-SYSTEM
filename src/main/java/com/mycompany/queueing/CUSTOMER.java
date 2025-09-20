@@ -548,7 +548,7 @@ public class CUSTOMER extends javax.swing.JFrame {
     private javax.swing.JButton cancel;
     private javax.swing.JButton cancel1;
     private javax.swing.JButton cancel3;
-    private javax.swing.JComboBox<String> change;
+    public static javax.swing.JComboBox<String> change;
     private javax.swing.JButton confirm;
     public static javax.swing.JButton confirm1;
     private javax.swing.JButton confirm3;

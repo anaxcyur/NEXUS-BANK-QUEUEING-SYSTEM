@@ -78,6 +78,7 @@ public class DASHBOARD extends javax.swing.JFrame {
         address1 = new javax.swing.JTextField();
         occupation = new javax.swing.JTextField();
         email = new javax.swing.JTextField();
+        inQueueB = new javax.swing.JLabel();
         serveB = new javax.swing.JLabel();
         noOfServedB = new javax.swing.JLabel();
         Abg = new javax.swing.JLabel();
@@ -87,13 +88,14 @@ public class DASHBOARD extends javax.swing.JFrame {
         call2 = new javax.swing.JButton();
         cancel2 = new javax.swing.JButton();
         next2 = new javax.swing.JButton();
-        change = new javax.swing.JTextField();
         amount3 = new javax.swing.JTextField();
         name2 = new javax.swing.JTextField();
         confirm2 = new javax.swing.JButton();
         edit2 = new javax.swing.JButton();
         logout2 = new javax.swing.JButton();
         convert = new javax.swing.JComboBox<>();
+        change = new javax.swing.JComboBox<>();
+        inQueueC = new javax.swing.JLabel();
         serveC = new javax.swing.JLabel();
         noOfServedC = new javax.swing.JLabel();
         Abg1 = new javax.swing.JLabel();
@@ -205,6 +207,7 @@ public class DASHBOARD extends javax.swing.JFrame {
 
         pay.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Maynilad", "Meralco", "Globe", "PLDT", "Smart" }));
         pay.setSelectedItem(null);
+        pay.setBorder(null);
         billsdash.add(pay);
         pay.setBounds(280, 370, 310, 40);
 
@@ -356,12 +359,14 @@ public class DASHBOARD extends javax.swing.JFrame {
         occupation.setBackground(new java.awt.Color(255, 255, 255));
         occupation.setEnabled(false);
         applidash.add(occupation);
-        occupation.setBounds(620, 320, 230, 22);
+        occupation.setBounds(620, 320, 230, 26);
 
         email.setBackground(new java.awt.Color(255, 255, 255));
         email.setEnabled(false);
         applidash.add(email);
-        email.setBounds(630, 370, 220, 22);
+        email.setBounds(630, 370, 220, 26);
+        applidash.add(inQueueB);
+        inQueueB.setBounds(800, 120, 50, 60);
 
         serveB.setFont(new java.awt.Font("Arial Black", 1, 54)); // NOI18N
         serveB.setForeground(new java.awt.Color(255, 204, 0));
@@ -433,12 +438,6 @@ public class DASHBOARD extends javax.swing.JFrame {
         exchangedash.add(next2);
         next2.setBounds(410, 30, 140, 50);
 
-        change.setBackground(new java.awt.Color(255, 255, 255));
-        change.setBorder(null);
-        change.setEnabled(false);
-        exchangedash.add(change);
-        change.setBounds(320, 370, 240, 20);
-
         amount3.setBackground(new java.awt.Color(255, 255, 255));
         amount3.setBorder(null);
         amount3.setEnabled(false);
@@ -486,10 +485,18 @@ public class DASHBOARD extends javax.swing.JFrame {
         exchangedash.add(logout2);
         logout2.setBounds(30, 510, 100, 20);
 
-        convert.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "MAYNILAD", "MERALCO", "GLOBE", "PLDT", "SMART" }));
+        convert.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "PHP", " " }));
+        convert.setBorder(null);
         convert.setEnabled(false);
         exchangedash.add(convert);
         convert.setBounds(270, 416, 290, 30);
+
+        change.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "PHP", "EURO", "YEN", " " }));
+        change.setBorder(null);
+        exchangedash.add(change);
+        change.setBounds(320, 370, 240, 20);
+        exchangedash.add(inQueueC);
+        inQueueC.setBounds(797, 126, 50, 50);
 
         serveC.setFont(new java.awt.Font("Arial Black", 1, 54)); // NOI18N
         serveC.setForeground(new java.awt.Color(255, 204, 0));
@@ -562,7 +569,7 @@ public class DASHBOARD extends javax.swing.JFrame {
     }//GEN-LAST:event_application2ActionPerformed
 
     private void billspayment1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_billspayment1ActionPerformed
-        ((CardLayout)container1.getLayout()).show(container1, "EDASH");
+        ((CardLayout)container1.getLayout()).show(container1, "BDASH");
     }//GEN-LAST:event_billspayment1ActionPerformed
 
     private void logout1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logout1ActionPerformed
@@ -654,6 +661,9 @@ public class DASHBOARD extends javax.swing.JFrame {
                         JOptionPane.INFORMATION_MESSAGE);
                 QUEUEING.printReceiptA();
                 
+                name.setEnabled(false);
+                pay.setEnabled(false);
+                amount.setEnabled(false);
             }
             break;
         }
@@ -719,7 +729,6 @@ public class DASHBOARD extends javax.swing.JFrame {
                 serveC.setText(null);
                 TV.serveC.setText(null);
                 name2.setText("");
-                change.setText("");
                 convert.setSelectedItem("");
                 amount3.setText("");
             }
@@ -753,7 +762,6 @@ public class DASHBOARD extends javax.swing.JFrame {
                 serveC.setText(null);
                 TV.serveC.setText(null);
                 name2.setText("");
-                change.setText("");
                 convert.setSelectedItem("");
                 amount3.setText("");
             }
@@ -783,7 +791,7 @@ public class DASHBOARD extends javax.swing.JFrame {
         String occu = occupation.getText().trim();
         String ema = email.getText().trim();
 
-        if (fullname.isEmpty() && num.isEmpty() && bda.isEmpty() && add.isEmpty() && occu.isEmpty() && ema.isEmpty()) {
+        if (fullname.isEmpty() && num.isEmpty() && bda.isEmpty()&& add.isEmpty()&& occu.isEmpty()&& ema.isEmpty()) {
             JOptionPane.showMessageDialog(null, "Please fill in all fields", "Input Error", JOptionPane.ERROR_MESSAGE);
             return; 
         } else if (fullname.isEmpty()) {
@@ -792,30 +800,49 @@ public class DASHBOARD extends javax.swing.JFrame {
         } else if (num.isEmpty()) {
             JOptionPane.showMessageDialog(null, "Please input your Number", "Input Error", JOptionPane.ERROR_MESSAGE);
             return;
-        } else if (add.isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Please input your Address", "Input Error", JOptionPane.ERROR_MESSAGE);
-            return;
         } else if (bda.isEmpty()) {
             JOptionPane.showMessageDialog(null, "Please input your Birthday", "Input Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        } else if (add.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Please input your Address", "Input Error", JOptionPane.ERROR_MESSAGE);
             return;
         } else if (occu.isEmpty()) {
             JOptionPane.showMessageDialog(null, "Please input your Occupation", "Input Error", JOptionPane.ERROR_MESSAGE);
             return;
         } else if (ema.isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Please input your Email Address", "Input Error", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Please input your Email", "Input Error", JOptionPane.ERROR_MESSAGE);
             return;
         } else {
             int c = JOptionPane.showConfirmDialog(null,"Are you sure the information is correct?","Confirmation",JOptionPane.OK_CANCEL_OPTION      );
             
             if (c == JOptionPane.OK_OPTION) {
-                JOptionPane.showMessageDialog(null,"Your information has been saved.","Success",JOptionPane.INFORMATION_MESSAGE);
+                Integer servedNum = QUEUEING.queueB.peek(); 
+                if (servedNum != null) {
+                    int index = servedNum - 1;
+                    if (index >= 0 && index < QUEUEING.nameA.size()) {
+                        QUEUEING.nameA.set(index, fullname);
+                        QUEUEING.numberA.set(index, num);
+                        QUEUEING.bdayA.set(index, bda);
+                        QUEUEING.addressA.set(index, add);
+                        QUEUEING.occupationA.set(index, occu);
+                        QUEUEING.emailA.set(index, ema);
+                    }
+                }
+
+                JOptionPane.showMessageDialog(null,
+                        "Information has been updated and saved.",
+                        "Success",
+                        JOptionPane.INFORMATION_MESSAGE);
+                QUEUEING.printReceiptA();
+                
                 name1.setEnabled(false);
                 number.setEnabled(false);
-                address1.setEnabled(false);
                 bday.setEnabled(false);
+                address1.setEnabled(false);
                 occupation.setEnabled(false);
                 email.setEnabled(false);
-            } 
+                
+            }
             break;
         }
     }
@@ -824,7 +851,7 @@ public class DASHBOARD extends javax.swing.JFrame {
     private void confirm2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirm2ActionPerformed
         while (true) {
         String nameFE = name2.getText().trim();
-        String chang = change.getText().trim();
+        String chang = (String) change.getSelectedItem();
         String am = amount3.getText().trim();
         String conver = (String) convert.getSelectedItem();
 
@@ -847,7 +874,25 @@ public class DASHBOARD extends javax.swing.JFrame {
             int c = JOptionPane.showConfirmDialog(null,"Are you sure the information is correct?","Confirmation",JOptionPane.OK_CANCEL_OPTION      );
             
             if (c == JOptionPane.OK_OPTION) {
-                JOptionPane.showMessageDialog(null,"Your information has been saved.","Success",JOptionPane.INFORMATION_MESSAGE);
+                
+                Integer servedNum = QUEUEING.queueC.peek(); 
+                if (servedNum != null) {
+                    int index = servedNum - 1;
+                    if (index >= 0 && index < QUEUEING.nameFE.size()) {
+                        QUEUEING.nameFE.set(index, nameFE);
+                        QUEUEING.changeFE.set(index, chang);
+                        QUEUEING.amountFE.set(index, am);
+                        QUEUEING.convertFE.set(index, conver);
+                        
+                    }
+                }
+
+                JOptionPane.showMessageDialog(null,
+                        "Information has been updated and saved.",
+                        "Success",
+                        JOptionPane.INFORMATION_MESSAGE);
+                QUEUEING.printReceiptA();
+                
                 name2.setEnabled(false);
                 change.setEnabled(false);
                 amount3.setEnabled(false);
@@ -921,7 +966,7 @@ public class DASHBOARD extends javax.swing.JFrame {
     private javax.swing.JButton cancel;
     private javax.swing.JButton cancel1;
     private javax.swing.JButton cancel2;
-    public static javax.swing.JTextField change;
+    public static javax.swing.JComboBox<String> change;
     private javax.swing.JButton confirm;
     private javax.swing.JButton confirm1;
     private javax.swing.JButton confirm2;
@@ -935,6 +980,8 @@ public class DASHBOARD extends javax.swing.JFrame {
     private javax.swing.JButton exchange1;
     private javax.swing.JPanel exchangedash;
     public static javax.swing.JLabel inQueueA;
+    public static javax.swing.JLabel inQueueB;
+    public static javax.swing.JLabel inQueueC;
     private javax.swing.JButton logout;
     private javax.swing.JButton logout1;
     private javax.swing.JButton logout2;

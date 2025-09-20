@@ -166,6 +166,7 @@ public static int servedCountC = 0;
 
 
                 TV.serveB.setText("B" + servedNum);
+                DASHBOARD.inQueueB.setText(String.valueOf(queueB.size()-1));
             }else {
                 DASHBOARD.serveB.setText("");
                 DASHBOARD.name1.setText("");
@@ -203,18 +204,19 @@ public static int servedCountC = 0;
 
                     DASHBOARD.serveC.setText("C" + servedNum);
                     DASHBOARD.name2.setText(servedName);
-                    DASHBOARD.change.setText(servedChange);
+                    DASHBOARD.change.setSelectedItem(servedChange);
                     DASHBOARD.convert.setSelectedItem(servedConvert);
                     DASHBOARD.amount3.setText(servedAmount);
 
 
 
                 TV.serveC.setText("C" + servedNum);
+                DASHBOARD.inQueueC.setText(String.valueOf(queueC.size()-1));
             }else {
         
                 DASHBOARD.serveC.setText("");
                 DASHBOARD.name2.setText("");
-                DASHBOARD.change.setText("");
+                DASHBOARD.change.setSelectedItem(null);
                 DASHBOARD.convert.setSelectedItem(null);
                 DASHBOARD.amount3.setText("");
 
