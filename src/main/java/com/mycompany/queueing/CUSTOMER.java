@@ -34,8 +34,10 @@ public class CUSTOMER extends javax.swing.JFrame {
         occupation.setBackground(new Color(0, 0, 0, 0));
         number.setBackground(new Color(0, 0, 0, 0));
         change.setBackground(new Color(0, 0, 0, 0));
+        convert.setBackground(new Color(0, 0, 0, 0));
         name3.setBackground(new Color(0, 0, 0, 0));
         amount3.setBackground(new Color(0, 0, 0, 0));
+        paytoOptions.setBackground(new Color(0, 0, 0, 0));
         paytoOptions.setSelectedItem(null);
                     
 
@@ -298,6 +300,7 @@ public class CUSTOMER extends javax.swing.JFrame {
         cancel3.setBounds(300, 360, 100, 30);
 
         change.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "USD", "EUR", "JPY" }));
+        change.setSelectedItem(null);
         change.setBorder(null);
         FE.add(change);
         change.setBounds(150, 210, 240, 30);

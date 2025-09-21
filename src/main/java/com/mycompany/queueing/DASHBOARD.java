@@ -32,6 +32,8 @@ public class DASHBOARD extends javax.swing.JFrame {
         convert.setOpaque(false); 
         convert.setBackground(new Color(0, 0, 0, 0)); 
         pay.setOpaque(false); 
+        pay.setEnabled(false);
+        change.setEnabled(false);
         pay.setBackground(new Color(0, 0, 0, 0)); 
             
             
@@ -840,7 +842,7 @@ public class DASHBOARD extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Please input your Birthday", "Input Error", JOptionPane.ERROR_MESSAGE);
             return;
         }
-//        Validate birthday format MKKK
+//Validate birthday format MKKK
         else if (!bda.matches("\\d{2}/\\d{2}/\\d{4}")) {
         JOptionPane.showMessageDialog(null, "Birthday must be in MM/DD/YYYY format", "Date Format Error", JOptionPane.ERROR_MESSAGE);
         bday.setText(""); // Clear invalid input
