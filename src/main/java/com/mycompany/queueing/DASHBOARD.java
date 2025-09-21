@@ -161,20 +161,16 @@ public class DASHBOARD extends javax.swing.JFrame {
         billsdash.add(next);
         next.setBounds(410, 30, 140, 50);
 
-        amount.setBackground(new java.awt.Color(255, 255, 255));
-        amount.setForeground(new java.awt.Color(0, 0, 0));
         amount.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         amount.setEnabled(false);
         billsdash.add(amount);
         amount.setBounds(280, 430, 320, 20);
 
-        name.setBackground(new java.awt.Color(255, 255, 255));
-        name.setForeground(new java.awt.Color(0, 0, 0));
         name.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         name.setCaretColor(new java.awt.Color(255, 255, 255));
         name.setEnabled(false);
         billsdash.add(name);
-        name.setBounds(270, 330, 330, 20);
+        name.setBounds(280, 330, 320, 20);
 
         confirm.setBorderPainted(false);
         confirm.setContentAreaFilled(false);
@@ -216,7 +212,7 @@ public class DASHBOARD extends javax.swing.JFrame {
         inQueueA.setForeground(new java.awt.Color(255, 153, 0));
         inQueueA.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         billsdash.add(inQueueA);
-        inQueueA.setBounds(810, 120, 40, 50);
+        inQueueA.setBounds(750, 140, 50, 50);
 
         serveA.setFont(new java.awt.Font("Arial Black", 1, 54)); // NOI18N
         serveA.setForeground(new java.awt.Color(255, 153, 0));
@@ -228,7 +224,7 @@ public class DASHBOARD extends javax.swing.JFrame {
         noOfServedA.setForeground(new java.awt.Color(255, 153, 0));
         noOfServedA.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         billsdash.add(noOfServedA);
-        noOfServedA.setBounds(820, 30, 40, 50);
+        noOfServedA.setBounds(820, 40, 50, 50);
 
         Bbg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bills payment dashboard.png"))); // NOI18N
         billsdash.add(Bbg);
@@ -288,13 +284,11 @@ public class DASHBOARD extends javax.swing.JFrame {
         applidash.add(next1);
         next1.setBounds(410, 30, 140, 50);
 
-        number.setBackground(new java.awt.Color(255, 255, 255));
         number.setBorder(null);
         number.setEnabled(false);
         applidash.add(number);
         number.setBounds(270, 370, 250, 20);
 
-        bday.setBackground(new java.awt.Color(255, 255, 255));
         bday.setBorder(null);
         bday.setEnabled(false);
         bday.addActionListener(new java.awt.event.ActionListener() {
@@ -305,7 +299,6 @@ public class DASHBOARD extends javax.swing.JFrame {
         applidash.add(bday);
         bday.setBounds(270, 470, 250, 20);
 
-        name1.setBackground(new java.awt.Color(255, 255, 255));
         name1.setBorder(null);
         name1.setEnabled(false);
         name1.addActionListener(new java.awt.event.ActionListener() {
@@ -346,7 +339,6 @@ public class DASHBOARD extends javax.swing.JFrame {
         applidash.add(logout1);
         logout1.setBounds(30, 510, 100, 20);
 
-        address1.setBackground(new java.awt.Color(255, 255, 255));
         address1.setBorder(null);
         address1.setEnabled(false);
         address1.addActionListener(new java.awt.event.ActionListener() {
@@ -357,29 +349,30 @@ public class DASHBOARD extends javax.swing.JFrame {
         applidash.add(address1);
         address1.setBounds(270, 420, 250, 20);
 
-        occupation.setBackground(new java.awt.Color(255, 255, 255));
         occupation.setEnabled(false);
         applidash.add(occupation);
         occupation.setBounds(620, 320, 230, 22);
 
-        email.setBackground(new java.awt.Color(255, 255, 255));
         email.setEnabled(false);
         applidash.add(email);
         email.setBounds(630, 370, 220, 22);
+
+        inQueueB.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
+        inQueueB.setForeground(new java.awt.Color(255, 153, 0));
         applidash.add(inQueueB);
-        inQueueB.setBounds(800, 120, 50, 60);
+        inQueueB.setBounds(750, 140, 50, 50);
 
         serveB.setFont(new java.awt.Font("Arial Black", 1, 54)); // NOI18N
-        serveB.setForeground(new java.awt.Color(255, 204, 0));
+        serveB.setForeground(new java.awt.Color(255, 153, 0));
         serveB.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         applidash.add(serveB);
         serveB.setBounds(220, 70, 140, 120);
 
         noOfServedB.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
-        noOfServedB.setForeground(new java.awt.Color(255, 204, 51));
+        noOfServedB.setForeground(new java.awt.Color(255, 153, 0));
         noOfServedB.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         applidash.add(noOfServedB);
-        noOfServedB.setBounds(820, 30, 40, 50);
+        noOfServedB.setBounds(820, 40, 50, 50);
 
         Abg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/application dashboard_1.png"))); // NOI18N
         applidash.add(Abg);
@@ -439,7 +432,6 @@ public class DASHBOARD extends javax.swing.JFrame {
         exchangedash.add(next2);
         next2.setBounds(410, 30, 140, 50);
 
-        amount3.setBackground(new java.awt.Color(255, 255, 255));
         amount3.setBorder(null);
         amount3.setEnabled(false);
         amount3.addActionListener(new java.awt.event.ActionListener() {
@@ -450,7 +442,6 @@ public class DASHBOARD extends javax.swing.JFrame {
         exchangedash.add(amount3);
         amount3.setBounds(270, 470, 290, 20);
 
-        name2.setBackground(new java.awt.Color(255, 255, 255));
         name2.setBorder(null);
         name2.setEnabled(false);
         exchangedash.add(name2);
@@ -496,20 +487,23 @@ public class DASHBOARD extends javax.swing.JFrame {
         change.setBorder(null);
         exchangedash.add(change);
         change.setBounds(320, 370, 240, 20);
+
+        inQueueC.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
+        inQueueC.setForeground(new java.awt.Color(255, 153, 0));
         exchangedash.add(inQueueC);
-        inQueueC.setBounds(797, 126, 50, 50);
+        inQueueC.setBounds(750, 140, 50, 50);
 
         serveC.setFont(new java.awt.Font("Arial Black", 1, 54)); // NOI18N
-        serveC.setForeground(new java.awt.Color(255, 204, 0));
+        serveC.setForeground(new java.awt.Color(255, 153, 0));
         serveC.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         exchangedash.add(serveC);
         serveC.setBounds(220, 70, 140, 120);
 
         noOfServedC.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
-        noOfServedC.setForeground(new java.awt.Color(255, 204, 0));
+        noOfServedC.setForeground(new java.awt.Color(255, 153, 0));
         noOfServedC.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         exchangedash.add(noOfServedC);
-        noOfServedC.setBounds(820, 30, 40, 50);
+        noOfServedC.setBounds(820, 40, 50, 50);
 
         Abg1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/foreign ex dashboard.png"))); // NOI18N
         exchangedash.add(Abg1);
@@ -636,11 +630,30 @@ public class DASHBOARD extends javax.swing.JFrame {
         } else if (enteredName.isEmpty()) {
             JOptionPane.showMessageDialog(null, "Please input your Name", "Input Error", JOptionPane.ERROR_MESSAGE);
             return;
-        } else if (enteredPay.isEmpty()) {
+        }
+//        Validation Name
+        else if (enteredName.length() > 50) {
+            JOptionPane.showMessageDialog(null, "Name must be 50 characters or fewer", "Name Error", JOptionPane.ERROR_MESSAGE);
+            name.setText(""); // Optional: clear the field
+            return;
+        }
+//        ✅ Validate name contains only letters and spaces
+        else if (!enteredName.matches("[a-zA-Z\\s]+")) {
+            JOptionPane.showMessageDialog(null, "Name must contain letters only (no numbers or symbols)", "Name Error", JOptionPane.ERROR_MESSAGE);
+            name.setText(""); // Optional: clear the field
+            return;
+        }
+        else if (enteredPay.isEmpty()) {
             JOptionPane.showMessageDialog(null, "Please fill in Pay To field", "Input Error", JOptionPane.ERROR_MESSAGE);
             return;
         } else if (enteredAmount.isEmpty()) {
             JOptionPane.showMessageDialog(null, "Please input an Amount", "Input Error", JOptionPane.ERROR_MESSAGE);
+            return;  
+        } 
+//        Validation amount
+        else if (!enteredAmount.matches("\\d{1,6}")) {
+            JOptionPane.showMessageDialog(null, "Amount must be less than 6 digits and contain numbers only", "Amount Error", JOptionPane.ERROR_MESSAGE);
+            amount.setText(""); // Optional: clear the field
             return;
         } else {
             int c = JOptionPane.showConfirmDialog(null,"Are you sure the information is correct?","Confirmation",JOptionPane.OK_CANCEL_OPTION      );
@@ -798,19 +811,61 @@ public class DASHBOARD extends javax.swing.JFrame {
         } else if (fullname.isEmpty()) {
             JOptionPane.showMessageDialog(null, "Please input your Name", "Input Error", JOptionPane.ERROR_MESSAGE);
             return;
-        } else if (num.isEmpty()) {
+        }
+//         Validate Name 
+        else if (fullname.length() > 50) {
+        JOptionPane.showMessageDialog(null, "Name must be 50 characters or fewer", "Name Error", JOptionPane.ERROR_MESSAGE);
+        name1.setText(""); // Optional: clear the field
+        return;
+        }
+//        ✅ Validate name contains only letters and spaces
+        else if (!fullname.matches("[a-zA-Z\\s]+")) {
+            JOptionPane.showMessageDialog(null, "Name must contain letters only (no numbers or symbols)", "Name Error", JOptionPane.ERROR_MESSAGE);
+            name1.setText(""); // Optional: clear the field
+            return;
+        }
+        else if (num.isEmpty()) {
             JOptionPane.showMessageDialog(null, "Please input your Number", "Input Error", JOptionPane.ERROR_MESSAGE);
             return;
-        } else if (bda.isEmpty()) {
+        }
+        // Validate number: must start with optional + and followed by 12 digits total
+        if (!num.matches("\\+?63\\d{10}")) {
+        JOptionPane.showMessageDialog(null, "Contact number must start with +63 or 63 and contain exactly 10 digits after it", "Number Format Error", JOptionPane.ERROR_MESSAGE);
+        number.setText(""); // Clear invalid input
+        return;
+        }
+        else if (bda.isEmpty()) {
             JOptionPane.showMessageDialog(null, "Please input your Birthday", "Input Error", JOptionPane.ERROR_MESSAGE);
             return;
-        } else if (add.isEmpty()) {
+        }
+//        Validate birthday format MKKK
+        else if (!bda.matches("\\d{2}/\\d{2}/\\d{4}")) {
+        JOptionPane.showMessageDialog(null, "Birthday must be in MM/DD/YYYY format", "Date Format Error", JOptionPane.ERROR_MESSAGE);
+        bday.setText(""); // Clear invalid input
+        return;
+        } 
+        else if (add.isEmpty()) {
             JOptionPane.showMessageDialog(null, "Please input your Address", "Input Error", JOptionPane.ERROR_MESSAGE);
             return;
         } else if (occu.isEmpty()) {
             JOptionPane.showMessageDialog(null, "Please input your Occupation", "Input Error", JOptionPane.ERROR_MESSAGE);
+            occupation.setText("");
             return;
-        } else if (ema.isEmpty()) {
+        }
+//        Validate Occupation
+        else if (occu.length() > 50) {
+        JOptionPane.showMessageDialog(null, "Occupation must be 50 characters or fewer", "Name Error", JOptionPane.ERROR_MESSAGE);
+        occupation.setText(""); // Optional: clear the field
+        return;
+        }
+//        ✅ Validate Occupation contains only letters and spaces
+        else if (!occu.matches("[a-zA-Z\\s]+")) {
+            JOptionPane.showMessageDialog(null, "Occupation must contain letters only (no numbers or symbols)", "Name Error", JOptionPane.ERROR_MESSAGE);
+            occupation.setText(""); // Optional: clear the field
+            return;
+        }
+        
+        else if (ema.isEmpty()) {
             JOptionPane.showMessageDialog(null, "Please input your Email", "Input Error", JOptionPane.ERROR_MESSAGE);
             return;
         } else {
@@ -862,13 +917,33 @@ public class DASHBOARD extends javax.swing.JFrame {
         } else if (nameFE.isEmpty()) {
             JOptionPane.showMessageDialog(null, "Please input your Name", "Input Error", JOptionPane.ERROR_MESSAGE);
             return;
-        } else if (chang.isEmpty()) {
+        }
+//        Validation Name
+          else if (nameFE.length() > 50) {
+            JOptionPane.showMessageDialog(null, "Name must be 50 characters or fewer", "Name Error", JOptionPane.ERROR_MESSAGE);
+            name2.setText(""); // Optional: clear the field
+            return;
+        }
+//          ✅ Validate name contains only letters and spaces
+          else if (!nameFE.matches("[a-zA-Z\\s]+")) {
+            JOptionPane.showMessageDialog(null, "Name must contain letters only (no numbers or symbols)", "Name Error", JOptionPane.ERROR_MESSAGE);
+            name2.setText(""); // Optional: clear the field
+            return;
+        }
+        else if (chang.isEmpty()) {
             JOptionPane.showMessageDialog(null, "Please select Currency to Change", "Input Error", JOptionPane.ERROR_MESSAGE);
             return;
         } else if (am.isEmpty()) {
             JOptionPane.showMessageDialog(null, "Please input amount", "Input Error", JOptionPane.ERROR_MESSAGE);
             return;
-        } else if (conver.isEmpty()) {
+        }
+//        Validation amount
+        else if (!am.matches("\\d{1,6}")) {
+            JOptionPane.showMessageDialog(null, "Amount must be less than 6 digits and contain numbers only", "Amount Error", JOptionPane.ERROR_MESSAGE);
+            amount3.setText(""); // Optional: clear the field
+            return;
+        }
+        else if (conver.isEmpty()) {
             JOptionPane.showMessageDialog(null, "Please select Conversion", "Input Error", JOptionPane.ERROR_MESSAGE);
             return;
         } else {

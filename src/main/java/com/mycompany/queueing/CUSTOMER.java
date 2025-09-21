@@ -145,6 +145,11 @@ public class CUSTOMER extends javax.swing.JFrame {
         name.setBounds(80, 160, 320, 30);
 
         amount.setBorder(null);
+        amount.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                amountActionPerformed(evt);
+            }
+        });
         BP.add(amount);
         amount.setBounds(470, 160, 300, 30);
 
@@ -254,6 +259,11 @@ public class CUSTOMER extends javax.swing.JFrame {
         FE.setLayout(null);
 
         amount3.setBorder(null);
+        amount3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                amount3ActionPerformed(evt);
+            }
+        });
         FE.add(amount3);
         amount3.setBounds(470, 210, 290, 30);
 
@@ -301,7 +311,7 @@ public class CUSTOMER extends javax.swing.JFrame {
         queue.setLayout(null);
 
         queuenum.setFont(new java.awt.Font("Arial Black", 1, 54)); // NOI18N
-        queuenum.setForeground(new java.awt.Color(153, 0, 0));
+        queuenum.setForeground(new java.awt.Color(255, 153, 0));
         queuenum.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         queuenum.setToolTipText("");
         queue.add(queuenum);
@@ -364,7 +374,27 @@ public class CUSTOMER extends javax.swing.JFrame {
 
             JOptionPane.showMessageDialog(null, "Please fill in all fields", "Input Error", JOptionPane.ERROR_MESSAGE);
             return; 
-        } else {
+        }
+//          Validate Name 
+        if (enteredName.length() > 50) {
+        JOptionPane.showMessageDialog(null, "Name must be 50 characters or fewer", "Name Error", JOptionPane.ERROR_MESSAGE);
+        name3.setText(""); // Optional: clear the field
+        return;
+        }
+//        ✅ Validate name contains only letters and spaces
+        if (!enteredName.matches("[a-zA-Z\\s]+")) {
+            JOptionPane.showMessageDialog(null, "Name must contain letters only (no numbers or symbols)", "Name Error", JOptionPane.ERROR_MESSAGE);
+            name3.setText(""); // Optional: clear the field
+            return;
+        }
+//        MKK VALIDATE AMOUNT
+        if (!enteredAmount.matches("\\d{1,6}")) {
+        JOptionPane.showMessageDialog(null, "Amount must less than 6 digits and contain numbers only", "Amount Error", JOptionPane.ERROR_MESSAGE);
+        amount3.setText(""); // Clear invalid input
+        return;
+        }
+        
+        else {
             QUEUEING.nameFE.add(enteredName);
             QUEUEING.amountFE.add(enteredAmount);
             QUEUEING.changeFE.add(selectedChange);
@@ -424,7 +454,45 @@ public class CUSTOMER extends javax.swing.JFrame {
             bdayVal.isEmpty() || occupationVal.isEmpty() || emailVal.isEmpty()) {
             JOptionPane.showMessageDialog(null, "Please fill in all fields", "Input Error", JOptionPane.ERROR_MESSAGE);
             return;
-        } else {
+        }
+//         Validate birthday format MKKK
+        if (!bdayVal.matches("\\d{2}/\\d{2}/\\d{4}")) {
+        JOptionPane.showMessageDialog(null, "Birthday must be in MM/DD/YYYY format", "Date Format Error", JOptionPane.ERROR_MESSAGE);
+        bday.setText(""); // Clear invalid input
+        return;
+        }  
+//        MKKKK
+        // Validate number: must start with optional + and followed by 12 digits total
+        if (!numberVal.matches("\\+?63\\d{10}")) {
+        JOptionPane.showMessageDialog(null, "Contact number must start with +63 or 63 and contain exactly 10 digits after it", "Number Format Error", JOptionPane.ERROR_MESSAGE);
+        number.setText(""); // Clear invalid input
+        return;
+        }
+//        Validate Name 
+        if (fnameVal.length() > 50) {
+        JOptionPane.showMessageDialog(null, "Name must be 50 characters or fewer", "Name Error", JOptionPane.ERROR_MESSAGE);
+        fname.setText(""); // Optional: clear the field
+        return;
+        }
+//         ✅ Validate name contains only letters and spaces
+        if (!fnameVal.matches("[a-zA-Z\\s]+")) {
+            JOptionPane.showMessageDialog(null, "Name must contain letters only (no numbers or symbols)", "Name Error", JOptionPane.ERROR_MESSAGE);
+            fname.setText(""); // Optional: clear the field
+            return;
+        }
+//        Validate Occupation
+        if (occupationVal.length() > 50) {
+        JOptionPane.showMessageDialog(null, "Occupation must be 50 characters or fewer", "Name Error", JOptionPane.ERROR_MESSAGE);
+        occupation.setText(""); // Optional: clear the field
+        return;
+        }
+//        ✅ Validate name contains only letters and spaces
+        if (!occupationVal.matches("[a-zA-Z\\s]+")) {
+            JOptionPane.showMessageDialog(null, "Occupation must contain letters only (no numbers or symbols)", "Name Error", JOptionPane.ERROR_MESSAGE);
+            occupation.setText(""); // Optional: clear the field
+            return;
+        }
+        else {
             QUEUEING.nameA.add(fnameVal);
             QUEUEING.numberA.add(numberVal);
             QUEUEING.addressA.add(addressVal);
@@ -451,6 +519,8 @@ public class CUSTOMER extends javax.swing.JFrame {
                 
             }
         });
+        
+        
 
         timer.setRepeats(false); 
         timer.start();
@@ -471,12 +541,31 @@ public class CUSTOMER extends javax.swing.JFrame {
         if (enteredName.isEmpty() || enteredAmount.isEmpty() || selectedPayTo == null || selectedPayTo.trim().isEmpty()) {
             JOptionPane.showMessageDialog(null, "Please fill in all fields", "Input Error", JOptionPane.ERROR_MESSAGE);
             return; 
-        } else{
+        }
+        // ✅ Validate name length MKKKK
+        if (enteredName.length() > 50) {
+            JOptionPane.showMessageDialog(null, "Name must be 50 characters or fewer", "Name Error", JOptionPane.ERROR_MESSAGE);
+            name.setText(""); // Optional: clear the field
+            return;
+        }
+//        / ✅ Validate name contains only letters and spaces
+        if (!enteredName.matches("[a-zA-Z\\s]+")) {
+            JOptionPane.showMessageDialog(null, "Name must contain letters only (no numbers or symbols)", "Name Error", JOptionPane.ERROR_MESSAGE);
+            name.setText(""); // Optional: clear the field
+            return;
+        }
+//        MKK AMOUNTT
+        if (!enteredAmount.matches("\\d{1,6}")) {
+        JOptionPane.showMessageDialog(null, "Amount must be less than 6 digits and contain numbers only", "Amount Error", JOptionPane.ERROR_MESSAGE);
+        amount.setText(""); // Clear invalid input
+        return;
+        } 
+
+        else{
         QUEUEING.nameBP.add(enteredName);
         QUEUEING.payToBP.add(selectedPayTo);
         QUEUEING.amountBP.add(enteredAmount);
         }
-        
             
         int qnum = QUEUEING.counterA++;
         QUEUEING.queueA.add(qnum);
@@ -497,6 +586,14 @@ public class CUSTOMER extends javax.swing.JFrame {
     amount.setText(null);
     paytoOptions.setSelectedItem(null);
     }//GEN-LAST:event_confirmActionPerformed
+
+    private void amountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_amountActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_amountActionPerformed
+
+    private void amount3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_amount3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_amount3ActionPerformed
  
     /**
      * @param args the command line arguments
