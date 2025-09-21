@@ -14,6 +14,7 @@ public class TICKET extends javax.swing.JFrame {
      * Creates new form TICKET
      */
     public TICKET() {
+        this.setLocationRelativeTo(null);
         initComponents();
     }
 
@@ -27,70 +28,24 @@ public class TICKET extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        r_name = new javax.swing.JTextField();
-        r_refno = new javax.swing.JTextField();
-        r_datetime = new javax.swing.JTextField();
-        r_amount = new javax.swing.JTextField();
-        r_transaction = new javax.swing.JTextField();
-        r_payTo = new javax.swing.JTextField();
-        jLabel1 = new javax.swing.JLabel();
+        resibo = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMinimumSize(new java.awt.Dimension(300, 400));
+        setUndecorated(true);
         getContentPane().setLayout(null);
 
         jPanel1.setLayout(null);
 
-        r_name.setBackground(new java.awt.Color(255, 255, 255));
-        r_name.setForeground(new java.awt.Color(0, 0, 0));
-        r_name.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        r_name.setCaretColor(new java.awt.Color(255, 255, 255));
-        r_name.setEnabled(false);
-        jPanel1.add(r_name);
-        r_name.setBounds(170, 240, 120, 20);
+        resibo.setFont(new java.awt.Font("Segoe UI Historic", 0, 13)); // NOI18N
+        resibo.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        jPanel1.add(resibo);
+        resibo.setBounds(10, 150, 280, 190);
 
-        r_refno.setBackground(new java.awt.Color(255, 255, 255));
-        r_refno.setForeground(new java.awt.Color(0, 0, 0));
-        r_refno.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        r_refno.setCaretColor(new java.awt.Color(255, 255, 255));
-        r_refno.setEnabled(false);
-        jPanel1.add(r_refno);
-        r_refno.setBounds(170, 160, 120, 20);
-
-        r_datetime.setBackground(new java.awt.Color(255, 255, 255));
-        r_datetime.setForeground(new java.awt.Color(0, 0, 0));
-        r_datetime.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        r_datetime.setCaretColor(new java.awt.Color(255, 255, 255));
-        r_datetime.setEnabled(false);
-        jPanel1.add(r_datetime);
-        r_datetime.setBounds(170, 180, 120, 20);
-
-        r_amount.setBackground(new java.awt.Color(255, 255, 255));
-        r_amount.setForeground(new java.awt.Color(0, 0, 0));
-        r_amount.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        r_amount.setCaretColor(new java.awt.Color(255, 255, 255));
-        r_amount.setEnabled(false);
-        jPanel1.add(r_amount);
-        r_amount.setBounds(170, 280, 120, 20);
-
-        r_transaction.setBackground(new java.awt.Color(255, 255, 255));
-        r_transaction.setForeground(new java.awt.Color(0, 0, 0));
-        r_transaction.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        r_transaction.setCaretColor(new java.awt.Color(255, 255, 255));
-        r_transaction.setEnabled(false);
-        jPanel1.add(r_transaction);
-        r_transaction.setBounds(170, 210, 120, 20);
-
-        r_payTo.setBackground(new java.awt.Color(255, 255, 255));
-        r_payTo.setForeground(new java.awt.Color(0, 0, 0));
-        r_payTo.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        r_payTo.setCaretColor(new java.awt.Color(255, 255, 255));
-        r_payTo.setEnabled(false);
-        jPanel1.add(r_payTo);
-        r_payTo.setBounds(170, 260, 120, 20);
-
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/receipt  (2).png"))); // NOI18N
-        jPanel1.add(jLabel1);
-        jLabel1.setBounds(0, 0, 300, 400);
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/receipt  (5).png"))); // NOI18N
+        jPanel1.add(jLabel2);
+        jLabel2.setBounds(0, 0, 300, 400);
 
         getContentPane().add(jPanel1);
         jPanel1.setBounds(0, 0, 300, 400);
@@ -134,13 +89,8 @@ public class TICKET extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
-    public static javax.swing.JTextField r_amount;
-    public static javax.swing.JTextField r_datetime;
-    public static javax.swing.JTextField r_name;
-    public static javax.swing.JTextField r_payTo;
-    public static javax.swing.JTextField r_refno;
-    public static javax.swing.JTextField r_transaction;
+    public static javax.swing.JLabel resibo;
     // End of variables declaration//GEN-END:variables
 }

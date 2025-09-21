@@ -68,22 +68,22 @@ public static int servedCountC = 0;
             String servedPayTo  = payToBP.get(index);
             String servedAmount = amountBP.get(index);
 
-            // Print receipt to console
-            System.out.println("================================");
-            System.out.println("         PAYMENT RECEIPT        ");
-            System.out.println("================================");
-            System.out.println("Queue Number : A" + servedNum);
-            System.out.println("Customer Name: " + servedName);
-            System.out.println("Pay To       : " + servedPayTo);
-            System.out.println("Amount       : " + servedAmount);
-            System.out.println("================================");
-            System.out.println("   Thank you for your payment!  ");
-            System.out.println("================================");
+            String receipt = "<html><pre>"
+                    + String.format("%-20s %s<br>", "Queue Number:", "A" + servedNum)
+                    + String.format("%-20s %s<br>", "Customer Name:", servedName)
+                    + String.format("%-20s %s<br>", "Pay To:", servedPayTo)
+                    + String.format("%-20s %s<br>", "Amount:", servedAmount)
+                   
+                    + "</pre></html>";
+
+            TICKET.resibo.setText(receipt);  
         }
     } else {
-        System.out.println("No customer is being served.");
+        TICKET.resibo.setText("<html><pre>No customer is being served.</pre></html>");
     }
 }
+
+
 
 //FOR COUNTER A SYNC :)))
        public static void showCurrentA() {

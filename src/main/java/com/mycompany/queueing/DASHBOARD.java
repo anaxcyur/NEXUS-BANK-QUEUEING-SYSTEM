@@ -673,7 +673,9 @@ public class DASHBOARD extends javax.swing.JFrame {
                         "Information has been updated and saved.",
                         "Success",
                         JOptionPane.INFORMATION_MESSAGE);
+                new TICKET().setVisible(true);
                 QUEUEING.printReceiptA();
+                
                 
                 name.setEnabled(false);
                 pay.setEnabled(false);
