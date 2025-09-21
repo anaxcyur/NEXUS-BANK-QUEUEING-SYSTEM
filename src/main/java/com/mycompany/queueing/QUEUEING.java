@@ -82,6 +82,63 @@ public static int servedCountC = 0;
         TICKET.resibo.setText("<html><pre>No customer is being served.</pre></html>");
     }
 }
+    
+    public static void printReceiptB() {
+    Integer servedNum = queueB.peek(); 
+    if (servedNum != null) {
+        int index = servedNum - 1;
+
+        if (index >= 0 && index < nameA.size()) {
+            String servedName   = nameA.get(index);
+            String servedNumber  = numberA.get(index);
+            String servedAddress = addressA.get(index);
+            String servedBday  = bdayA.get(index);
+            String servedOccupation = occupationA.get(index);
+            String servedEmail = emailA.get(index);
+
+            String receipt = "<html><pre>"
+                    + String.format("%-20s %s<br>", "Queue Number:", "A" + servedNum)
+                    + String.format("%-20s %s<br>", "Customer Name:", servedName)
+                    + String.format("%-20s %s<br>", "Contact Number:", servedNumber)
+                    + String.format("%-20s %s<br>", "Address:", servedAddress)
+                    + String.format("%-20s %s<br>", "Birthday:", servedBday)
+                    + String.format("%-20s %s<br>", "Occupation:", servedOccupation)
+                    + String.format("%-20s %s<br>", "Email:", servedEmail)
+                    + "</pre></html>";
+
+            TICKET.resibo.setText(receipt);  
+        }
+    } else {
+        TICKET.resibo.setText("<html><pre>No customer is being served.</pre></html>");
+    }
+}
+    
+    public static void printReceiptC() {
+    Integer servedNum = queueC.peek(); 
+    if (servedNum != null) {
+        int index = servedNum - 1;
+
+        if (index >= 0 && index < nameFE.size()) {
+            String servedName   = nameFE.get(index);
+            String servedAmount  = amountFE.get(index);
+            String servedChange = changeFE.get(index);
+            String servedConvert  = convertFE.get(index);
+
+            String receipt = "<html><pre>"
+                    + String.format("%-20s %s<br>", "Queue Number:", "A" + servedNum)
+                    + String.format("%-20s %s<br>", "Customer Name:", servedName)
+                    + String.format("%-20s %s<br>", "Amount:", servedAmount)
+                    + String.format("%-20s %s<br>", "Currency:", servedChange)
+                    + String.format("%-20s %s<br>", "Convert to:", servedConvert)
+                    + "</pre></html>";
+
+            TICKET.resibo.setText(receipt);  
+        }
+    } else {
+        TICKET.resibo.setText("<html><pre>No customer is being served.</pre></html>");
+    }
+}
+
 
 
 
