@@ -6,7 +6,6 @@ package com.mycompany.queueing;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Queue;
-import static com.mycompany.queueing.DASHBOARD.noOfServedA;
 import java.io.BufferedInputStream;
 import java.io.File;
 import java.io.FileInputStream;
@@ -25,6 +24,7 @@ import javax.sound.sampled.*;
  */
 
 public class QUEUEING {
+    
 public static String username = "BankQueue";
 public static String password = "12345";
 
@@ -180,7 +180,7 @@ public static int servedCountC = 0;
                 DASHBOARD.serveA.setText("");
                 DASHBOARD.name.setText("");
                 DASHBOARD.pay.setSelectedItem(null);
-                DASHBOARD.amount.setText("");
+                DASHBOARD.amount.setText(null);
                 TV.serveA.setText("");
             }
         }

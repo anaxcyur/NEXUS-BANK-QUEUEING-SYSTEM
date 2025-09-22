@@ -14,6 +14,7 @@ import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
 import javax.swing.JOptionPane;
 import javax.swing.Timer;
+
 //
 
 /**
@@ -55,7 +56,6 @@ public class DASHBOARD extends javax.swing.JFrame {
         exchange = new javax.swing.JButton();
         call = new javax.swing.JButton();
         cancel = new javax.swing.JButton();
-        next = new javax.swing.JButton();
         amount = new javax.swing.JTextField();
         name = new javax.swing.JTextField();
         confirm = new javax.swing.JButton();
@@ -71,7 +71,6 @@ public class DASHBOARD extends javax.swing.JFrame {
         exchange1 = new javax.swing.JButton();
         call1 = new javax.swing.JButton();
         cancel1 = new javax.swing.JButton();
-        next1 = new javax.swing.JButton();
         number = new javax.swing.JTextField();
         bday = new javax.swing.JTextField();
         name1 = new javax.swing.JTextField();
@@ -90,7 +89,6 @@ public class DASHBOARD extends javax.swing.JFrame {
         application2 = new javax.swing.JButton();
         call2 = new javax.swing.JButton();
         cancel2 = new javax.swing.JButton();
-        next2 = new javax.swing.JButton();
         amount3 = new javax.swing.JTextField();
         name2 = new javax.swing.JTextField();
         confirm2 = new javax.swing.JButton();
@@ -152,16 +150,6 @@ public class DASHBOARD extends javax.swing.JFrame {
         });
         billsdash.add(cancel);
         cancel.setBounds(410, 150, 140, 40);
-
-        next.setBorderPainted(false);
-        next.setContentAreaFilled(false);
-        next.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                nextActionPerformed(evt);
-            }
-        });
-        billsdash.add(next);
-        next.setBounds(410, 30, 140, 50);
 
         amount.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         amount.setEnabled(false);
@@ -275,16 +263,6 @@ public class DASHBOARD extends javax.swing.JFrame {
         });
         applidash.add(cancel1);
         cancel1.setBounds(410, 150, 140, 40);
-
-        next1.setBorderPainted(false);
-        next1.setContentAreaFilled(false);
-        next1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                next1ActionPerformed(evt);
-            }
-        });
-        applidash.add(next1);
-        next1.setBounds(410, 30, 140, 50);
 
         number.setBorder(null);
         number.setEnabled(false);
@@ -424,16 +402,6 @@ public class DASHBOARD extends javax.swing.JFrame {
         exchangedash.add(cancel2);
         cancel2.setBounds(410, 150, 140, 40);
 
-        next2.setBorderPainted(false);
-        next2.setContentAreaFilled(false);
-        next2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                next2ActionPerformed(evt);
-            }
-        });
-        exchangedash.add(next2);
-        next2.setBounds(410, 30, 140, 50);
-
         amount3.setBorder(null);
         amount3.setEnabled(false);
         amount3.addActionListener(new java.awt.event.ActionListener() {
@@ -531,28 +499,6 @@ public class DASHBOARD extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_amount3ActionPerformed
 
-    private void logoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutActionPerformed
-        
-        
-        int option = JOptionPane.showConfirmDialog(null,"Are you sure you want to logout?","Logout?",JOptionPane.OK_CANCEL_OPTION,JOptionPane.PLAIN_MESSAGE);
-        
-        if (option == JOptionPane.OK_OPTION) {
-            this.setVisible(false);
-            new EMPLOYEE().setVisible(true);
-            new TV().setVisible(false);
-            new CUSTOMER().setVisible(false);
-        }
-    }//GEN-LAST:event_logoutActionPerformed
-
-    private void applicationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_applicationActionPerformed
-        ((CardLayout)container1.getLayout()).show(container1, "ADASH");
-        
-    }//GEN-LAST:event_applicationActionPerformed
-
-    private void exchangeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exchangeActionPerformed
-        ((CardLayout)container1.getLayout()).show(container1, "EDASH");
-    }//GEN-LAST:event_exchangeActionPerformed
-
     private void billspaymentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_billspaymentActionPerformed
         ((CardLayout)container1.getLayout()).show(container1, "BDASH");
     }//GEN-LAST:event_billspaymentActionPerformed
@@ -593,12 +539,6 @@ public class DASHBOARD extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_logout2ActionPerformed
 
-    private void editActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editActionPerformed
-        name.setEnabled(true);
-        pay.setEnabled(true);
-        amount.setEnabled(true);
-    }//GEN-LAST:event_editActionPerformed
-
     private void edit1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_edit1ActionPerformed
         name1.setEnabled(true);
         number.setEnabled(true);
@@ -618,139 +558,6 @@ public class DASHBOARD extends javax.swing.JFrame {
         amount.setEnabled(true);
         convert.setEnabled(true);
     }//GEN-LAST:event_edit2ActionPerformed
-
-    private void confirmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmActionPerformed
-        
-        while (true) {
-        String enteredName = name.getText().trim();
-        String enteredPay = (String) pay.getSelectedItem();
-        String enteredAmount = amount.getText().trim();
-
-        if (enteredName.isEmpty() && enteredPay.isEmpty() && enteredAmount.isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Please fill in all fields", "Input Error", JOptionPane.ERROR_MESSAGE);
-            return; 
-        } else if (enteredName.isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Please input your Name", "Input Error", JOptionPane.ERROR_MESSAGE);
-            return;
-        }
-//        Validation Name
-        else if (enteredName.length() > 50) {
-            JOptionPane.showMessageDialog(null, "Name must be 50 characters or fewer", "Name Error", JOptionPane.ERROR_MESSAGE);
-            name.setText(""); // Optional: clear the field
-            return;
-        }
-//        ✅ Validate name contains only letters and spaces
-        else if (!enteredName.matches("[a-zA-Z\\s]+")) {
-            JOptionPane.showMessageDialog(null, "Name must contain letters only (no numbers or symbols)", "Name Error", JOptionPane.ERROR_MESSAGE);
-            name.setText(""); // Optional: clear the field
-            return;
-        }
-        else if (enteredPay.isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Please fill in Pay To field", "Input Error", JOptionPane.ERROR_MESSAGE);
-            return;
-        } else if (enteredAmount.isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Please input an Amount", "Input Error", JOptionPane.ERROR_MESSAGE);
-            return;  
-        } 
-//        Validation amount
-        else if (!enteredAmount.matches("\\d{1,6}")) {
-            JOptionPane.showMessageDialog(null, "Amount must be less than 6 digits and contain numbers only", "Amount Error", JOptionPane.ERROR_MESSAGE);
-            amount.setText(""); // Optional: clear the field
-            return;
-        } else {
-            int c = JOptionPane.showConfirmDialog(null,"Are you sure the information is correct?","Confirmation",JOptionPane.OK_CANCEL_OPTION      );
-            
-            if (c == JOptionPane.OK_OPTION) {
-                 Integer servedNum = QUEUEING.queueA.peek(); 
-                if (servedNum != null) {
-                    int index = servedNum - 1;
-                    if (index >= 0 && index < QUEUEING.nameBP.size()) {
-                        QUEUEING.nameBP.set(index, enteredName);
-                        QUEUEING.payToBP.set(index, enteredPay);
-                        QUEUEING.amountBP.set(index, enteredAmount);
-                    }
-                }
-
-                JOptionPane.showMessageDialog(null,
-                        "Information has been updated and saved.",
-                        "Success",
-                        JOptionPane.INFORMATION_MESSAGE);
-                new TICKET().setVisible(true);
-                QUEUEING.printReceiptA();
-                
-                
-                name.setEnabled(false);
-                pay.setEnabled(false);
-                amount.setEnabled(false);
-            }
-            break;
-        }
-    }
-        
-    }//GEN-LAST:event_confirmActionPerformed
-
-    private void nextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextActionPerformed
-       //BILLS PAYMENT
-      
-        Integer servedNum = QUEUEING.queueA.poll(); 
-            if (servedNum != null) {
-                int index = servedNum - 1; 
-                QUEUEING.servedCountA++;;
-                noOfServedA.setText(String.valueOf(QUEUEING.servedCountA));
-                QUEUEING.showCurrentA();
-                System.out.println(queueA);
-            } else {
-                serveA.setText(null);
-                TV.serveA.setText(null);
-                name.setText("");
-                pay.setSelectedItem(null);
-                amount.setText("");
-    }
-
-    }//GEN-LAST:event_nextActionPerformed
-
-    private void callActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_callActionPerformed
-       QUEUEING.playClickSound();
-      
-    }//GEN-LAST:event_callActionPerformed
-
-    private void next1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_next1ActionPerformed
-      //APPLICATION
-        Integer servedNum = QUEUEING.queueB.poll();
-          if (servedNum != null) {
-              int index = servedNum - 1; 
-              
-              QUEUEING.showCurrentB();
-              QUEUEING.servedCountB++;;
-              noOfServedB.setText(String.valueOf(QUEUEING.servedCountB));
-          } else {
-              serveB.setText(null);
-              TV.serveB.setText(null);
-              name1.setText("");
-              number.setText("");
-              address1.setText("");
-              bday.setText("");
-              occupation.setText("");
-              email.setText("");
-          }
-    }//GEN-LAST:event_next1ActionPerformed
-
-    private void next2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_next2ActionPerformed
-        //FOREIGN EXCHANGE
-        Integer servedNum = QUEUEING.queueC.poll();
-            if (servedNum != null) {
-                int index = servedNum - 1; 
-               QUEUEING.showCurrentC();
-               QUEUEING.servedCountC++;;
-              noOfServedC.setText(String.valueOf(QUEUEING.servedCountC));
-            } else {
-                serveC.setText(null);
-                TV.serveC.setText(null);
-                name2.setText("");
-                convert.setSelectedItem("");
-                amount3.setText("");
-            }
-    }//GEN-LAST:event_next2ActionPerformed
 
     private void cancel1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancel1ActionPerformed
          //APPLICATION
@@ -784,20 +591,6 @@ public class DASHBOARD extends javax.swing.JFrame {
                 amount3.setText("");
             }
     }//GEN-LAST:event_cancel2ActionPerformed
-
-    private void cancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelActionPerformed
-        //BILLS PAYMENT
-        Integer servedNum = QUEUEING.queueA.poll(); 
-            if (servedNum != null) {
-                QUEUEING.showCurrentA();
-            } else {
-                serveA.setText(null);
-                TV.serveA.setText(null);
-                name.setText("");
-                pay.setSelectedItem(null);
-                amount.setText("");
-    }
-    }//GEN-LAST:event_cancelActionPerformed
 
     private void confirm1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirm1ActionPerformed
         
@@ -893,7 +686,10 @@ public class DASHBOARD extends javax.swing.JFrame {
                         "Information has been updated and saved.",
                         "Success",
                         JOptionPane.INFORMATION_MESSAGE);
-                QUEUEING.printReceiptA();
+                
+                TICKET ticketFrame = new TICKET();
+                ticketFrame.setVisible(true);
+                QUEUEING.printReceiptB();
                 
                 name1.setEnabled(false);
                 number.setEnabled(false);
@@ -901,13 +697,35 @@ public class DASHBOARD extends javax.swing.JFrame {
                 address1.setEnabled(false);
                 occupation.setEnabled(false);
                 email.setEnabled(false);
-                
+//NEXT CUSTOMER                
+        servedNum = QUEUEING.queueB.poll();
+          if (servedNum != null) {
+              int index = servedNum - 1; 
+              
+              QUEUEING.showCurrentB();
+              QUEUEING.servedCountB++;;
+              noOfServedB.setText(String.valueOf(QUEUEING.servedCountB));
+          } else {
+              serveB.setText(null);
+              TV.serveB.setText(null);
+              name1.setText("");
+              number.setText("");
+              address1.setText("");
+              bday.setText("");
+              occupation.setText("");
+              email.setText("");
+          }
+                new javax.swing.Timer(5000, e -> {
+               
+                    ticketFrame.dispose();
+             }).start();
+            
             }
             break;
         }
     }
     }//GEN-LAST:event_confirm1ActionPerformed
-
+//FOREIGN EXCHANGE
     private void confirm2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirm2ActionPerformed
         while (true) {
         String nameFE = name2.getText().trim();
@@ -971,12 +789,33 @@ public class DASHBOARD extends javax.swing.JFrame {
                         "Information has been updated and saved.",
                         "Success",
                         JOptionPane.INFORMATION_MESSAGE);
-                QUEUEING.printReceiptA();
+                
+                TICKET ticketFrame = new TICKET();
+                ticketFrame.setVisible(true);
+                QUEUEING.printReceiptC();
                 
                 name2.setEnabled(false);
                 change.setEnabled(false);
                 amount3.setEnabled(false);
                 convert.setEnabled(false);
+//NEXTCUSTOMER               
+            servedNum = QUEUEING.queueC.poll();
+            if (servedNum != null) {
+                int index = servedNum - 1; 
+               QUEUEING.showCurrentC();
+               QUEUEING.servedCountC++;;
+              noOfServedC.setText(String.valueOf(QUEUEING.servedCountC));
+            } else {
+                serveC.setText(null);
+                TV.serveC.setText(null);
+                name2.setText("");
+                convert.setSelectedItem("");
+                amount3.setText("");
+            }
+                 new javax.swing.Timer(5000, e -> {
+               
+                    ticketFrame.dispose();
+             }).start();
             } 
             break;
         }
@@ -990,6 +829,141 @@ public class DASHBOARD extends javax.swing.JFrame {
     private void call2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_call2ActionPerformed
         QUEUEING.playClickSound();
     }//GEN-LAST:event_call2ActionPerformed
+
+    private void logoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutActionPerformed
+
+        int option = JOptionPane.showConfirmDialog(null,"Are you sure you want to logout?","Logout?",JOptionPane.OK_CANCEL_OPTION,JOptionPane.PLAIN_MESSAGE);
+
+        if (option == JOptionPane.OK_OPTION) {
+            this.setVisible(false);
+            new EMPLOYEE().setVisible(true);
+            new TV().setVisible(false);
+            new CUSTOMER().setVisible(false);
+        }
+    }//GEN-LAST:event_logoutActionPerformed
+
+    private void editActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editActionPerformed
+        name.setEnabled(true);
+        pay.setEnabled(true);
+        amount.setEnabled(true);
+    }//GEN-LAST:event_editActionPerformed
+
+    private void confirmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmActionPerformed
+
+        while (true) {
+            String enteredName = name.getText().trim();
+            String enteredPay = (String) pay.getSelectedItem();
+            String enteredAmount = amount.getText().trim();
+
+            if (enteredName.isEmpty() && enteredPay.isEmpty() && enteredAmount.isEmpty()) {
+                JOptionPane.showMessageDialog(null, "Please fill in all fields", "Input Error", JOptionPane.ERROR_MESSAGE);
+                return;
+            } else if (enteredName.isEmpty()) {
+                JOptionPane.showMessageDialog(null, "Please input your Name", "Input Error", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+            //        Validation Name
+            else if (enteredName.length() > 50) {
+                JOptionPane.showMessageDialog(null, "Name must be 50 characters or fewer", "Name Error", JOptionPane.ERROR_MESSAGE);
+                name.setText(""); // Optional: clear the field
+                return;
+            }
+            //        ✅ Validate name contains only letters and spaces
+            else if (!enteredName.matches("[a-zA-Z\\s]+")) {
+                JOptionPane.showMessageDialog(null, "Name must contain letters only (no numbers or symbols)", "Name Error", JOptionPane.ERROR_MESSAGE);
+                name.setText(""); // Optional: clear the field
+                return;
+            }
+            else if (enteredPay.isEmpty()) {
+                JOptionPane.showMessageDialog(null, "Please fill in Pay To field", "Input Error", JOptionPane.ERROR_MESSAGE);
+                return;
+            } else if (enteredAmount.isEmpty()) {
+                JOptionPane.showMessageDialog(null, "Please input an Amount", "Input Error", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+            //        Validation amount
+            else if (!enteredAmount.matches("\\d{1,6}")) {
+                JOptionPane.showMessageDialog(null, "Amount must be less than 6 digits and contain numbers only", "Amount Error", JOptionPane.ERROR_MESSAGE);
+                amount.setText(""); // Optional: clear the field
+                return;
+            } else {
+                int c = JOptionPane.showConfirmDialog(null,"Are you sure the information is correct?","Confirmation",JOptionPane.OK_CANCEL_OPTION      );
+
+                if (c == JOptionPane.OK_OPTION) {
+                    Integer servedNum = QUEUEING.queueA.peek();
+                    if (servedNum != null) {
+                        int index = servedNum - 1;
+                        if (index >= 0 && index < QUEUEING.nameBP.size()) {
+                            QUEUEING.nameBP.set(index, enteredName);
+                            QUEUEING.payToBP.set(index, enteredPay);
+                            QUEUEING.amountBP.set(index, enteredAmount);
+                        }
+                    }
+
+                    JOptionPane.showMessageDialog(null,
+                        "Information has been updated and saved.",
+                        "Success",
+                        JOptionPane.INFORMATION_MESSAGE);
+                    TICKET ticketFrame = new TICKET();
+                    ticketFrame.setVisible(true);
+                    QUEUEING.printReceiptA();
+
+                    servedNum = QUEUEING.queueA.poll();
+                    if (servedNum != null) {
+                        int index = servedNum - 1;
+                        QUEUEING.servedCountA++;;
+                        noOfServedA.setText(String.valueOf(QUEUEING.servedCountA));
+                        QUEUEING.showCurrentA();
+                        System.out.println(queueA);
+                    } else {
+                        serveA.setText(null);
+                        TV.serveA.setText(null);
+                        name.setText("");
+                        pay.setSelectedItem(null);
+                        amount.setText("");
+                    }
+                    name.setEnabled(false);
+                    pay.setEnabled(false);
+                    amount.setEnabled(false);
+
+                    new javax.swing.Timer(5000, e -> {
+
+                        ticketFrame.dispose();
+                    }).start();
+                }
+                break;
+            }
+        }
+        
+    }//GEN-LAST:event_confirmActionPerformed
+
+    private void cancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelActionPerformed
+        //BILLS PAYMENT
+        Integer servedNum = QUEUEING.queueA.poll();
+        if (servedNum != null) {
+            QUEUEING.showCurrentA();
+        } else {
+            serveA.setText(null);
+            TV.serveA.setText(null);
+            name.setText("");
+            pay.setSelectedItem(null);
+            amount.setText("");
+        }
+    }//GEN-LAST:event_cancelActionPerformed
+
+    private void callActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_callActionPerformed
+        QUEUEING.playClickSound();
+
+    }//GEN-LAST:event_callActionPerformed
+
+    private void exchangeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exchangeActionPerformed
+        ((CardLayout)container1.getLayout()).show(container1, "EDASH");
+    }//GEN-LAST:event_exchangeActionPerformed
+
+    private void applicationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_applicationActionPerformed
+        ((CardLayout)container1.getLayout()).show(container1, "ADASH");
+
+    }//GEN-LAST:event_applicationActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1068,9 +1042,6 @@ public class DASHBOARD extends javax.swing.JFrame {
     public static javax.swing.JTextField name;
     public static javax.swing.JTextField name1;
     public static javax.swing.JTextField name2;
-    private javax.swing.JButton next;
-    private javax.swing.JButton next1;
-    private javax.swing.JButton next2;
     public static javax.swing.JLabel noOfServedA;
     public static javax.swing.JLabel noOfServedB;
     public static javax.swing.JLabel noOfServedC;
