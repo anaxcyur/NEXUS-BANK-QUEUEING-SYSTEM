@@ -54,6 +54,7 @@ public static ArrayList<String> nameFE = new ArrayList<>();
 public static ArrayList<String> changeFE = new ArrayList<>();
 public static ArrayList<String> convertFE = new ArrayList<>();
 public static ArrayList<String> amountFE = new ArrayList<>();
+public static ArrayList<String> conAmountFE = new ArrayList<>();
 public static int servedCountC = 0; 
 
 
@@ -123,13 +124,15 @@ public static int servedCountC = 0;
             String servedAmount  = amountFE.get(index);
             String servedChange = changeFE.get(index);
             String servedConvert  = convertFE.get(index);
+            String conAmount= conAmountFE.get(index);
 
             String receipt = "<html><pre>"
                     + String.format("%-20s %s<br>", "Queue Number:", "A" + servedNum)
                     + String.format("%-20s %s<br>", "Customer Name:", servedName)
-                    + String.format("%-20s %s<br>", "Amount:", servedAmount)
                     + String.format("%-20s %s<br>", "Currency:", servedChange)
+                    + String.format("%-20s %s<br>", "Amount:", servedAmount)
                     + String.format("%-20s %s<br>", "Convert to:", servedConvert)
+                    + String.format("%-20s %s<br>", "Converted amount:", "PHP "+ conAmount)
                     + "</pre></html>";
 
             TICKET.resibo.setText(receipt);  
@@ -258,12 +261,14 @@ public static int servedCountC = 0;
                       String servedChange = QUEUEING.changeFE.get(index);
                       String servedConvert = QUEUEING.convertFE.get(index);
                       String servedAmount = QUEUEING.amountFE.get(index);
+                      String servedConAmount = QUEUEING.conAmountFE.get(index);
 
                     DASHBOARD.serveC.setText("C" + servedNum);
                     DASHBOARD.name2.setText(servedName);
                     DASHBOARD.change.setSelectedItem(servedChange);
                     DASHBOARD.convert.setSelectedItem(servedConvert);
                     DASHBOARD.amount3.setText(servedAmount);
+                    DASHBOARD.conAmount.setText(servedConAmount);
 
 
 
@@ -280,6 +285,39 @@ public static int servedCountC = 0;
                 TV.serveC.setText("");
     }
         }
+        public static void updateConversion() {
+            String am = DASHBOARD.amount3.getText().trim();
+            String chang = (String) DASHBOARD.change.getSelectedItem();
+
+            if (am.isEmpty() || chang == null || chang.isEmpty()) {
+                DASHBOARD.conAmount.setText(""); 
+                return;
+            }
+
+            try {
+                double amount = Double.parseDouble(am);
+                double convertedAmount = 0.0;
+
+                switch (chang.toUpperCase()) {
+                    case "USD":
+                        convertedAmount = amount * 56.5; // USD → PHP
+                        break;
+                    case "EUR":
+                        convertedAmount = amount * 60.2; // EUR → PHP
+                        break;
+                    case "JPY":
+                        convertedAmount = amount * 0.38; // JPY → PHP
+                        break;
+                    default:
+                        convertedAmount = amount;
+                }
+                DASHBOARD.conAmount.setText(String.format("%.2f PHP", convertedAmount));
+
+            } catch (NumberFormatException e) {
+                DASHBOARD.conAmount.setText(""); // clear if invalid number
+            }
+        }
+
 //DING SOUND
    public static void playClickSound() {
             try {

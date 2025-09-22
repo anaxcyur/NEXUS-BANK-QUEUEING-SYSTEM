@@ -36,8 +36,17 @@ public class DASHBOARD extends javax.swing.JFrame {
         pay.setEnabled(false);
         change.setEnabled(false);
         pay.setBackground(new Color(0, 0, 0, 0)); 
-            
-            
+        change.setBackground(new Color(0, 0, 0, 0)); 
+        
+        //edit ng amount sa fe
+        amount3.getDocument().addDocumentListener(new javax.swing.event.DocumentListener() {
+                public void insertUpdate(javax.swing.event.DocumentEvent e) { QUEUEING.updateConversion(); }
+                public void removeUpdate(javax.swing.event.DocumentEvent e) { QUEUEING.updateConversion(); }
+                public void changedUpdate(javax.swing.event.DocumentEvent e) { QUEUEING.updateConversion(); }
+            });
+
+           
+            change.addActionListener(e -> QUEUEING.updateConversion());   
    }
      
 
@@ -89,6 +98,7 @@ public class DASHBOARD extends javax.swing.JFrame {
         application2 = new javax.swing.JButton();
         call2 = new javax.swing.JButton();
         cancel2 = new javax.swing.JButton();
+        conAmount = new javax.swing.JTextField();
         amount3 = new javax.swing.JTextField();
         name2 = new javax.swing.JTextField();
         confirm2 = new javax.swing.JButton();
@@ -402,6 +412,16 @@ public class DASHBOARD extends javax.swing.JFrame {
         exchangedash.add(cancel2);
         cancel2.setBounds(410, 150, 140, 40);
 
+        conAmount.setBorder(null);
+        conAmount.setEnabled(false);
+        conAmount.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                conAmountActionPerformed(evt);
+            }
+        });
+        exchangedash.add(conAmount);
+        conAmount.setBounds(660, 420, 210, 30);
+
         amount3.setBorder(null);
         amount3.setEnabled(false);
         amount3.addActionListener(new java.awt.event.ActionListener() {
@@ -410,12 +430,12 @@ public class DASHBOARD extends javax.swing.JFrame {
             }
         });
         exchangedash.add(amount3);
-        amount3.setBounds(270, 470, 290, 20);
+        amount3.setBounds(610, 370, 260, 30);
 
         name2.setBorder(null);
         name2.setEnabled(false);
         exchangedash.add(name2);
-        name2.setBounds(270, 320, 290, 20);
+        name2.setBounds(240, 320, 270, 30);
 
         confirm2.setBorderPainted(false);
         confirm2.setContentAreaFilled(false);
@@ -425,7 +445,7 @@ public class DASHBOARD extends javax.swing.JFrame {
             }
         });
         exchangedash.add(confirm2);
-        confirm2.setBounds(390, 500, 90, 30);
+        confirm2.setBounds(540, 480, 90, 30);
 
         edit2.setBorderPainted(false);
         edit2.setContentAreaFilled(false);
@@ -435,7 +455,7 @@ public class DASHBOARD extends javax.swing.JFrame {
             }
         });
         exchangedash.add(edit2);
-        edit2.setBounds(280, 500, 100, 30);
+        edit2.setBounds(430, 480, 100, 30);
 
         logout2.setBorderPainted(false);
         logout2.setContentAreaFilled(false);
@@ -451,12 +471,12 @@ public class DASHBOARD extends javax.swing.JFrame {
         convert.setBorder(null);
         convert.setEnabled(false);
         exchangedash.add(convert);
-        convert.setBounds(270, 416, 290, 30);
+        convert.setBounds(260, 420, 250, 30);
 
-        change.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "USD", "EUR", "JPYN", " " }));
+        change.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "USD", "EUR", "JPY", " " }));
         change.setBorder(null);
         exchangedash.add(change);
-        change.setBounds(320, 370, 240, 20);
+        change.setBounds(310, 370, 200, 30);
 
         inQueueC.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
         inQueueC.setForeground(new java.awt.Color(255, 153, 0));
@@ -475,7 +495,7 @@ public class DASHBOARD extends javax.swing.JFrame {
         exchangedash.add(noOfServedC);
         noOfServedC.setBounds(820, 40, 50, 50);
 
-        Abg1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/foreign ex dashboard.png"))); // NOI18N
+        Abg1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/foreign ex dashboard (1).png"))); // NOI18N
         exchangedash.add(Abg1);
         Abg1.setBounds(-5, 0, 900, 550);
 
@@ -555,8 +575,9 @@ public class DASHBOARD extends javax.swing.JFrame {
     private void edit2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_edit2ActionPerformed
         name2.setEnabled(true);
         change.setEnabled(true);
-        amount.setEnabled(true);
+        amount3.setEnabled(true);
         convert.setEnabled(true);
+        
     }//GEN-LAST:event_edit2ActionPerformed
 
     private void cancel1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancel1ActionPerformed
@@ -782,6 +803,30 @@ public class DASHBOARD extends javax.swing.JFrame {
                         QUEUEING.amountFE.set(index, am);
                         QUEUEING.convertFE.set(index, conver);
                         
+                        
+                        double amount = Double.parseDouble(am);
+                        double convertedAmount = 0.0;
+                        switch (chang.toUpperCase()) {
+                            case "USD":
+                                convertedAmount = amount * 56.5;
+                                break;
+                            case "EUR":
+                                convertedAmount = amount * 60.2;
+                                break;
+                            case "JPY":
+                                convertedAmount = amount * 0.38;
+                                break;
+                            default:
+                                convertedAmount = amount;
+                        }
+
+                        String formattedCon = String.format("%.2f", convertedAmount);
+
+                        if (index < QUEUEING.conAmountFE.size()) {
+                            QUEUEING.conAmountFE.set(index, formattedCon);
+                        } else {
+                        }
+
                     }
                 }
 
@@ -798,6 +843,8 @@ public class DASHBOARD extends javax.swing.JFrame {
                 change.setEnabled(false);
                 amount3.setEnabled(false);
                 convert.setEnabled(false);
+                conAmount.setEnabled(false);
+                
 //NEXTCUSTOMER               
             servedNum = QUEUEING.queueC.poll();
             if (servedNum != null) {
@@ -811,6 +858,7 @@ public class DASHBOARD extends javax.swing.JFrame {
                 name2.setText("");
                 convert.setSelectedItem("");
                 amount3.setText("");
+                conAmount.setText("");
             }
                  new javax.swing.Timer(5000, e -> {
                
@@ -965,6 +1013,10 @@ public class DASHBOARD extends javax.swing.JFrame {
 
     }//GEN-LAST:event_applicationActionPerformed
 
+    private void conAmountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_conAmountActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_conAmountActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1021,6 +1073,7 @@ public class DASHBOARD extends javax.swing.JFrame {
     private javax.swing.JButton cancel1;
     private javax.swing.JButton cancel2;
     public static javax.swing.JComboBox<String> change;
+    public static javax.swing.JTextField conAmount;
     private javax.swing.JButton confirm;
     private javax.swing.JButton confirm1;
     private javax.swing.JButton confirm2;

@@ -274,7 +274,6 @@ public class CUSTOMER extends javax.swing.JFrame {
         name3.setBounds(80, 160, 310, 30);
 
         convert.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "PHP" }));
-        convert.setSelectedIndex(-1);
         convert.setBorder(null);
         FE.add(convert);
         convert.setBounds(470, 160, 290, 30);
@@ -367,69 +366,88 @@ public class CUSTOMER extends javax.swing.JFrame {
 
     private void confirm3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirm3ActionPerformed
         String enteredName = name3.getText().trim();
-        String enteredAmount = amount3.getText().trim();
-        String selectedChange = (String) change.getSelectedItem();
-        String selectedConvert = (String) convert.getSelectedItem();
+    String enteredAmount = amount3.getText().trim();
+    String selectedChange = (String) change.getSelectedItem();
+    String selectedConvert = (String) convert.getSelectedItem();
 
-        if (enteredName.isEmpty() || enteredAmount.isEmpty() ||
-            selectedChange == null || selectedChange.trim().isEmpty() ||
-            selectedConvert == null || selectedConvert.trim().isEmpty()) {
+    if (enteredName.isEmpty() || enteredAmount.isEmpty() ||
+        selectedChange == null || selectedChange.trim().isEmpty() ||
+        selectedConvert == null || selectedConvert.trim().isEmpty()) {
 
-            JOptionPane.showMessageDialog(null, "Please fill in all fields", "Input Error", JOptionPane.ERROR_MESSAGE);
-            return; 
-        }
-//          Validate Name 
-        if (enteredName.length() > 50) {
+        JOptionPane.showMessageDialog(null, "Please fill in all fields", "Input Error", JOptionPane.ERROR_MESSAGE);
+        return; 
+    }
+
+    // Validate Name
+    if (enteredName.length() > 50) {
         JOptionPane.showMessageDialog(null, "Name must be 50 characters or fewer", "Name Error", JOptionPane.ERROR_MESSAGE);
-        name3.setText(""); // Optional: clear the field
+        name3.setText("");
         return;
-        }
-//        ✅ Validate name contains only letters and spaces
-        if (!enteredName.matches("[a-zA-Z\\s]+")) {
-            JOptionPane.showMessageDialog(null, "Name must contain letters only (no numbers or symbols)", "Name Error", JOptionPane.ERROR_MESSAGE);
-            name3.setText(""); // Optional: clear the field
-            return;
-        }
-//        MKK VALIDATE AMOUNT
-        if (!enteredAmount.matches("\\d{1,6}")) {
-        JOptionPane.showMessageDialog(null, "Amount must less than 6 digits and contain numbers only", "Amount Error", JOptionPane.ERROR_MESSAGE);
-        amount3.setText(""); // Clear invalid input
+    }
+
+    if (!enteredName.matches("[a-zA-Z\\s]+")) {
+        JOptionPane.showMessageDialog(null, "Name must contain letters only (no numbers or symbols)", "Name Error", JOptionPane.ERROR_MESSAGE);
+        name3.setText("");
         return;
+    }
+
+    // Validate Amount
+    if (!enteredAmount.matches("\\d{1,6}")) {
+        JOptionPane.showMessageDialog(null, "Amount must be less than 6 digits and contain numbers only", "Amount Error", JOptionPane.ERROR_MESSAGE);
+        amount3.setText("");
+        return;
+    }
+
+    else {
+        double amount = Double.parseDouble(enteredAmount);
+        double convertedAmount = 0.0;
+
+        switch (selectedChange.toUpperCase()) {
+            case "USD":
+                convertedAmount = amount * 56.5;
+                break;
+            case "EUR":
+                convertedAmount = amount * 60.2;
+                break;
+            case "JPY":
+                convertedAmount = amount * 0.38;
+                break;
+            default:
+                convertedAmount = amount; 
         }
-        
-        else {
-            QUEUEING.nameFE.add(enteredName);
-            QUEUEING.amountFE.add(enteredAmount);
-            QUEUEING.changeFE.add(selectedChange);
-            QUEUEING.convertFE.add(selectedConvert);
+
+        // ✅ Save all details
+        QUEUEING.nameFE.add(enteredName);
+        QUEUEING.amountFE.add(enteredAmount);
+        QUEUEING.changeFE.add(selectedChange);
+        QUEUEING.convertFE.add(selectedConvert);
+        QUEUEING.conAmountFE.add(String.format("%.2f", convertedAmount)); // formatted
+    }
+
+    // Switch to queue panel
+    ((CardLayout)container.getLayout()).show(container, "queue");
+
+    int qnum = QUEUEING.counterC++;
+    QUEUEING.queueC.add(qnum);
+    queuenum.setText("C" + qnum);
+
+    QUEUEING.showCurrentC(); 
+
+    int delay = 5000; // 5 seconds
+    Timer timer = new Timer(delay, new ActionListener() {
+        public void actionPerformed(ActionEvent e) {
+            ((CardLayout)container.getLayout()).show(container, "main");
         }
+    });
 
-        ((CardLayout)container.getLayout()).show(container, "queue");
-       
-        
-        int qnum = QUEUEING.counterC++;
-        QUEUEING.queueC.add(qnum);
-        queuenum.setText("C" + qnum);
-        
-     
-        QUEUEING.showCurrentC(); 
-    
-        int delay = 5000; // 5 seconds
+    timer.setRepeats(false);
+    timer.start();
 
-        Timer timer = new Timer(delay, new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                ((CardLayout)container.getLayout()).show(container, "main");
-                
-            }
-        });
-
-        timer.setRepeats(false); 
-        timer.start();
-        name3.setText(null);
-        amount3.setText(null);
-        change.setSelectedItem(null);
-        convert.setSelectedItem(null);
-        
+    // Reset inputs
+    name3.setText(null);
+    amount3.setText(null);
+    change.setSelectedItem(null);
+    convert.setSelectedItem(null);
     }//GEN-LAST:event_confirm3ActionPerformed
 
     private void cancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelActionPerformed
