@@ -100,7 +100,7 @@
             <Component class="javax.swing.JLabel" name="dashboard">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/customer dashboard.png"/>
+                  <Image iconType="2" name="C:\Users\lucky\Downloads\Final Design\customer dashboard.png"/>
                 </Property>
               </Properties>
               <Constraints>
@@ -206,7 +206,7 @@
             <Component class="javax.swing.JLabel" name="BPbg">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/customer bills payment.png"/>
+                  <Image iconType="2" name="C:\Users\lucky\Downloads\Final Design\customer bills payment.png"/>
                 </Property>
               </Properties>
               <Constraints>
@@ -257,9 +257,11 @@
             </Component>
             <Component class="javax.swing.JTextField" name="bday">
               <Properties>
+                <Property name="toolTipText" type="java.lang.String" value=""/>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="null"/>
                 </Property>
+                <Property name="name" type="java.lang.String" value="" noResource="true"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bdayActionPerformed"/>
@@ -302,6 +304,7 @@
             </Component>
             <Component class="javax.swing.JTextField" name="number">
               <Properties>
+                <Property name="text" type="java.lang.String" value="+63"/>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="null"/>
                 </Property>
@@ -349,7 +352,7 @@
             <Component class="javax.swing.JLabel" name="APLIbg">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/customer application.png"/>
+                  <Image iconType="2" name="C:\Users\lucky\Downloads\Final Design\customer application.png"/>
                 </Property>
               </Properties>
               <Constraints>
@@ -475,7 +478,7 @@
             <Component class="javax.swing.JLabel" name="FEbg">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/customer foreign exchange.png"/>
+                  <Image iconType="2" name="C:\Users\lucky\Downloads\Final Design\customer foreign exchange.png"/>
                 </Property>
               </Properties>
               <Constraints>
@@ -517,7 +520,7 @@
             <Component class="javax.swing.JLabel" name="queuebg">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/queue.png"/>
+                  <Image iconType="3" name="/Final Design/queue.png"/>
                 </Property>
               </Properties>
               <Constraints>

@@ -149,7 +149,7 @@ public class DASHBOARD extends javax.swing.JFrame {
             }
         });
         billsdash.add(call);
-        call.setBounds(410, 90, 140, 40);
+        call.setBounds(410, 50, 140, 40);
 
         cancel.setBorderPainted(false);
         cancel.setContentAreaFilled(false);
@@ -159,18 +159,22 @@ public class DASHBOARD extends javax.swing.JFrame {
             }
         });
         billsdash.add(cancel);
-        cancel.setBounds(410, 150, 140, 40);
+        cancel.setBounds(410, 130, 140, 50);
 
+        amount.setBackground(new java.awt.Color(255, 255, 255));
         amount.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         amount.setEnabled(false);
+        amount.setOpaque(true);
         billsdash.add(amount);
-        amount.setBounds(280, 430, 320, 20);
+        amount.setBounds(280, 430, 310, 20);
 
+        name.setBackground(new java.awt.Color(255, 255, 255));
         name.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         name.setCaretColor(new java.awt.Color(255, 255, 255));
         name.setEnabled(false);
+        name.setOpaque(true);
         billsdash.add(name);
-        name.setBounds(280, 330, 320, 20);
+        name.setBounds(280, 330, 310, 20);
 
         confirm.setBorderPainted(false);
         confirm.setContentAreaFilled(false);
@@ -200,11 +204,13 @@ public class DASHBOARD extends javax.swing.JFrame {
             }
         });
         billsdash.add(logout);
-        logout.setBounds(30, 510, 100, 20);
+        logout.setBounds(30, 510, 100, 30);
 
+        pay.setBackground(new java.awt.Color(255, 255, 255));
         pay.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Maynilad", "Meralco", "Globe", "PLDT", "Smart" }));
         pay.setSelectedItem(null);
         pay.setBorder(null);
+        pay.setEnabled(false);
         billsdash.add(pay);
         pay.setBounds(280, 370, 310, 40);
 
@@ -226,12 +232,13 @@ public class DASHBOARD extends javax.swing.JFrame {
         billsdash.add(noOfServedA);
         noOfServedA.setBounds(820, 40, 50, 50);
 
-        Bbg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bills payment dashboard.png"))); // NOI18N
+        Bbg.setIcon(new javax.swing.ImageIcon("C:\\Users\\lucky\\Downloads\\Final Design\\bills payment dashboard.png")); // NOI18N
         billsdash.add(Bbg);
         Bbg.setBounds(-5, 0, 900, 550);
 
         container1.add(billsdash, "BDASH");
 
+        applidash.setEnabled(false);
         applidash.setLayout(null);
 
         billspayment.setBorderPainted(false);
@@ -262,7 +269,7 @@ public class DASHBOARD extends javax.swing.JFrame {
             }
         });
         applidash.add(call1);
-        call1.setBounds(410, 90, 140, 40);
+        call1.setBounds(410, 50, 140, 40);
 
         cancel1.setBorderPainted(false);
         cancel1.setContentAreaFilled(false);
@@ -272,13 +279,15 @@ public class DASHBOARD extends javax.swing.JFrame {
             }
         });
         applidash.add(cancel1);
-        cancel1.setBounds(410, 150, 140, 40);
+        cancel1.setBounds(410, 130, 140, 50);
 
+        number.setBackground(new java.awt.Color(255, 255, 255));
         number.setBorder(null);
         number.setEnabled(false);
         applidash.add(number);
         number.setBounds(270, 370, 250, 20);
 
+        bday.setBackground(new java.awt.Color(255, 255, 255));
         bday.setBorder(null);
         bday.setEnabled(false);
         bday.addActionListener(new java.awt.event.ActionListener() {
@@ -289,6 +298,7 @@ public class DASHBOARD extends javax.swing.JFrame {
         applidash.add(bday);
         bday.setBounds(270, 470, 250, 20);
 
+        name1.setBackground(new java.awt.Color(255, 255, 255));
         name1.setBorder(null);
         name1.setEnabled(false);
         name1.addActionListener(new java.awt.event.ActionListener() {
@@ -329,6 +339,7 @@ public class DASHBOARD extends javax.swing.JFrame {
         applidash.add(logout1);
         logout1.setBounds(30, 510, 100, 20);
 
+        address1.setBackground(new java.awt.Color(255, 255, 255));
         address1.setBorder(null);
         address1.setEnabled(false);
         address1.addActionListener(new java.awt.event.ActionListener() {
@@ -339,13 +350,17 @@ public class DASHBOARD extends javax.swing.JFrame {
         applidash.add(address1);
         address1.setBounds(270, 420, 250, 20);
 
+        occupation.setBackground(new java.awt.Color(255, 255, 255));
+        occupation.setBorder(null);
         occupation.setEnabled(false);
         applidash.add(occupation);
-        occupation.setBounds(620, 320, 230, 22);
+        occupation.setBounds(620, 320, 230, 20);
 
+        email.setBackground(new java.awt.Color(255, 255, 255));
+        email.setBorder(null);
         email.setEnabled(false);
         applidash.add(email);
-        email.setBounds(630, 370, 220, 22);
+        email.setBounds(630, 370, 220, 20);
 
         inQueueB.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
         inQueueB.setForeground(new java.awt.Color(255, 153, 0));
@@ -364,12 +379,13 @@ public class DASHBOARD extends javax.swing.JFrame {
         applidash.add(noOfServedB);
         noOfServedB.setBounds(820, 40, 50, 50);
 
-        Abg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/application dashboard_1.png"))); // NOI18N
+        Abg.setIcon(new javax.swing.ImageIcon("C:\\Users\\lucky\\Downloads\\Final Design\\application dashboard.png")); // NOI18N
         applidash.add(Abg);
         Abg.setBounds(-5, 0, 900, 550);
 
         container1.add(applidash, "ADASH");
 
+        exchangedash.setBackground(null);
         exchangedash.setLayout(null);
 
         billspayment1.setBorderPainted(false);
@@ -380,7 +396,7 @@ public class DASHBOARD extends javax.swing.JFrame {
             }
         });
         exchangedash.add(billspayment1);
-        billspayment1.setBounds(10, 130, 140, 30);
+        billspayment1.setBounds(10, 130, 140, 40);
 
         application2.setBorderPainted(false);
         application2.setContentAreaFilled(false);
@@ -400,7 +416,7 @@ public class DASHBOARD extends javax.swing.JFrame {
             }
         });
         exchangedash.add(call2);
-        call2.setBounds(410, 90, 140, 40);
+        call2.setBounds(410, 50, 140, 40);
 
         cancel2.setBorderPainted(false);
         cancel2.setContentAreaFilled(false);
@@ -410,10 +426,11 @@ public class DASHBOARD extends javax.swing.JFrame {
             }
         });
         exchangedash.add(cancel2);
-        cancel2.setBounds(410, 150, 140, 40);
+        cancel2.setBounds(410, 130, 140, 50);
 
+        conAmount.setEditable(false);
+        conAmount.setBackground(new java.awt.Color(255, 255, 255));
         conAmount.setBorder(null);
-        conAmount.setEnabled(false);
         conAmount.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 conAmountActionPerformed(evt);
@@ -422,6 +439,7 @@ public class DASHBOARD extends javax.swing.JFrame {
         exchangedash.add(conAmount);
         conAmount.setBounds(660, 420, 210, 30);
 
+        amount3.setBackground(new java.awt.Color(255, 255, 255));
         amount3.setBorder(null);
         amount3.setEnabled(false);
         amount3.addActionListener(new java.awt.event.ActionListener() {
@@ -432,6 +450,7 @@ public class DASHBOARD extends javax.swing.JFrame {
         exchangedash.add(amount3);
         amount3.setBounds(610, 370, 260, 30);
 
+        name2.setBackground(new java.awt.Color(255, 255, 255));
         name2.setBorder(null);
         name2.setEnabled(false);
         exchangedash.add(name2);
@@ -467,14 +486,17 @@ public class DASHBOARD extends javax.swing.JFrame {
         exchangedash.add(logout2);
         logout2.setBounds(30, 510, 100, 20);
 
+        convert.setBackground(new java.awt.Color(255, 255, 255));
         convert.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "PHP", " " }));
         convert.setBorder(null);
         convert.setEnabled(false);
         exchangedash.add(convert);
         convert.setBounds(260, 420, 250, 30);
 
+        change.setBackground(new java.awt.Color(255, 255, 255));
         change.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "USD", "EUR", "JPY", " " }));
         change.setBorder(null);
+        change.setEnabled(false);
         exchangedash.add(change);
         change.setBounds(310, 370, 200, 30);
 
@@ -495,7 +517,7 @@ public class DASHBOARD extends javax.swing.JFrame {
         exchangedash.add(noOfServedC);
         noOfServedC.setBounds(820, 40, 50, 50);
 
-        Abg1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/foreign ex dashboard (1).png"))); // NOI18N
+        Abg1.setIcon(new javax.swing.ImageIcon("C:\\Users\\lucky\\Downloads\\Final Design\\foreign ex dashboard.png")); // NOI18N
         exchangedash.add(Abg1);
         Abg1.setBounds(-5, 0, 900, 550);
 
@@ -540,10 +562,11 @@ public class DASHBOARD extends javax.swing.JFrame {
         int option = JOptionPane.showConfirmDialog(null,"Are you sure you want to logout?","Logout?",JOptionPane.OK_CANCEL_OPTION,JOptionPane.PLAIN_MESSAGE);
         
         if (option == JOptionPane.OK_OPTION) {
+            
+            new CUSTOMER().setVisible(false);
+            new TV().setVisible(false);
             this.setVisible(false);
             new EMPLOYEE().setVisible(true);
-            new TV().setVisible(false);
-            new CUSTOMER().setVisible(false);
         }
     }//GEN-LAST:event_logout1ActionPerformed
 
@@ -552,10 +575,11 @@ public class DASHBOARD extends javax.swing.JFrame {
         int option = JOptionPane.showConfirmDialog(null,"Are you sure you want to logout?","Logout?",JOptionPane.OK_CANCEL_OPTION,JOptionPane.PLAIN_MESSAGE);
         
         if (option == JOptionPane.OK_OPTION) {
+            
+            new CUSTOMER().setVisible(false);
+            new TV().setVisible(false);
             this.setVisible(false);
             new EMPLOYEE().setVisible(true);
-            new TV().setVisible(false);
-            new CUSTOMER().setVisible(false);
         }
     }//GEN-LAST:event_logout2ActionPerformed
 
@@ -582,28 +606,35 @@ public class DASHBOARD extends javax.swing.JFrame {
 
     private void cancel1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancel1ActionPerformed
          //APPLICATION
-        Integer servedNum = QUEUEING.queueB.poll();
-          if (servedNum != null) {
-              int index = servedNum - 1; 
-              QUEUEING.showCurrentB();
-          } else {
-              serveB.setText(null);
-              TV.serveB.setText(null);
-              name1.setText("");
-              number.setText("");
-              address1.setText("");
-              bday.setText("");
-              occupation.setText("");
-              email.setText("");
-          }
+        if (QUEUEING.queueC.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "The queue is empty!", "Error", JOptionPane.ERROR_MESSAGE);
+        } else {
+            Integer servedNum = QUEUEING.queueB.poll();
+            if (servedNum != null) {
+                int index = servedNum - 1; 
+                QUEUEING.showCurrentB();
+            } else {
+                serveB.setText(null);
+                TV.serveB.setText(null);
+                name1.setText("");
+                number.setText("");
+                address1.setText("");
+                bday.setText("");
+                occupation.setText("");
+                email.setText("");
+            }
+        }
     }//GEN-LAST:event_cancel1ActionPerformed
 
     private void cancel2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancel2ActionPerformed
        //FOREIGN EXCHANGE
-        Integer servedNum = QUEUEING.queueC.poll();
+        if (QUEUEING.queueC.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "The queue is empty!", "Error", JOptionPane.ERROR_MESSAGE);
+        } else {
+            Integer servedNum = QUEUEING.queueC.poll();
             if (servedNum != null) {
-                int index = servedNum - 1; 
-               QUEUEING.showCurrentC();
+                int index = servedNum - 1;
+                QUEUEING.showCurrentC();
             } else {
                 serveC.setText(null);
                 TV.serveC.setText(null);
@@ -611,6 +642,7 @@ public class DASHBOARD extends javax.swing.JFrame {
                 convert.setSelectedItem("");
                 amount3.setText("");
             }
+}
     }//GEN-LAST:event_cancel2ActionPerformed
 
     private void confirm1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirm1ActionPerformed
@@ -880,13 +912,14 @@ public class DASHBOARD extends javax.swing.JFrame {
 
     private void logoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutActionPerformed
 
-        int option = JOptionPane.showConfirmDialog(null,"Are you sure you want to logout?","Logout?",JOptionPane.OK_CANCEL_OPTION,JOptionPane.PLAIN_MESSAGE);
-
+       int option = JOptionPane.showConfirmDialog(null,"Are you sure you want to logout?","Logout?",JOptionPane.OK_CANCEL_OPTION,JOptionPane.PLAIN_MESSAGE);
+        
         if (option == JOptionPane.OK_OPTION) {
+            
+            new CUSTOMER().setVisible(false);
+            new TV().setVisible(false);
             this.setVisible(false);
             new EMPLOYEE().setVisible(true);
-            new TV().setVisible(false);
-            new CUSTOMER().setVisible(false);
         }
     }//GEN-LAST:event_logoutActionPerformed
 
@@ -987,15 +1020,19 @@ public class DASHBOARD extends javax.swing.JFrame {
 
     private void cancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelActionPerformed
         //BILLS PAYMENT
-        Integer servedNum = QUEUEING.queueA.poll();
-        if (servedNum != null) {
-            QUEUEING.showCurrentA();
+        if (QUEUEING.queueA.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "The queue is empty!", "Error", JOptionPane.ERROR_MESSAGE);
         } else {
-            serveA.setText(null);
-            TV.serveA.setText(null);
-            name.setText("");
-            pay.setSelectedItem(null);
-            amount.setText("");
+            Integer servedNum = QUEUEING.queueA.poll();
+            if (servedNum != null) {
+                QUEUEING.showCurrentA();
+            } else {
+                serveA.setText(null);
+                TV.serveA.setText(null);
+                name.setText("");
+                pay.setSelectedItem(null);
+                amount.setText("");
+            }
         }
     }//GEN-LAST:event_cancelActionPerformed
 

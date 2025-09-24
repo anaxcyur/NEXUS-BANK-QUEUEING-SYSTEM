@@ -125,7 +125,7 @@ public class TV extends javax.swing.JFrame {
         jPanel1.add(jScrollPane3);
         jScrollPane3.setBounds(570, 260, 130, 130);
 
-        TVbg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/TV.png"))); // NOI18N
+        TVbg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Final Design/TV.png"))); // NOI18N
         jPanel1.add(TVbg);
         TVbg.setBounds(0, 0, 794, 400);
 

@@ -32,8 +32,10 @@ public class TICKET extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBounds(new java.awt.Rectangle(620, 260, 300, 400));
         setMinimumSize(new java.awt.Dimension(300, 400));
         setUndecorated(true);
+        setResizable(false);
         getContentPane().setLayout(null);
 
         jPanel1.setLayout(null);

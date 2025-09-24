@@ -128,7 +128,7 @@ public class CUSTOMER extends javax.swing.JFrame {
         main.add(bills);
         bills.setBounds(250, 180, 310, 40);
 
-        dashboard.setIcon(new javax.swing.ImageIcon(getClass().getResource("/customer dashboard.png"))); // NOI18N
+        dashboard.setIcon(new javax.swing.ImageIcon("C:\\Users\\lucky\\Downloads\\Final Design\\customer dashboard.png")); // NOI18N
         main.add(dashboard);
         dashboard.setBounds(0, 0, 800, 400);
 
@@ -175,7 +175,7 @@ public class CUSTOMER extends javax.swing.JFrame {
         BP.add(confirm);
         confirm.setBounds(410, 360, 90, 30);
 
-        BPbg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/customer bills payment.png"))); // NOI18N
+        BPbg.setIcon(new javax.swing.ImageIcon("C:\\Users\\lucky\\Downloads\\Final Design\\customer bills payment.png")); // NOI18N
         BP.add(BPbg);
         BPbg.setBounds(0, 0, 800, 400);
 
@@ -196,7 +196,9 @@ public class CUSTOMER extends javax.swing.JFrame {
         APLI.add(fname);
         fname.setBounds(110, 146, 270, 30);
 
+        bday.setToolTipText("");
         bday.setBorder(null);
+        bday.setName(""); // NOI18N
         bday.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bdayActionPerformed(evt);
@@ -223,6 +225,7 @@ public class CUSTOMER extends javax.swing.JFrame {
         APLI.add(occupation);
         occupation.setBounds(490, 150, 270, 20);
 
+        number.setText("+63");
         number.setBorder(null);
         number.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -252,7 +255,7 @@ public class CUSTOMER extends javax.swing.JFrame {
         APLI.add(confirm1);
         confirm1.setBounds(410, 360, 90, 30);
 
-        APLIbg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/customer application.png"))); // NOI18N
+        APLIbg.setIcon(new javax.swing.ImageIcon("C:\\Users\\lucky\\Downloads\\Final Design\\customer application.png")); // NOI18N
         APLI.add(APLIbg);
         APLIbg.setBounds(0, 0, 800, 400);
 
@@ -304,7 +307,7 @@ public class CUSTOMER extends javax.swing.JFrame {
         FE.add(change);
         change.setBounds(150, 210, 240, 30);
 
-        FEbg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/customer foreign exchange.png"))); // NOI18N
+        FEbg.setIcon(new javax.swing.ImageIcon("C:\\Users\\lucky\\Downloads\\Final Design\\customer foreign exchange.png")); // NOI18N
         FE.add(FEbg);
         FEbg.setBounds(0, 0, 800, 400);
 
@@ -319,7 +322,7 @@ public class CUSTOMER extends javax.swing.JFrame {
         queue.add(queuenum);
         queuenum.setBounds(260, 150, 270, 150);
 
-        queuebg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/queue.png"))); // NOI18N
+        queuebg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Final Design/queue.png"))); // NOI18N
         queue.add(queuebg);
         queuebg.setBounds(0, 0, 800, 400);
 
@@ -451,14 +454,29 @@ public class CUSTOMER extends javax.swing.JFrame {
     }//GEN-LAST:event_confirm3ActionPerformed
 
     private void cancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelActionPerformed
+        name.setText(null);
+        amount.setText(null);
+        paytoOptions.setSelectedItem(null);
         ((CardLayout)container.getLayout()).show(container, "main");
+        
     }//GEN-LAST:event_cancelActionPerformed
 
     private void cancel1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancel1ActionPerformed
+        fname.setText(null);
+        number.setText(null);
+        address.setText(null);
+        bday.setText(null);
+        occupation.setText(null);
+        email.setText(null);
         ((CardLayout)container.getLayout()).show(container, "main");
     }//GEN-LAST:event_cancel1ActionPerformed
 
     private void cancel3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancel3ActionPerformed
+
+        name3.setText(null);
+        amount3.setText(null);
+        change.setSelectedItem(null);
+        convert.setSelectedItem(null);
         ((CardLayout)container.getLayout()).show(container, "main");
     }//GEN-LAST:event_cancel3ActionPerformed
 

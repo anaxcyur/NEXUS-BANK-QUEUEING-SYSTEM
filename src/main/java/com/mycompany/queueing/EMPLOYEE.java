@@ -83,7 +83,7 @@ public class EMPLOYEE extends javax.swing.JFrame {
             }
         });
         jPanel1.add(login);
-        login.setBounds(480, 590, 480, 60);
+        login.setBounds(480, 590, 480, 70);
 
         clear.setBackground(new java.awt.Color(204, 204, 0));
         clear.setForeground(new java.awt.Color(0, 0, 0));
@@ -117,7 +117,7 @@ public class EMPLOYEE extends javax.swing.JFrame {
         jPanel1.add(show);
         show.setBounds(990, 510, 40, 30);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/login.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\lucky\\Downloads\\Final Design\\login.png")); // NOI18N
         jPanel1.add(jLabel1);
         jLabel1.setBounds(0, 0, 1440, 900);
 
