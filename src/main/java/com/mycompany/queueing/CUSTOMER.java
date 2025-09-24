@@ -128,7 +128,7 @@ public class CUSTOMER extends javax.swing.JFrame {
         main.add(bills);
         bills.setBounds(250, 180, 310, 40);
 
-        dashboard.setIcon(new javax.swing.ImageIcon("C:\\Users\\lucky\\Downloads\\Final Design\\customer dashboard.png")); // NOI18N
+        dashboard.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Final Design/customer dashboard.png"))); // NOI18N
         main.add(dashboard);
         dashboard.setBounds(0, 0, 800, 400);
 
@@ -175,7 +175,7 @@ public class CUSTOMER extends javax.swing.JFrame {
         BP.add(confirm);
         confirm.setBounds(410, 360, 90, 30);
 
-        BPbg.setIcon(new javax.swing.ImageIcon("C:\\Users\\lucky\\Downloads\\Final Design\\customer bills payment.png")); // NOI18N
+        BPbg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Final Design/customer bills payment.png"))); // NOI18N
         BP.add(BPbg);
         BPbg.setBounds(0, 0, 800, 400);
 
@@ -255,7 +255,7 @@ public class CUSTOMER extends javax.swing.JFrame {
         APLI.add(confirm1);
         confirm1.setBounds(410, 360, 90, 30);
 
-        APLIbg.setIcon(new javax.swing.ImageIcon("C:\\Users\\lucky\\Downloads\\Final Design\\customer application.png")); // NOI18N
+        APLIbg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Final Design/customer application.png"))); // NOI18N
         APLI.add(APLIbg);
         APLIbg.setBounds(0, 0, 800, 400);
 
@@ -307,7 +307,7 @@ public class CUSTOMER extends javax.swing.JFrame {
         FE.add(change);
         change.setBounds(150, 210, 240, 30);
 
-        FEbg.setIcon(new javax.swing.ImageIcon("C:\\Users\\lucky\\Downloads\\Final Design\\customer foreign exchange.png")); // NOI18N
+        FEbg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Final Design/customer foreign exchange.png"))); // NOI18N
         FE.add(FEbg);
         FEbg.setBounds(0, 0, 800, 400);
 

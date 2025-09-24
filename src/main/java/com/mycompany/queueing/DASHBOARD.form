@@ -289,7 +289,7 @@
             <Component class="javax.swing.JLabel" name="Bbg">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="2" name="C:\Users\lucky\Downloads\Final Design\bills payment dashboard.png"/>
+                  <Image iconType="3" name="/Final Design/bills payment dashboard.png"/>
                 </Property>
               </Properties>
               <Constraints>
@@ -594,7 +594,7 @@
             <Component class="javax.swing.JLabel" name="Abg">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="2" name="C:\Users\lucky\Downloads\Final Design\application dashboard.png"/>
+                  <Image iconType="3" name="/Final Design/application dashboard.png"/>
                 </Property>
               </Properties>
               <Constraints>
@@ -606,11 +606,6 @@
           </SubComponents>
         </Container>
         <Container class="javax.swing.JPanel" name="exchangedash">
-          <Properties>
-            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color type="null"/>
-            </Property>
-          </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
               <CardConstraints cardName="EDASH"/>
@@ -895,7 +890,7 @@
             <Component class="javax.swing.JLabel" name="Abg1">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="2" name="C:\Users\lucky\Downloads\Final Design\foreign ex dashboard.png"/>
+                  <Image iconType="3" name="/Final Design/foreign ex dashboard.png"/>
                 </Property>
               </Properties>
               <Constraints>

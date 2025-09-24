@@ -232,7 +232,7 @@ public class DASHBOARD extends javax.swing.JFrame {
         billsdash.add(noOfServedA);
         noOfServedA.setBounds(820, 40, 50, 50);
 
-        Bbg.setIcon(new javax.swing.ImageIcon("C:\\Users\\lucky\\Downloads\\Final Design\\bills payment dashboard.png")); // NOI18N
+        Bbg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Final Design/bills payment dashboard.png"))); // NOI18N
         billsdash.add(Bbg);
         Bbg.setBounds(-5, 0, 900, 550);
 
@@ -379,13 +379,12 @@ public class DASHBOARD extends javax.swing.JFrame {
         applidash.add(noOfServedB);
         noOfServedB.setBounds(820, 40, 50, 50);
 
-        Abg.setIcon(new javax.swing.ImageIcon("C:\\Users\\lucky\\Downloads\\Final Design\\application dashboard.png")); // NOI18N
+        Abg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Final Design/application dashboard.png"))); // NOI18N
         applidash.add(Abg);
         Abg.setBounds(-5, 0, 900, 550);
 
         container1.add(applidash, "ADASH");
 
-        exchangedash.setBackground(null);
         exchangedash.setLayout(null);
 
         billspayment1.setBorderPainted(false);
@@ -517,7 +516,7 @@ public class DASHBOARD extends javax.swing.JFrame {
         exchangedash.add(noOfServedC);
         noOfServedC.setBounds(820, 40, 50, 50);
 
-        Abg1.setIcon(new javax.swing.ImageIcon("C:\\Users\\lucky\\Downloads\\Final Design\\foreign ex dashboard.png")); // NOI18N
+        Abg1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Final Design/foreign ex dashboard.png"))); // NOI18N
         exchangedash.add(Abg1);
         Abg1.setBounds(-5, 0, 900, 550);
 

@@ -117,7 +117,7 @@ public class EMPLOYEE extends javax.swing.JFrame {
         jPanel1.add(show);
         show.setBounds(990, 510, 40, 30);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\lucky\\Downloads\\Final Design\\login.png")); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Final Design/login.png"))); // NOI18N
         jPanel1.add(jLabel1);
         jLabel1.setBounds(0, 0, 1440, 900);
 
