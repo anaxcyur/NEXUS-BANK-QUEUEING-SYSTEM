@@ -28,6 +28,10 @@ public class QUEUEING {
 public static String username = "BankQueue";
 public static String password = "12345";
 
+public static CUSTOMER customerWindow;
+public static TV tvWindow;
+public static EMPLOYEE employeeWindow;
+
 // for Bills Payment:
 public static Queue <Integer> queueA = new LinkedList<Integer>();
 public static int counterA = 1;
@@ -57,6 +61,9 @@ public static ArrayList<String> amountFE = new ArrayList<>();
 public static ArrayList<String> conAmountFE = new ArrayList<>();
 public static int servedCountC = 0; 
 
+
+
+  
 
 
     public static void printReceiptA() {

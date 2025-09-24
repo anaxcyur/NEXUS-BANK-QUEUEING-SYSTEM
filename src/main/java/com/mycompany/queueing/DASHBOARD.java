@@ -558,28 +558,32 @@ public class DASHBOARD extends javax.swing.JFrame {
 
     private void logout1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logout1ActionPerformed
         
-        int option = JOptionPane.showConfirmDialog(null,"Are you sure you want to logout?","Logout?",JOptionPane.OK_CANCEL_OPTION,JOptionPane.PLAIN_MESSAGE);
+         int option = JOptionPane.showConfirmDialog(null,"Are you sure you want to logout?","Logout?",JOptionPane.OK_CANCEL_OPTION,JOptionPane.PLAIN_MESSAGE);
         
-        if (option == JOptionPane.OK_OPTION) {
-            
-            new CUSTOMER().setVisible(false);
-            new TV().setVisible(false);
-            this.setVisible(false);
-            new EMPLOYEE().setVisible(true);
+         if (option == JOptionPane.OK_OPTION) {
+        // Dispose all open windows
+        for (java.awt.Window w : java.awt.Window.getWindows()) {
+            w.dispose();
         }
+
+        // Show login again
+        new EMPLOYEE().setVisible(true);
+    }
     }//GEN-LAST:event_logout1ActionPerformed
 
     private void logout2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logout2ActionPerformed
         
-        int option = JOptionPane.showConfirmDialog(null,"Are you sure you want to logout?","Logout?",JOptionPane.OK_CANCEL_OPTION,JOptionPane.PLAIN_MESSAGE);
+         int option = JOptionPane.showConfirmDialog(null,"Are you sure you want to logout?","Logout?",JOptionPane.OK_CANCEL_OPTION,JOptionPane.PLAIN_MESSAGE);
         
-        if (option == JOptionPane.OK_OPTION) {
-            
-            new CUSTOMER().setVisible(false);
-            new TV().setVisible(false);
-            this.setVisible(false);
-            new EMPLOYEE().setVisible(true);
-        }
+            if (option == JOptionPane.OK_OPTION) {
+           // Dispose all open windows
+           for (java.awt.Window w : java.awt.Window.getWindows()) {
+               w.dispose();
+           }
+
+           // Show login again
+           new EMPLOYEE().setVisible(true);
+       }
     }//GEN-LAST:event_logout2ActionPerformed
 
     private void edit1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_edit1ActionPerformed
@@ -913,13 +917,15 @@ public class DASHBOARD extends javax.swing.JFrame {
 
        int option = JOptionPane.showConfirmDialog(null,"Are you sure you want to logout?","Logout?",JOptionPane.OK_CANCEL_OPTION,JOptionPane.PLAIN_MESSAGE);
         
-        if (option == JOptionPane.OK_OPTION) {
-            
-            new CUSTOMER().setVisible(false);
-            new TV().setVisible(false);
-            this.setVisible(false);
-            new EMPLOYEE().setVisible(true);
+         if (option == JOptionPane.OK_OPTION) {
+        // Dispose all open windows
+        for (java.awt.Window w : java.awt.Window.getWindows()) {
+            w.dispose();
         }
+
+        // Show login again
+        new EMPLOYEE().setVisible(true);
+    }
     }//GEN-LAST:event_logoutActionPerformed
 
     private void editActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editActionPerformed
