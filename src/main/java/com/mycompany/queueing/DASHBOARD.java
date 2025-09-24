@@ -30,6 +30,8 @@ public class DASHBOARD extends javax.swing.JFrame {
      */
     public DASHBOARD() {
         initComponents();
+        
+
         convert.setOpaque(false); 
         convert.setBackground(new Color(0, 0, 0, 0)); 
         pay.setOpaque(false); 
@@ -47,6 +49,8 @@ public class DASHBOARD extends javax.swing.JFrame {
 
            
             change.addActionListener(e -> QUEUEING.updateConversion());   
+            
+            
    }
      
 
@@ -563,7 +567,7 @@ public class DASHBOARD extends javax.swing.JFrame {
          if (option == JOptionPane.OK_OPTION) {
         // Dispose all open windows
         for (java.awt.Window w : java.awt.Window.getWindows()) {
-            w.dispose();
+            w.setVisible(false);
         }
 
         // Show login again
@@ -578,7 +582,7 @@ public class DASHBOARD extends javax.swing.JFrame {
             if (option == JOptionPane.OK_OPTION) {
            // Dispose all open windows
            for (java.awt.Window w : java.awt.Window.getWindows()) {
-               w.dispose();
+                w.setVisible(false);
            }
 
            // Show login again
@@ -918,12 +922,11 @@ public class DASHBOARD extends javax.swing.JFrame {
        int option = JOptionPane.showConfirmDialog(null,"Are you sure you want to logout?","Logout?",JOptionPane.OK_CANCEL_OPTION,JOptionPane.PLAIN_MESSAGE);
         
          if (option == JOptionPane.OK_OPTION) {
-        // Dispose all open windows
+  
         for (java.awt.Window w : java.awt.Window.getWindows()) {
-            w.dispose();
+             w.setVisible(false);
         }
 
-        // Show login again
         new EMPLOYEE().setVisible(true);
     }
     }//GEN-LAST:event_logoutActionPerformed

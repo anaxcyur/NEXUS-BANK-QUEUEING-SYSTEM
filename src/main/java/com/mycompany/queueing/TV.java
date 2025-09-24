@@ -31,7 +31,8 @@ public class TV extends javax.swing.JFrame {
          jScrollPane3.getViewport().setOpaque(false);
          waitingA.setEditable(false);
          waitingB.setEditable(false);
-         waitingC.setEditable(false);        
+         waitingC.setEditable(false);     
+         
     }
     
     

@@ -136,7 +136,10 @@ public class EMPLOYEE extends javax.swing.JFrame {
             new CUSTOMER().setVisible(true);
             new TV().setVisible(true);
             new DASHBOARD().setVisible(true);
-            
+            QUEUEING.showCurrentA();
+            QUEUEING.showCurrentB();
+            QUEUEING.showCurrentC();
+
         } else if (un.equals(QUEUEING.username) && !p.equals(QUEUEING.password)){
             JOptionPane.showMessageDialog(null,"INVALID PASSWORD!", "Error", JOptionPane.WARNING_MESSAGE);
         } else if (!un.equals(QUEUEING.username) && p.equals(QUEUEING.password)){
