@@ -58,7 +58,10 @@ public static ArrayList<String> amountFE = new ArrayList<>();
 public static ArrayList<String> conAmountFE = new ArrayList<>();
 public static int servedCountC = 0; 
 
-
+// ---------------- HOLD QUEUES ----------------
+public static Queue<Integer> holdA = new LinkedList<>();
+public static Queue<Integer> holdB = new LinkedList<>();
+public static Queue<Integer> holdC = new LinkedList<>();
 
   
 
@@ -191,7 +194,12 @@ public static int servedCountC = 0;
                 TV.serveA.setText("");
             }
         }
+        public static void holdA() {
 
+
+
+
+        }
 //FOR COUNTER B SYNC :)))
         public static void showCurrentB() {
             if (queueB.size() > 1) {
@@ -289,6 +297,92 @@ public static int servedCountC = 0;
                 TV.serveC.setText("");
     }
         }
+        
+        // ======== HOLD / PULL METHODS ========
+        
+            public static void holdCurrentA() {
+                Integer servedNum = queueA.poll();
+                if (servedNum != null) {
+                    holdA.offer(servedNum);
+                    showCurrentA();
+                    updateHoldListA();
+                }
+            }
+            public static void holdCurrentB() {
+                Integer servedNum = queueB.poll();
+                if (servedNum != null) {
+                    holdB.offer(servedNum);
+                    showCurrentB();
+                    updateHoldListB();
+                }
+            }
+            public static void holdCurrentC() {
+                Integer servedNum = queueC.poll();
+                if (servedNum != null) {
+                    holdC.offer(servedNum);
+                    showCurrentC();
+                    updateHoldListC();
+                }
+            }
+            public static void recallHeldA() {
+                 Integer heldNum = holdA.poll();
+                if (heldNum != null) {
+                    queueA.offer(heldNum);
+                    showCurrentA();
+                    updateHoldListA();
+                }
+            }
+            public static void recallHeldB() {
+                Integer heldNum = holdB.poll();
+                if (heldNum != null) {
+                    queueB.offer(heldNum);
+                    showCurrentB();
+                    updateHoldListB();
+                }
+            }
+            public static void recallHeldC() {
+                Integer heldNum = holdC.poll();
+                if (heldNum != null) {
+                    queueC.offer(heldNum);
+                    showCurrentC();
+                    updateHoldListC();
+                }
+            }
+            public static void updateHoldListA() {
+                if (holdA.isEmpty()) {
+                    DASHBOARD.holdListA.setText("No customers on hold");
+                } else {
+                    StringBuilder list = new StringBuilder("On Hold:\n");
+                    for (Integer num : holdA) {
+                        list.append("A").append(num).append("\n");
+                    }
+                    DASHBOARD.holdListA.setText(list.toString());
+                }
+            }
+            public static void updateHoldListB() {
+                if (holdB.isEmpty()) {
+                    DASHBOARD.holdListB.setText("No customers on hold");
+                } else {
+                    StringBuilder list = new StringBuilder("On Hold:\n");
+                    for (Integer num : holdB) {
+                        list.append("B").append(num).append("\n");
+                    }
+                    DASHBOARD.holdListB.setText(list.toString());
+                }
+            }
+            public static void updateHoldListC() {
+                if (holdC.isEmpty()) {
+                    DASHBOARD.holdListC.setText("No customers on hold");
+                } else {
+                    StringBuilder list = new StringBuilder("On Hold:\n");
+                    for (Integer num : holdC) {
+                        list.append("C").append(num).append("\n");
+                    }
+                    DASHBOARD.holdListC.setText(list.toString());
+                }
+            }
+
+
         public static void updateConversion() {
             String am = DASHBOARD.amount3.getText().trim();
             String chang = (String) DASHBOARD.change.getSelectedItem();

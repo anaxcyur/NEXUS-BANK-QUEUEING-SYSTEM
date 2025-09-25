@@ -48,9 +48,7 @@ public class DASHBOARD extends javax.swing.JFrame {
             });
 
            
-            change.addActionListener(e -> QUEUEING.updateConversion());   
-            
-            
+            change.addActionListener(e -> QUEUEING.updateConversion());       
    }
      
 
@@ -73,11 +71,14 @@ public class DASHBOARD extends javax.swing.JFrame {
         name = new javax.swing.JTextField();
         confirm = new javax.swing.JButton();
         edit = new javax.swing.JButton();
+        holdListA = new javax.swing.JLabel();
         logout = new javax.swing.JButton();
         pay = new javax.swing.JComboBox<>();
         inQueueA = new javax.swing.JLabel();
         serveA = new javax.swing.JLabel();
         noOfServedA = new javax.swing.JLabel();
+        recallA = new javax.swing.JButton();
+        holdA = new javax.swing.JButton();
         Bbg = new javax.swing.JLabel();
         applidash = new javax.swing.JPanel();
         billspayment = new javax.swing.JButton();
@@ -95,6 +96,9 @@ public class DASHBOARD extends javax.swing.JFrame {
         email = new javax.swing.JTextField();
         inQueueB = new javax.swing.JLabel();
         serveB = new javax.swing.JLabel();
+        recallB = new javax.swing.JButton();
+        holdB = new javax.swing.JButton();
+        holdListB = new javax.swing.JLabel();
         noOfServedB = new javax.swing.JLabel();
         Abg = new javax.swing.JLabel();
         exchangedash = new javax.swing.JPanel();
@@ -112,6 +116,9 @@ public class DASHBOARD extends javax.swing.JFrame {
         change = new javax.swing.JComboBox<>();
         inQueueC = new javax.swing.JLabel();
         serveC = new javax.swing.JLabel();
+        holdC = new javax.swing.JButton();
+        recallC = new javax.swing.JButton();
+        holdListC = new javax.swing.JLabel();
         noOfServedC = new javax.swing.JLabel();
         Abg1 = new javax.swing.JLabel();
 
@@ -200,6 +207,11 @@ public class DASHBOARD extends javax.swing.JFrame {
         billsdash.add(edit);
         edit.setBounds(300, 497, 90, 30);
 
+        holdListA.setBackground(new java.awt.Color(204, 204, 204));
+        holdListA.setForeground(new java.awt.Color(0, 0, 0));
+        billsdash.add(holdListA);
+        holdListA.setBounds(600, 200, 200, 190);
+
         logout.setBorderPainted(false);
         logout.setContentAreaFilled(false);
         logout.addActionListener(new java.awt.event.ActionListener() {
@@ -235,6 +247,24 @@ public class DASHBOARD extends javax.swing.JFrame {
         noOfServedA.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         billsdash.add(noOfServedA);
         noOfServedA.setBounds(820, 40, 50, 50);
+
+        recallA.setText("recall");
+        recallA.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                recallAActionPerformed(evt);
+            }
+        });
+        billsdash.add(recallA);
+        recallA.setBounds(490, 180, 70, 30);
+
+        holdA.setText("hold");
+        holdA.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                holdAActionPerformed(evt);
+            }
+        });
+        billsdash.add(holdA);
+        holdA.setBounds(400, 180, 70, 30);
 
         Bbg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Final Design/bills payment dashboard.png"))); // NOI18N
         billsdash.add(Bbg);
@@ -377,6 +407,29 @@ public class DASHBOARD extends javax.swing.JFrame {
         applidash.add(serveB);
         serveB.setBounds(220, 70, 140, 120);
 
+        recallB.setText("recall");
+        recallB.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                recallBActionPerformed(evt);
+            }
+        });
+        applidash.add(recallB);
+        recallB.setBounds(490, 180, 70, 30);
+
+        holdB.setText("hold");
+        holdB.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                holdBActionPerformed(evt);
+            }
+        });
+        applidash.add(holdB);
+        holdB.setBounds(400, 180, 70, 30);
+
+        holdListB.setBackground(new java.awt.Color(204, 204, 204));
+        holdListB.setForeground(new java.awt.Color(0, 0, 0));
+        applidash.add(holdListB);
+        holdListB.setBounds(600, 200, 200, 190);
+
         noOfServedB.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
         noOfServedB.setForeground(new java.awt.Color(255, 153, 0));
         noOfServedB.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -513,6 +566,29 @@ public class DASHBOARD extends javax.swing.JFrame {
         serveC.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         exchangedash.add(serveC);
         serveC.setBounds(220, 70, 140, 120);
+
+        holdC.setText("hold");
+        holdC.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                holdCActionPerformed(evt);
+            }
+        });
+        exchangedash.add(holdC);
+        holdC.setBounds(400, 180, 70, 30);
+
+        recallC.setText("recall");
+        recallC.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                recallCActionPerformed(evt);
+            }
+        });
+        exchangedash.add(recallC);
+        recallC.setBounds(490, 180, 70, 30);
+
+        holdListC.setBackground(new java.awt.Color(204, 204, 204));
+        holdListC.setForeground(new java.awt.Color(0, 0, 0));
+        exchangedash.add(holdListC);
+        holdListC.setBounds(600, 200, 200, 190);
 
         noOfServedC.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
         noOfServedC.setForeground(new java.awt.Color(255, 153, 0));
@@ -1062,6 +1138,36 @@ public class DASHBOARD extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_conAmountActionPerformed
 
+    private void holdBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_holdBActionPerformed
+        QUEUEING.holdCurrentB();
+        QUEUEING.showCurrentB();
+    }//GEN-LAST:event_holdBActionPerformed
+
+    private void recallBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_recallBActionPerformed
+        QUEUEING.recallHeldB();
+        QUEUEING.showCurrentB();
+    }//GEN-LAST:event_recallBActionPerformed
+
+    private void holdCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_holdCActionPerformed
+        QUEUEING.holdCurrentC();
+        QUEUEING.showCurrentC();
+    }//GEN-LAST:event_holdCActionPerformed
+
+    private void recallCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_recallCActionPerformed
+        QUEUEING.recallHeldA();
+        QUEUEING.showCurrentA();
+    }//GEN-LAST:event_recallCActionPerformed
+
+    private void holdAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_holdAActionPerformed
+        QUEUEING.holdCurrentA();
+        QUEUEING.showCurrentA();
+    }//GEN-LAST:event_holdAActionPerformed
+
+    private void recallAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_recallAActionPerformed
+        QUEUEING.recallHeldA();
+        QUEUEING.showCurrentA();
+    }//GEN-LAST:event_recallAActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1131,6 +1237,12 @@ public class DASHBOARD extends javax.swing.JFrame {
     private javax.swing.JButton exchange;
     private javax.swing.JButton exchange1;
     private javax.swing.JPanel exchangedash;
+    public static javax.swing.JButton holdA;
+    public static javax.swing.JButton holdB;
+    public static javax.swing.JButton holdC;
+    public static javax.swing.JLabel holdListA;
+    public static javax.swing.JLabel holdListB;
+    public static javax.swing.JLabel holdListC;
     public static javax.swing.JLabel inQueueA;
     public static javax.swing.JLabel inQueueB;
     public static javax.swing.JLabel inQueueC;
@@ -1146,6 +1258,9 @@ public class DASHBOARD extends javax.swing.JFrame {
     public static javax.swing.JTextField number;
     public static javax.swing.JTextField occupation;
     public static javax.swing.JComboBox<String> pay;
+    public static javax.swing.JButton recallA;
+    public static javax.swing.JButton recallB;
+    public static javax.swing.JButton recallC;
     public static javax.swing.JLabel serveA;
     public static javax.swing.JLabel serveB;
     public static javax.swing.JLabel serveC;
