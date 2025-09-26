@@ -39,6 +39,12 @@ public class DASHBOARD extends javax.swing.JFrame {
         change.setEnabled(false);
         pay.setBackground(new Color(0, 0, 0, 0)); 
         change.setBackground(new Color(0, 0, 0, 0)); 
+        recallA.setBackground(new Color(0, 0, 0, 0)); 
+        holdA.setBackground(new Color(0, 0, 0, 0)); 
+        recallB.setBackground(new Color(0, 0, 0, 0)); 
+        holdB.setBackground(new Color(0, 0, 0, 0)); 
+        recallC.setBackground(new Color(0, 0, 0, 0)); 
+        holdC.setBackground(new Color(0, 0, 0, 0)); 
         
         //edit ng amount sa fe
         amount3.getDocument().addDocumentListener(new javax.swing.event.DocumentListener() {
@@ -160,7 +166,7 @@ public class DASHBOARD extends javax.swing.JFrame {
             }
         });
         billsdash.add(call);
-        call.setBounds(410, 50, 140, 40);
+        call.setBounds(410, 20, 140, 40);
 
         cancel.setBorderPainted(false);
         cancel.setContentAreaFilled(false);
@@ -170,14 +176,14 @@ public class DASHBOARD extends javax.swing.JFrame {
             }
         });
         billsdash.add(cancel);
-        cancel.setBounds(410, 130, 140, 50);
+        cancel.setBounds(410, 160, 140, 50);
 
         amount.setBackground(new java.awt.Color(255, 255, 255));
         amount.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         amount.setEnabled(false);
         amount.setOpaque(true);
         billsdash.add(amount);
-        amount.setBounds(280, 430, 310, 20);
+        amount.setBounds(280, 400, 310, 20);
 
         name.setBackground(new java.awt.Color(255, 255, 255));
         name.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
@@ -185,7 +191,7 @@ public class DASHBOARD extends javax.swing.JFrame {
         name.setEnabled(false);
         name.setOpaque(true);
         billsdash.add(name);
-        name.setBounds(280, 330, 310, 20);
+        name.setBounds(270, 300, 310, 20);
 
         confirm.setBorderPainted(false);
         confirm.setContentAreaFilled(false);
@@ -209,8 +215,9 @@ public class DASHBOARD extends javax.swing.JFrame {
 
         holdListA.setBackground(new java.awt.Color(204, 204, 204));
         holdListA.setForeground(new java.awt.Color(0, 0, 0));
+        holdListA.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         billsdash.add(holdListA);
-        holdListA.setBounds(600, 200, 200, 190);
+        holdListA.setBounds(740, 60, 150, 140);
 
         logout.setBorderPainted(false);
         logout.setContentAreaFilled(false);
@@ -228,13 +235,13 @@ public class DASHBOARD extends javax.swing.JFrame {
         pay.setBorder(null);
         pay.setEnabled(false);
         billsdash.add(pay);
-        pay.setBounds(280, 370, 310, 40);
+        pay.setBounds(280, 340, 310, 40);
 
         inQueueA.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
         inQueueA.setForeground(new java.awt.Color(255, 153, 0));
         inQueueA.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         billsdash.add(inQueueA);
-        inQueueA.setBounds(750, 140, 50, 50);
+        inQueueA.setBounds(620, 160, 50, 50);
 
         serveA.setFont(new java.awt.Font("Arial Black", 1, 54)); // NOI18N
         serveA.setForeground(new java.awt.Color(255, 153, 0));
@@ -246,25 +253,23 @@ public class DASHBOARD extends javax.swing.JFrame {
         noOfServedA.setForeground(new java.awt.Color(255, 153, 0));
         noOfServedA.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         billsdash.add(noOfServedA);
-        noOfServedA.setBounds(820, 40, 50, 50);
+        noOfServedA.setBounds(620, 60, 50, 50);
 
-        recallA.setText("recall");
         recallA.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 recallAActionPerformed(evt);
             }
         });
         billsdash.add(recallA);
-        recallA.setBounds(490, 180, 70, 30);
+        recallA.setBounds(410, 110, 140, 50);
 
-        holdA.setText("hold");
         holdA.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 holdAActionPerformed(evt);
             }
         });
         billsdash.add(holdA);
-        holdA.setBounds(400, 180, 70, 30);
+        holdA.setBounds(410, 60, 140, 50);
 
         Bbg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Final Design/bills payment dashboard.png"))); // NOI18N
         billsdash.add(Bbg);
@@ -303,7 +308,7 @@ public class DASHBOARD extends javax.swing.JFrame {
             }
         });
         applidash.add(call1);
-        call1.setBounds(410, 50, 140, 40);
+        call1.setBounds(410, 20, 140, 40);
 
         cancel1.setBorderPainted(false);
         cancel1.setContentAreaFilled(false);
@@ -313,7 +318,7 @@ public class DASHBOARD extends javax.swing.JFrame {
             }
         });
         applidash.add(cancel1);
-        cancel1.setBounds(410, 130, 140, 50);
+        cancel1.setBounds(410, 160, 140, 50);
 
         number.setBackground(new java.awt.Color(255, 255, 255));
         number.setBorder(null);
@@ -399,7 +404,7 @@ public class DASHBOARD extends javax.swing.JFrame {
         inQueueB.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
         inQueueB.setForeground(new java.awt.Color(255, 153, 0));
         applidash.add(inQueueB);
-        inQueueB.setBounds(750, 140, 50, 50);
+        inQueueB.setBounds(620, 160, 50, 50);
 
         serveB.setFont(new java.awt.Font("Arial Black", 1, 54)); // NOI18N
         serveB.setForeground(new java.awt.Color(255, 153, 0));
@@ -407,34 +412,33 @@ public class DASHBOARD extends javax.swing.JFrame {
         applidash.add(serveB);
         serveB.setBounds(220, 70, 140, 120);
 
-        recallB.setText("recall");
         recallB.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 recallBActionPerformed(evt);
             }
         });
         applidash.add(recallB);
-        recallB.setBounds(490, 180, 70, 30);
+        recallB.setBounds(410, 110, 140, 50);
 
-        holdB.setText("hold");
         holdB.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 holdBActionPerformed(evt);
             }
         });
         applidash.add(holdB);
-        holdB.setBounds(400, 180, 70, 30);
+        holdB.setBounds(410, 60, 140, 50);
 
         holdListB.setBackground(new java.awt.Color(204, 204, 204));
         holdListB.setForeground(new java.awt.Color(0, 0, 0));
+        holdListB.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         applidash.add(holdListB);
-        holdListB.setBounds(600, 200, 200, 190);
+        holdListB.setBounds(740, 60, 150, 140);
 
         noOfServedB.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
         noOfServedB.setForeground(new java.awt.Color(255, 153, 0));
         noOfServedB.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         applidash.add(noOfServedB);
-        noOfServedB.setBounds(820, 40, 50, 50);
+        noOfServedB.setBounds(620, 60, 50, 50);
 
         Abg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Final Design/application dashboard.png"))); // NOI18N
         applidash.add(Abg);
@@ -472,7 +476,7 @@ public class DASHBOARD extends javax.swing.JFrame {
             }
         });
         exchangedash.add(call2);
-        call2.setBounds(410, 50, 140, 40);
+        call2.setBounds(410, 20, 140, 40);
 
         cancel2.setBorderPainted(false);
         cancel2.setContentAreaFilled(false);
@@ -482,7 +486,7 @@ public class DASHBOARD extends javax.swing.JFrame {
             }
         });
         exchangedash.add(cancel2);
-        cancel2.setBounds(410, 130, 140, 50);
+        cancel2.setBounds(410, 160, 140, 50);
 
         conAmount.setEditable(false);
         conAmount.setBackground(new java.awt.Color(255, 255, 255));
@@ -559,7 +563,7 @@ public class DASHBOARD extends javax.swing.JFrame {
         inQueueC.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
         inQueueC.setForeground(new java.awt.Color(255, 153, 0));
         exchangedash.add(inQueueC);
-        inQueueC.setBounds(750, 140, 50, 50);
+        inQueueC.setBounds(620, 160, 50, 50);
 
         serveC.setFont(new java.awt.Font("Arial Black", 1, 54)); // NOI18N
         serveC.setForeground(new java.awt.Color(255, 153, 0));
@@ -567,34 +571,33 @@ public class DASHBOARD extends javax.swing.JFrame {
         exchangedash.add(serveC);
         serveC.setBounds(220, 70, 140, 120);
 
-        holdC.setText("hold");
         holdC.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 holdCActionPerformed(evt);
             }
         });
         exchangedash.add(holdC);
-        holdC.setBounds(400, 180, 70, 30);
+        holdC.setBounds(410, 70, 140, 40);
 
-        recallC.setText("recall");
         recallC.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 recallCActionPerformed(evt);
             }
         });
         exchangedash.add(recallC);
-        recallC.setBounds(490, 180, 70, 30);
+        recallC.setBounds(410, 120, 140, 40);
 
         holdListC.setBackground(new java.awt.Color(204, 204, 204));
         holdListC.setForeground(new java.awt.Color(0, 0, 0));
+        holdListC.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         exchangedash.add(holdListC);
-        holdListC.setBounds(600, 200, 200, 190);
+        holdListC.setBounds(740, 60, 150, 140);
 
         noOfServedC.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
         noOfServedC.setForeground(new java.awt.Color(255, 153, 0));
         noOfServedC.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         exchangedash.add(noOfServedC);
-        noOfServedC.setBounds(820, 40, 50, 50);
+        noOfServedC.setBounds(620, 60, 50, 50);
 
         Abg1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Final Design/foreign ex dashboard.png"))); // NOI18N
         exchangedash.add(Abg1);
