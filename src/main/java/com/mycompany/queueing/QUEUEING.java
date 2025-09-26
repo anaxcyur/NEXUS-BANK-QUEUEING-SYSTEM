@@ -352,33 +352,36 @@ public static Queue<Integer> holdC = new LinkedList<>();
                 if (holdA.isEmpty()) {
                     DASHBOARD.holdListA.setText("No customers on hold");
                 } else {
-                    StringBuilder list = new StringBuilder("On Hold:\n");
+                    StringBuilder list = new StringBuilder("\n");
                     for (Integer num : holdA) {
                         list.append("A").append(num).append("\n");
                     }
                     DASHBOARD.holdListA.setText(list.toString());
+                    TV.TVHoldA.setText(list.toString());
                 }
             }
             public static void updateHoldListB() {
                 if (holdB.isEmpty()) {
                     DASHBOARD.holdListB.setText("No customers on hold");
                 } else {
-                    StringBuilder list = new StringBuilder("On Hold:\n");
+                    StringBuilder list = new StringBuilder("\n");
                     for (Integer num : holdB) {
                         list.append("B").append(num).append("\n");
                     }
                     DASHBOARD.holdListB.setText(list.toString());
+                    TV.TVHoldB.setText(list.toString());
                 }
             }
             public static void updateHoldListC() {
                 if (holdC.isEmpty()) {
                     DASHBOARD.holdListC.setText("No customers on hold");
                 } else {
-                    StringBuilder list = new StringBuilder("On Hold:\n");
+                    StringBuilder list = new StringBuilder("\n");
                     for (Integer num : holdC) {
                         list.append("C").append(num).append("\n");
                     }
                     DASHBOARD.holdListC.setText(list.toString());
+                    TV.TVHoldC.setText(list.toString());
                 }
             }
 

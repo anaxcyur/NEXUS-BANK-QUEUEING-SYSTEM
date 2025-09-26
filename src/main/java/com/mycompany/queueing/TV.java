@@ -41,6 +41,9 @@ public class TV extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
+        TVHoldB = new javax.swing.JLabel();
+        TVHoldC = new javax.swing.JLabel();
+        TVHoldA = new javax.swing.JLabel();
         serveA = new javax.swing.JLabel();
         serveB = new javax.swing.JLabel();
         serveC = new javax.swing.JLabel();
@@ -60,23 +63,41 @@ public class TV extends javax.swing.JFrame {
 
         jPanel1.setLayout(null);
 
-        serveA.setFont(new java.awt.Font("Arial Black", 1, 48)); // NOI18N
+        TVHoldB.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
+        TVHoldB.setForeground(new java.awt.Color(255, 153, 0));
+        TVHoldB.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jPanel1.add(TVHoldB);
+        TVHoldB.setBounds(330, 330, 150, 40);
+
+        TVHoldC.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
+        TVHoldC.setForeground(new java.awt.Color(255, 153, 0));
+        TVHoldC.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jPanel1.add(TVHoldC);
+        TVHoldC.setBounds(590, 330, 150, 40);
+
+        TVHoldA.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
+        TVHoldA.setForeground(new java.awt.Color(255, 153, 0));
+        TVHoldA.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jPanel1.add(TVHoldA);
+        TVHoldA.setBounds(100, 330, 150, 40);
+
+        serveA.setFont(new java.awt.Font("Arial Black", 1, 36)); // NOI18N
         serveA.setForeground(new java.awt.Color(255, 153, 0));
         serveA.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jPanel1.add(serveA);
-        serveA.setBounds(90, 140, 150, 80);
+        serveA.setBounds(70, 120, 150, 80);
 
-        serveB.setFont(new java.awt.Font("Arial Black", 1, 48)); // NOI18N
+        serveB.setFont(new java.awt.Font("Arial Black", 1, 36)); // NOI18N
         serveB.setForeground(new java.awt.Color(255, 153, 0));
         serveB.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jPanel1.add(serveB);
-        serveB.setBounds(320, 140, 150, 80);
+        serveB.setBounds(320, 120, 150, 80);
 
-        serveC.setFont(new java.awt.Font("Arial Black", 1, 48)); // NOI18N
+        serveC.setFont(new java.awt.Font("Arial Black", 1, 36)); // NOI18N
         serveC.setForeground(new java.awt.Color(255, 153, 0));
         serveC.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jPanel1.add(serveC);
-        serveC.setBounds(560, 140, 150, 80);
+        serveC.setBounds(570, 120, 150, 80);
 
         jScrollPane1.setBorder(null);
         jScrollPane1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
@@ -85,14 +106,14 @@ public class TV extends javax.swing.JFrame {
 
         waitingA.setEditable(false);
         waitingA.setColumns(20);
-        waitingA.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
+        waitingA.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
         waitingA.setForeground(new java.awt.Color(255, 153, 0));
         waitingA.setRows(5);
         waitingA.setBorder(null);
         jScrollPane1.setViewportView(waitingA);
 
         jPanel1.add(jScrollPane1);
-        jScrollPane1.setBounds(100, 260, 130, 130);
+        jScrollPane1.setBounds(110, 220, 130, 110);
 
         jScrollPane2.setBorder(null);
         jScrollPane2.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
@@ -101,14 +122,14 @@ public class TV extends javax.swing.JFrame {
 
         waitingB.setEditable(false);
         waitingB.setColumns(20);
-        waitingB.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
+        waitingB.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
         waitingB.setForeground(new java.awt.Color(255, 153, 0));
         waitingB.setRows(5);
         waitingB.setBorder(null);
         jScrollPane2.setViewportView(waitingB);
 
         jPanel1.add(jScrollPane2);
-        jScrollPane2.setBounds(340, 260, 130, 130);
+        jScrollPane2.setBounds(350, 220, 130, 110);
 
         jScrollPane3.setBorder(null);
         jScrollPane3.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
@@ -117,14 +138,14 @@ public class TV extends javax.swing.JFrame {
 
         waitingC.setEditable(false);
         waitingC.setColumns(20);
-        waitingC.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
+        waitingC.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
         waitingC.setForeground(new java.awt.Color(255, 153, 0));
         waitingC.setRows(5);
         waitingC.setBorder(null);
         jScrollPane3.setViewportView(waitingC);
 
         jPanel1.add(jScrollPane3);
-        jScrollPane3.setBounds(570, 260, 130, 130);
+        jScrollPane3.setBounds(610, 220, 130, 110);
 
         TVbg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Final Design/TV.png"))); // NOI18N
         jPanel1.add(TVbg);
@@ -172,6 +193,9 @@ public class TV extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public static javax.swing.JLabel TVHoldA;
+    public static javax.swing.JLabel TVHoldB;
+    public static javax.swing.JLabel TVHoldC;
     private javax.swing.JLabel TVbg;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;

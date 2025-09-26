@@ -45,6 +45,21 @@ public class DASHBOARD extends javax.swing.JFrame {
         holdB.setBackground(new Color(0, 0, 0, 0)); 
         recallC.setBackground(new Color(0, 0, 0, 0)); 
         holdC.setBackground(new Color(0, 0, 0, 0)); 
+        holdListA.setBackground(new Color(0, 0, 0, 0)); 
+        holdListA.setOpaque(false);
+        jScrollPane1.setOpaque(false);
+        jScrollPane1.getViewport().setOpaque(false);
+        holdListA.setEditable(false);
+        holdListB.setBackground(new Color(0, 0, 0, 0)); 
+        holdListB.setOpaque(false);
+        jScrollPane2.setOpaque(false);
+        jScrollPane2.getViewport().setOpaque(false);
+        holdListB.setEditable(false);
+        holdListC.setBackground(new Color(0, 0, 0, 0)); 
+        holdListC.setOpaque(false);
+        jScrollPane3.setOpaque(false);
+        jScrollPane3.getViewport().setOpaque(false);
+        holdListC.setEditable(false);
         
         //edit ng amount sa fe
         amount3.getDocument().addDocumentListener(new javax.swing.event.DocumentListener() {
@@ -77,12 +92,13 @@ public class DASHBOARD extends javax.swing.JFrame {
         name = new javax.swing.JTextField();
         confirm = new javax.swing.JButton();
         edit = new javax.swing.JButton();
-        holdListA = new javax.swing.JLabel();
         logout = new javax.swing.JButton();
         pay = new javax.swing.JComboBox<>();
         inQueueA = new javax.swing.JLabel();
         serveA = new javax.swing.JLabel();
         noOfServedA = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        holdListA = new javax.swing.JTextArea();
         recallA = new javax.swing.JButton();
         holdA = new javax.swing.JButton();
         Bbg = new javax.swing.JLabel();
@@ -104,7 +120,8 @@ public class DASHBOARD extends javax.swing.JFrame {
         serveB = new javax.swing.JLabel();
         recallB = new javax.swing.JButton();
         holdB = new javax.swing.JButton();
-        holdListB = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        holdListB = new javax.swing.JTextArea();
         noOfServedB = new javax.swing.JLabel();
         Abg = new javax.swing.JLabel();
         exchangedash = new javax.swing.JPanel();
@@ -124,7 +141,8 @@ public class DASHBOARD extends javax.swing.JFrame {
         serveC = new javax.swing.JLabel();
         holdC = new javax.swing.JButton();
         recallC = new javax.swing.JButton();
-        holdListC = new javax.swing.JLabel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        holdListC = new javax.swing.JTextArea();
         noOfServedC = new javax.swing.JLabel();
         Abg1 = new javax.swing.JLabel();
 
@@ -213,12 +231,6 @@ public class DASHBOARD extends javax.swing.JFrame {
         billsdash.add(edit);
         edit.setBounds(300, 497, 90, 30);
 
-        holdListA.setBackground(new java.awt.Color(204, 204, 204));
-        holdListA.setForeground(new java.awt.Color(0, 0, 0));
-        holdListA.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        billsdash.add(holdListA);
-        holdListA.setBounds(740, 60, 150, 140);
-
         logout.setBorderPainted(false);
         logout.setContentAreaFilled(false);
         logout.addActionListener(new java.awt.event.ActionListener() {
@@ -254,6 +266,23 @@ public class DASHBOARD extends javax.swing.JFrame {
         noOfServedA.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         billsdash.add(noOfServedA);
         noOfServedA.setBounds(620, 60, 50, 50);
+
+        jScrollPane1.setBorder(null);
+        jScrollPane1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+        jScrollPane1.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
+        jScrollPane1.setEnabled(false);
+
+        holdListA.setEditable(false);
+        holdListA.setColumns(20);
+        holdListA.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
+        holdListA.setForeground(new java.awt.Color(255, 153, 0));
+        holdListA.setRows(5);
+        holdListA.setBorder(null);
+        holdListA.setOpaque(false);
+        jScrollPane1.setViewportView(holdListA);
+
+        billsdash.add(jScrollPane1);
+        jScrollPane1.setBounds(780, 60, 70, 140);
 
         recallA.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -428,11 +457,22 @@ public class DASHBOARD extends javax.swing.JFrame {
         applidash.add(holdB);
         holdB.setBounds(410, 60, 140, 50);
 
-        holdListB.setBackground(new java.awt.Color(204, 204, 204));
-        holdListB.setForeground(new java.awt.Color(0, 0, 0));
-        holdListB.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        applidash.add(holdListB);
-        holdListB.setBounds(740, 60, 150, 140);
+        jScrollPane2.setBorder(null);
+        jScrollPane2.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+        jScrollPane2.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
+        jScrollPane2.setEnabled(false);
+
+        holdListB.setEditable(false);
+        holdListB.setColumns(20);
+        holdListB.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
+        holdListB.setForeground(new java.awt.Color(255, 153, 0));
+        holdListB.setRows(5);
+        holdListB.setBorder(null);
+        holdListB.setOpaque(false);
+        jScrollPane2.setViewportView(holdListB);
+
+        applidash.add(jScrollPane2);
+        jScrollPane2.setBounds(780, 60, 70, 140);
 
         noOfServedB.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
         noOfServedB.setForeground(new java.awt.Color(255, 153, 0));
@@ -587,11 +627,22 @@ public class DASHBOARD extends javax.swing.JFrame {
         exchangedash.add(recallC);
         recallC.setBounds(410, 120, 140, 40);
 
-        holdListC.setBackground(new java.awt.Color(204, 204, 204));
-        holdListC.setForeground(new java.awt.Color(0, 0, 0));
-        holdListC.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        exchangedash.add(holdListC);
-        holdListC.setBounds(740, 60, 150, 140);
+        jScrollPane3.setBorder(null);
+        jScrollPane3.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+        jScrollPane3.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
+        jScrollPane3.setEnabled(false);
+
+        holdListC.setEditable(false);
+        holdListC.setColumns(20);
+        holdListC.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
+        holdListC.setForeground(new java.awt.Color(255, 153, 0));
+        holdListC.setRows(5);
+        holdListC.setBorder(null);
+        holdListC.setOpaque(false);
+        jScrollPane3.setViewportView(holdListC);
+
+        exchangedash.add(jScrollPane3);
+        jScrollPane3.setBounds(780, 60, 70, 140);
 
         noOfServedC.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
         noOfServedC.setForeground(new java.awt.Color(255, 153, 0));
@@ -1243,12 +1294,15 @@ public class DASHBOARD extends javax.swing.JFrame {
     public static javax.swing.JButton holdA;
     public static javax.swing.JButton holdB;
     public static javax.swing.JButton holdC;
-    public static javax.swing.JLabel holdListA;
-    public static javax.swing.JLabel holdListB;
-    public static javax.swing.JLabel holdListC;
+    public static javax.swing.JTextArea holdListA;
+    public static javax.swing.JTextArea holdListB;
+    public static javax.swing.JTextArea holdListC;
     public static javax.swing.JLabel inQueueA;
     public static javax.swing.JLabel inQueueB;
     public static javax.swing.JLabel inQueueC;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JButton logout;
     private javax.swing.JButton logout1;
     private javax.swing.JButton logout2;
