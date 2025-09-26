@@ -17,6 +17,10 @@ import javax.sound.sampled.Clip;
 import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
 import javax.sound.sampled.*;
+import com.toedter.calendar.JDateChooser;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 
 /**
  *
@@ -203,53 +207,62 @@ public static Queue<Integer> holdC = new LinkedList<>();
 //FOR COUNTER B SYNC :)))
         public static void showCurrentB() {
             if (queueB.size() > 1) {
-                    StringBuilder waitingList = new StringBuilder();
-                    int count = 0;
-                    for (Integer num : queueB) {
-                        if (count > 0) { 
-                            waitingList.append("B").append(num).append("\n");
-                        }
-                        count++;
+                StringBuilder waitingList = new StringBuilder();
+                int count = 0;
+                for (Integer num : queueB) {
+                    if (count > 0) { 
+                        waitingList.append("B").append(num).append("\n");
                     }
-                    TV.waitingB.setText(waitingList.toString());
-                } else {
-                    TV.waitingB.setText("");
+                    count++;
                 }
-           
+                TV.waitingB.setText(waitingList.toString());
+            } else {
+                TV.waitingB.setText("");
+            }
+
             Integer servedNum = queueB.peek(); 
             if (servedNum != null) {
                 int index = servedNum - 1;
 
-                      String servedName = QUEUEING.nameA.get(index);
-                      String servedNumber = QUEUEING.numberA.get(index);
-                      String servedAddress = QUEUEING.addressA.get(index);
-                      String servedBirthday = QUEUEING.bdayA.get(index);
-                      String servedOccupation = QUEUEING.occupationA.get(index);
-                      String servedEmail = QUEUEING.emailA.get(index);
+                String servedName       = QUEUEING.nameA.get(index);
+                String servedNumber     = QUEUEING.numberA.get(index);
+                String servedAddress    = QUEUEING.addressA.get(index);
+                String servedBirthday   = QUEUEING.bdayA.get(index); 
+                String servedOccupation = QUEUEING.occupationA.get(index);
+                String servedEmail      = QUEUEING.emailA.get(index);
 
-                    DASHBOARD.serveB.setText("B" + servedNum);
-                    DASHBOARD.name1.setText(servedName);
-                    DASHBOARD.number.setText(servedNumber);
-                      DASHBOARD.address1.setText(servedAddress);
-                      DASHBOARD.bday.setText(servedBirthday);
-                      DASHBOARD.occupation.setText(servedOccupation);
-                      DASHBOARD.email.setText(servedEmail);
+                DASHBOARD.serveB.setText("B" + servedNum);
+                DASHBOARD.name1.setText(servedName);
+                DASHBOARD.number.setText(servedNumber);
+                DASHBOARD.address1.setText(servedAddress);
 
+                try {
+                    SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
+                    Date date = sdf.parse(servedBirthday);
+                    DASHBOARD.bday.setDate(date); 
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    DASHBOARD.bday.setDate(null); 
+                }
 
+                DASHBOARD.occupation.setText(servedOccupation);
+                DASHBOARD.email.setText(servedEmail);
 
                 TV.serveB.setText("B" + servedNum);
-                DASHBOARD.inQueueB.setText(String.valueOf(queueB.size()-1));
-            }else {
+                DASHBOARD.inQueueB.setText(String.valueOf(queueB.size() - 1));
+            } else {
                 DASHBOARD.serveB.setText("");
                 DASHBOARD.name1.setText("");
                 DASHBOARD.number.setText("");
                 DASHBOARD.address1.setText("");
-                DASHBOARD.bday.setText("");
+                DASHBOARD.bday.setDate(null); 
                 DASHBOARD.occupation.setText("");
                 DASHBOARD.email.setText("");
 
                 TV.serveB.setText("");
-        }}
+            }
+        }
+
  //FOR COUNTER C SYNC :)))
         public static void showCurrentC() {
             if (queueC.size() > 1) {

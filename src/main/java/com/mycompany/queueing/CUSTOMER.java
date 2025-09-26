@@ -12,6 +12,9 @@ import java.awt.event.ActionListener;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.Timer;
+import com.toedter.calendar.JDateChooser;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 /**
 
@@ -37,6 +40,7 @@ public class CUSTOMER extends javax.swing.JFrame {
         convert.setBackground(new Color(0, 0, 0, 0));
         name3.setBackground(new Color(0, 0, 0, 0));
         amount3.setBackground(new Color(0, 0, 0, 0));
+        bday.setBackground(new Color(0, 0, 0, 0));
         paytoOptions.setBackground(new Color(0, 0, 0, 0));
         paytoOptions.setSelectedItem(null);
         
@@ -68,12 +72,12 @@ public class CUSTOMER extends javax.swing.JFrame {
         APLI = new javax.swing.JPanel();
         address = new javax.swing.JTextField();
         fname = new javax.swing.JTextField();
-        bday = new javax.swing.JTextField();
         email = new javax.swing.JTextField();
         occupation = new javax.swing.JTextField();
         number = new javax.swing.JTextField();
         cancel1 = new javax.swing.JButton();
         confirm1 = new javax.swing.JButton();
+        bday = new com.toedter.calendar.JDateChooser();
         APLIbg = new javax.swing.JLabel();
         FE = new javax.swing.JPanel();
         amount3 = new javax.swing.JTextField();
@@ -196,17 +200,6 @@ public class CUSTOMER extends javax.swing.JFrame {
         APLI.add(fname);
         fname.setBounds(110, 146, 270, 30);
 
-        bday.setToolTipText("");
-        bday.setBorder(null);
-        bday.setName(""); // NOI18N
-        bday.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bdayActionPerformed(evt);
-            }
-        });
-        APLI.add(bday);
-        bday.setBounds(110, 310, 270, 30);
-
         email.setBorder(null);
         email.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -254,6 +247,8 @@ public class CUSTOMER extends javax.swing.JFrame {
         });
         APLI.add(confirm1);
         confirm1.setBounds(410, 360, 90, 30);
+        APLI.add(bday);
+        bday.setBounds(110, 310, 270, 30);
 
         APLIbg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Final Design/customer application.png"))); // NOI18N
         APLI.add(APLIbg);
@@ -350,10 +345,6 @@ public class CUSTOMER extends javax.swing.JFrame {
     private void addressActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addressActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_addressActionPerformed
-
-    private void bdayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bdayActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_bdayActionPerformed
 
     private void emailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emailActionPerformed
         // TODO add your handling code here:
@@ -465,7 +456,7 @@ public class CUSTOMER extends javax.swing.JFrame {
         fname.setText(null);
         number.setText(null);
         address.setText(null);
-        bday.setText(null);
+        bday.setDate(null); 
         occupation.setText(null);
         email.setText(null);
         ((CardLayout)container.getLayout()).show(container, "main");
@@ -485,21 +476,22 @@ public class CUSTOMER extends javax.swing.JFrame {
         String fnameVal = fname.getText().trim();
         String numberVal = number.getText().trim();
         String addressVal = address.getText().trim();
-        String bdayVal = bday.getText().trim();
+        Date selectedDate = bday.getDate();
         String occupationVal = occupation.getText().trim();
         String emailVal = email.getText().trim();
 
         if (fnameVal.isEmpty() || numberVal.isEmpty() || addressVal.isEmpty() ||
-            bdayVal.isEmpty() || occupationVal.isEmpty() || emailVal.isEmpty()) {
+            selectedDate == null|| occupationVal.isEmpty() || emailVal.isEmpty()) {
             JOptionPane.showMessageDialog(null, "Please fill in all fields", "Input Error", JOptionPane.ERROR_MESSAGE);
             return;
         }
+        SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
+        String bdayVal = sdf.format(selectedDate);
 //         Validate birthday format MKKK
-        if (!bdayVal.matches("\\d{2}/\\d{2}/\\d{4}")) {
-        JOptionPane.showMessageDialog(null, "Birthday must be in MM/DD/YYYY format", "Date Format Error", JOptionPane.ERROR_MESSAGE);
-        bday.setText(""); // Clear invalid input
-        return;
-        }  
+        if (selectedDate == null) {
+            JOptionPane.showMessageDialog(null, "Please select a valid birthday", "Date Error", JOptionPane.ERROR_MESSAGE);
+            return;
+}
 //        MKKKK
         // Validate number: must start with optional + and followed by 12 digits total
         if (!numberVal.matches("\\+?63\\d{10}")) {
@@ -566,7 +558,7 @@ public class CUSTOMER extends javax.swing.JFrame {
         fname.setText(null);
         number.setText(null);
         address.setText(null);
-        bday.setText(null);
+        bday.setDate(null); 
         occupation.setText(null);
         email.setText(null);
     }//GEN-LAST:event_confirm1ActionPerformed
@@ -682,7 +674,7 @@ public class CUSTOMER extends javax.swing.JFrame {
     private javax.swing.JTextField amount;
     private javax.swing.JTextField amount3;
     private javax.swing.JButton application;
-    private javax.swing.JTextField bday;
+    private com.toedter.calendar.JDateChooser bday;
     private javax.swing.JButton bills;
     private javax.swing.JButton cancel;
     private javax.swing.JButton cancel1;

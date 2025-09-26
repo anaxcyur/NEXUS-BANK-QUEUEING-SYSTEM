@@ -10,6 +10,8 @@ import java.awt.Color;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStream;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
 import javax.swing.JOptionPane;
@@ -37,6 +39,7 @@ public class DASHBOARD extends javax.swing.JFrame {
         pay.setOpaque(false); 
         pay.setEnabled(false);
         change.setEnabled(false);
+        bday.setBackground(new Color(0, 0, 0, 0));
         pay.setBackground(new Color(0, 0, 0, 0)); 
         change.setBackground(new Color(0, 0, 0, 0)); 
         recallA.setBackground(new Color(0, 0, 0, 0)); 
@@ -108,7 +111,6 @@ public class DASHBOARD extends javax.swing.JFrame {
         call1 = new javax.swing.JButton();
         cancel1 = new javax.swing.JButton();
         number = new javax.swing.JTextField();
-        bday = new javax.swing.JTextField();
         name1 = new javax.swing.JTextField();
         confirm1 = new javax.swing.JButton();
         edit1 = new javax.swing.JButton();
@@ -119,6 +121,7 @@ public class DASHBOARD extends javax.swing.JFrame {
         inQueueB = new javax.swing.JLabel();
         serveB = new javax.swing.JLabel();
         recallB = new javax.swing.JButton();
+        bday = new com.toedter.calendar.JDateChooser();
         holdB = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         holdListB = new javax.swing.JTextArea();
@@ -355,17 +358,6 @@ public class DASHBOARD extends javax.swing.JFrame {
         applidash.add(number);
         number.setBounds(270, 370, 250, 20);
 
-        bday.setBackground(new java.awt.Color(255, 255, 255));
-        bday.setBorder(null);
-        bday.setEnabled(false);
-        bday.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bdayActionPerformed(evt);
-            }
-        });
-        applidash.add(bday);
-        bday.setBounds(270, 470, 250, 20);
-
         name1.setBackground(new java.awt.Color(255, 255, 255));
         name1.setBorder(null);
         name1.setEnabled(false);
@@ -448,6 +440,8 @@ public class DASHBOARD extends javax.swing.JFrame {
         });
         applidash.add(recallB);
         recallB.setBounds(410, 110, 140, 50);
+        applidash.add(bday);
+        bday.setBounds(270, 470, 250, 20);
 
         holdB.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -662,10 +656,6 @@ public class DASHBOARD extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void bdayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bdayActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_bdayActionPerformed
-
     private void address1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_address1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_address1ActionPerformed
@@ -756,7 +746,7 @@ public class DASHBOARD extends javax.swing.JFrame {
                 name1.setText("");
                 number.setText("");
                 address1.setText("");
-                bday.setText("");
+                bday.setDate(null);
                 occupation.setText("");
                 email.setText("");
             }
@@ -787,85 +777,82 @@ public class DASHBOARD extends javax.swing.JFrame {
         while (true) {
         String fullname = name1.getText().trim();
         String num = number.getText().trim();
-        String bda = bday.getText().trim();
+        Date selectedDate = bday.getDate(); 
         String add = address1.getText().trim();
         String occu = occupation.getText().trim();
         String ema = email.getText().trim();
 
-        if (fullname.isEmpty() && num.isEmpty() && bda.isEmpty()&& add.isEmpty()&& occu.isEmpty()&& ema.isEmpty()) {
+        // First check if ALL fields are empty
+        if (fullname.isEmpty() && num.isEmpty() && selectedDate == null 
+                && add.isEmpty() && occu.isEmpty() && ema.isEmpty()) {
             JOptionPane.showMessageDialog(null, "Please fill in all fields", "Input Error", JOptionPane.ERROR_MESSAGE);
             return; 
-        } else if (fullname.isEmpty()) {
+        } 
+        else if (fullname.isEmpty()) {
             JOptionPane.showMessageDialog(null, "Please input your Name", "Input Error", JOptionPane.ERROR_MESSAGE);
             return;
         }
-//         Validate Name 
+        // ✅ Validate Name 
         else if (fullname.length() > 50) {
-        JOptionPane.showMessageDialog(null, "Name must be 50 characters or fewer", "Name Error", JOptionPane.ERROR_MESSAGE);
-        name1.setText(""); // Optional: clear the field
-        return;
+            JOptionPane.showMessageDialog(null, "Name must be 50 characters or fewer", "Name Error", JOptionPane.ERROR_MESSAGE);
+            name1.setText("");
+            return;
         }
-//        ✅ Validate name contains only letters and spaces
         else if (!fullname.matches("[a-zA-Z\\s]+")) {
             JOptionPane.showMessageDialog(null, "Name must contain letters only (no numbers or symbols)", "Name Error", JOptionPane.ERROR_MESSAGE);
-            name1.setText(""); // Optional: clear the field
+            name1.setText("");
             return;
         }
         else if (num.isEmpty()) {
             JOptionPane.showMessageDialog(null, "Please input your Number", "Input Error", JOptionPane.ERROR_MESSAGE);
             return;
         }
-        // Validate number: must start with optional + and followed by 12 digits total
-        if (!num.matches("\\+?63\\d{10}")) {
-        JOptionPane.showMessageDialog(null, "Contact number must start with +63 or 63 and contain exactly 10 digits after it", "Number Format Error", JOptionPane.ERROR_MESSAGE);
-        number.setText(""); // Clear invalid input
-        return;
-        }
-        else if (bda.isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Please input your Birthday", "Input Error", JOptionPane.ERROR_MESSAGE);
+        else if (!num.matches("\\+?63\\d{10}")) {
+            JOptionPane.showMessageDialog(null, "Contact number must start with +63 or 63 and contain exactly 10 digits after it", "Number Format Error", JOptionPane.ERROR_MESSAGE);
+            number.setText(""); 
             return;
         }
-//Validate birthday format MKKK
-        else if (!bda.matches("\\d{2}/\\d{2}/\\d{4}")) {
-        JOptionPane.showMessageDialog(null, "Birthday must be in MM/DD/YYYY format", "Date Format Error", JOptionPane.ERROR_MESSAGE);
-        bday.setText(""); // Clear invalid input
-        return;
-        } 
+        else if (selectedDate == null) { //
+            JOptionPane.showMessageDialog(null, "Please select your Birthday", "Input Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
         else if (add.isEmpty()) {
             JOptionPane.showMessageDialog(null, "Please input your Address", "Input Error", JOptionPane.ERROR_MESSAGE);
             return;
-        } else if (occu.isEmpty()) {
+        } 
+        else if (occu.isEmpty()) {
             JOptionPane.showMessageDialog(null, "Please input your Occupation", "Input Error", JOptionPane.ERROR_MESSAGE);
             occupation.setText("");
             return;
         }
-//        Validate Occupation
         else if (occu.length() > 50) {
-        JOptionPane.showMessageDialog(null, "Occupation must be 50 characters or fewer", "Name Error", JOptionPane.ERROR_MESSAGE);
-        occupation.setText(""); // Optional: clear the field
-        return;
-        }
-//        ✅ Validate Occupation contains only letters and spaces
-        else if (!occu.matches("[a-zA-Z\\s]+")) {
-            JOptionPane.showMessageDialog(null, "Occupation must contain letters only (no numbers or symbols)", "Name Error", JOptionPane.ERROR_MESSAGE);
-            occupation.setText(""); // Optional: clear the field
+            JOptionPane.showMessageDialog(null, "Occupation must be 50 characters or fewer", "Occupation Error", JOptionPane.ERROR_MESSAGE);
+            occupation.setText("");
             return;
         }
-        
+        else if (!occu.matches("[a-zA-Z\\s]+")) {
+            JOptionPane.showMessageDialog(null, "Occupation must contain letters only (no numbers or symbols)", "Occupation Error", JOptionPane.ERROR_MESSAGE);
+            occupation.setText("");
+            return;
+        }
         else if (ema.isEmpty()) {
             JOptionPane.showMessageDialog(null, "Please input your Email", "Input Error", JOptionPane.ERROR_MESSAGE);
             return;
-        } else {
-            int c = JOptionPane.showConfirmDialog(null,"Are you sure the information is correct?","Confirmation",JOptionPane.OK_CANCEL_OPTION      );
-            
+        } 
+        else {
+            int c = JOptionPane.showConfirmDialog(null, "Are you sure the information is correct?", "Confirmation", JOptionPane.OK_CANCEL_OPTION);
+
             if (c == JOptionPane.OK_OPTION) {
+                SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
+                String bda = sdf.format(selectedDate);
+
                 Integer servedNum = QUEUEING.queueB.peek(); 
                 if (servedNum != null) {
                     int index = servedNum - 1;
                     if (index >= 0 && index < QUEUEING.nameA.size()) {
                         QUEUEING.nameA.set(index, fullname);
                         QUEUEING.numberA.set(index, num);
-                        QUEUEING.bdayA.set(index, bda);
+                        QUEUEING.bdayA.set(index, bda);   
                         QUEUEING.addressA.set(index, add);
                         QUEUEING.occupationA.set(index, occu);
                         QUEUEING.emailA.set(index, ema);
@@ -876,44 +863,44 @@ public class DASHBOARD extends javax.swing.JFrame {
                         "Information has been updated and saved.",
                         "Success",
                         JOptionPane.INFORMATION_MESSAGE);
-                
+
                 TICKET ticketFrame = new TICKET();
                 ticketFrame.setVisible(true);
                 QUEUEING.printReceiptB();
-                
+
                 name1.setEnabled(false);
                 number.setEnabled(false);
                 bday.setEnabled(false);
                 address1.setEnabled(false);
                 occupation.setEnabled(false);
                 email.setEnabled(false);
-//NEXT CUSTOMER                
-        servedNum = QUEUEING.queueB.poll();
-          if (servedNum != null) {
-              int index = servedNum - 1; 
-              
-              QUEUEING.showCurrentB();
-              QUEUEING.servedCountB++;;
-              noOfServedB.setText(String.valueOf(QUEUEING.servedCountB));
-          } else {
-              serveB.setText(null);
-              TV.serveB.setText(null);
-              name1.setText("");
-              number.setText("");
-              address1.setText("");
-              bday.setText("");
-              occupation.setText("");
-              email.setText("");
-          }
+
+                // NEXT CUSTOMER                
+                servedNum = QUEUEING.queueB.poll();
+                if (servedNum != null) {
+                    int index = servedNum - 1; 
+                    QUEUEING.showCurrentB();
+                    QUEUEING.servedCountB++;
+                    noOfServedB.setText(String.valueOf(QUEUEING.servedCountB));
+                } else {
+                    serveB.setText(null);
+                    TV.serveB.setText(null);
+                    name1.setText("");
+                    number.setText("");
+                    address1.setText("");
+                    bday.setDate(null); 
+                    occupation.setText("");
+                    email.setText("");
+                }
+
                 new javax.swing.Timer(5000, e -> {
-               
                     ticketFrame.dispose();
-             }).start();
-            
+                }).start();
             }
             break;
         }
     }
+
     }//GEN-LAST:event_confirm1ActionPerformed
 //FOREIGN EXCHANGE
     private void confirm2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirm2ActionPerformed
@@ -1267,7 +1254,7 @@ public class DASHBOARD extends javax.swing.JFrame {
     private javax.swing.JButton application;
     private javax.swing.JButton application2;
     private javax.swing.JPanel applidash;
-    public static javax.swing.JTextField bday;
+    public static com.toedter.calendar.JDateChooser bday;
     private javax.swing.JPanel billsdash;
     private javax.swing.JButton billspayment;
     private javax.swing.JButton billspayment1;
