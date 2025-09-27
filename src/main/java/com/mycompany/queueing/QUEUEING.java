@@ -39,6 +39,7 @@ public static int counterA = 1;
 public static ArrayList<String> nameBP = new ArrayList<>();
 public static ArrayList<String> payToBP = new ArrayList<>();
 public static ArrayList<String> amountBP = new ArrayList<>();
+public static ArrayList<String> receivedBP = new ArrayList<>();
 public static int servedCountA = 0; 
 
 // for Application:
@@ -79,13 +80,30 @@ public static Queue<Integer> holdC = new LinkedList<>();
             String servedName   = nameBP.get(index);
             String servedPayTo  = payToBP.get(index);
             String servedAmount = amountBP.get(index);
+            String received     = receivedBP.get(index);
+
+            // Convert to double for calculation
+            double amountDouble = 0.0;
+            double receivedDouble = 0.0;
+            double change = 0.0;
+
+            try {
+                amountDouble = Double.parseDouble(servedAmount);
+                receivedDouble = Double.parseDouble(received);
+                change = receivedDouble - amountDouble;
+            } catch (NumberFormatException e) {
+                // If parsing fails, handle it gracefully
+                TICKET.resibo.setText("<html><pre>Error: Invalid amount or received value.</pre></html>");
+                return;
+            }
 
             String receipt = "<html><pre>"
                     + String.format("%-20s %s<br>", "Queue Number:", "A" + servedNum)
                     + String.format("%-20s %s<br>", "Customer Name:", servedName)
                     + String.format("%-20s %s<br>", "Pay To:", servedPayTo)
                     + String.format("%-20s %s<br>", "Amount:", servedAmount)
-                   
+                    + String.format("%-20s %s<br>", "Amount Received:", received)
+                    + String.format("%-20s %.2f<br>", "Change:", change)
                     + "</pre></html>";
 
             TICKET.resibo.setText(receipt);  
@@ -94,6 +112,7 @@ public static Queue<Integer> holdC = new LinkedList<>();
         TICKET.resibo.setText("<html><pre>No customer is being served.</pre></html>");
     }
 }
+
     
     public static void printReceiptB() {
     Integer servedNum = queueB.peek(); 

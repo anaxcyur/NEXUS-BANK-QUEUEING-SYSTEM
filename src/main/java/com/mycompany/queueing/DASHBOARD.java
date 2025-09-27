@@ -104,6 +104,7 @@ public class DASHBOARD extends javax.swing.JFrame {
         holdListA = new javax.swing.JTextArea();
         recallA = new javax.swing.JButton();
         holdA = new javax.swing.JButton();
+        AmountReceived = new javax.swing.JTextField();
         Bbg = new javax.swing.JLabel();
         applidash = new javax.swing.JPanel();
         billspayment = new javax.swing.JButton();
@@ -118,10 +119,10 @@ public class DASHBOARD extends javax.swing.JFrame {
         address1 = new javax.swing.JTextField();
         occupation = new javax.swing.JTextField();
         email = new javax.swing.JTextField();
+        bday = new com.toedter.calendar.JDateChooser();
         inQueueB = new javax.swing.JLabel();
         serveB = new javax.swing.JLabel();
         recallB = new javax.swing.JButton();
-        bday = new com.toedter.calendar.JDateChooser();
         holdB = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         holdListB = new javax.swing.JTextArea();
@@ -287,6 +288,7 @@ public class DASHBOARD extends javax.swing.JFrame {
         billsdash.add(jScrollPane1);
         jScrollPane1.setBounds(780, 60, 70, 140);
 
+        recallA.setContentAreaFilled(false);
         recallA.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 recallAActionPerformed(evt);
@@ -295,6 +297,7 @@ public class DASHBOARD extends javax.swing.JFrame {
         billsdash.add(recallA);
         recallA.setBounds(410, 110, 140, 50);
 
+        holdA.setContentAreaFilled(false);
         holdA.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 holdAActionPerformed(evt);
@@ -302,6 +305,11 @@ public class DASHBOARD extends javax.swing.JFrame {
         });
         billsdash.add(holdA);
         holdA.setBounds(410, 60, 140, 50);
+
+        AmountReceived.setBackground(new java.awt.Color(255, 255, 255));
+        AmountReceived.setBorder(null);
+        billsdash.add(AmountReceived);
+        AmountReceived.setBounds(340, 446, 250, 30);
 
         Bbg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Final Design/bills payment dashboard.png"))); // NOI18N
         billsdash.add(Bbg);
@@ -422,6 +430,10 @@ public class DASHBOARD extends javax.swing.JFrame {
         applidash.add(email);
         email.setBounds(630, 370, 220, 20);
 
+        bday.setEnabled(false);
+        applidash.add(bday);
+        bday.setBounds(260, 470, 260, 26);
+
         inQueueB.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
         inQueueB.setForeground(new java.awt.Color(255, 153, 0));
         applidash.add(inQueueB);
@@ -440,8 +452,6 @@ public class DASHBOARD extends javax.swing.JFrame {
         });
         applidash.add(recallB);
         recallB.setBounds(410, 110, 140, 50);
-        applidash.add(bday);
-        bday.setBounds(270, 470, 250, 20);
 
         holdB.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -841,7 +851,7 @@ public class DASHBOARD extends javax.swing.JFrame {
         } 
         else {
             int c = JOptionPane.showConfirmDialog(null, "Are you sure the information is correct?", "Confirmation", JOptionPane.OK_CANCEL_OPTION);
-
+                
             if (c == JOptionPane.OK_OPTION) {
                 SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
                 String bda = sdf.format(selectedDate);
@@ -863,7 +873,7 @@ public class DASHBOARD extends javax.swing.JFrame {
                         "Information has been updated and saved.",
                         "Success",
                         JOptionPane.INFORMATION_MESSAGE);
-
+                ((CardLayout)container1.getLayout()).show(container1, "OTPCustomer");
                 TICKET ticketFrame = new TICKET();
                 ticketFrame.setVisible(true);
                 QUEUEING.printReceiptB();
@@ -1060,6 +1070,7 @@ public class DASHBOARD extends javax.swing.JFrame {
             String enteredName = name.getText().trim();
             String enteredPay = (String) pay.getSelectedItem();
             String enteredAmount = amount.getText().trim();
+            String enteredReceived = AmountReceived.getText().trim();
 
             if (enteredName.isEmpty() && enteredPay.isEmpty() && enteredAmount.isEmpty()) {
                 JOptionPane.showMessageDialog(null, "Please fill in all fields", "Input Error", JOptionPane.ERROR_MESSAGE);
@@ -1068,16 +1079,16 @@ public class DASHBOARD extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "Please input your Name", "Input Error", JOptionPane.ERROR_MESSAGE);
                 return;
             }
-            //        Validation Name
+            // Validation Name
             else if (enteredName.length() > 50) {
                 JOptionPane.showMessageDialog(null, "Name must be 50 characters or fewer", "Name Error", JOptionPane.ERROR_MESSAGE);
-                name.setText(""); // Optional: clear the field
+                name.setText("");
                 return;
             }
-            //        ✅ Validate name contains only letters and spaces
+            // ✅ Validate name contains only letters and spaces
             else if (!enteredName.matches("[a-zA-Z\\s]+")) {
                 JOptionPane.showMessageDialog(null, "Name must contain letters only (no numbers or symbols)", "Name Error", JOptionPane.ERROR_MESSAGE);
-                name.setText(""); // Optional: clear the field
+                name.setText("");
                 return;
             }
             else if (enteredPay.isEmpty()) {
@@ -1087,22 +1098,45 @@ public class DASHBOARD extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "Please input an Amount", "Input Error", JOptionPane.ERROR_MESSAGE);
                 return;
             }
-            //        Validation amount
+            // Validation amount
             else if (!enteredAmount.matches("\\d{1,6}")) {
                 JOptionPane.showMessageDialog(null, "Amount must be less than 6 digits and contain numbers only", "Amount Error", JOptionPane.ERROR_MESSAGE);
-                amount.setText(""); // Optional: clear the field
+                amount.setText("");
                 return;
-            } else {
-                int c = JOptionPane.showConfirmDialog(null,"Are you sure the information is correct?","Confirmation",JOptionPane.OK_CANCEL_OPTION      );
+            } else if (enteredReceived.isEmpty()) {
+                JOptionPane.showMessageDialog(null, "Please input the Amount Received", "Input Error", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+            // Validate amount received is numeric
+            else if (!enteredReceived.matches("\\d+(\\.\\d{1,2})?")) {
+                JOptionPane.showMessageDialog(null, "Amount Received must be a valid number", "Amount Error", JOptionPane.ERROR_MESSAGE);
+                AmountReceived.setText("");
+                return;
+            }
+            // Check if amount received >= amount
+            else {
+                double amountValue = Double.parseDouble(enteredAmount);
+                double receivedValue = Double.parseDouble(enteredReceived);
+
+                if (receivedValue < amountValue) {
+                    JOptionPane.showMessageDialog(null, "Amount Received must be greater than or equal to the Amount", "Amount Error", JOptionPane.ERROR_MESSAGE);
+                    AmountReceived.setText("");
+                    return;
+                }
+
+                int c = JOptionPane.showConfirmDialog(null,"Are you sure the information is correct?","Confirmation",JOptionPane.OK_CANCEL_OPTION);
 
                 if (c == JOptionPane.OK_OPTION) {
                     Integer servedNum = QUEUEING.queueA.peek();
                     if (servedNum != null) {
                         int index = servedNum - 1;
+
                         if (index >= 0 && index < QUEUEING.nameBP.size()) {
+                            QUEUEING.receivedBP.add(enteredReceived);
                             QUEUEING.nameBP.set(index, enteredName);
                             QUEUEING.payToBP.set(index, enteredPay);
                             QUEUEING.amountBP.set(index, enteredAmount);
+                            QUEUEING.receivedBP.set(index, enteredReceived);
                         }
                     }
 
@@ -1117,7 +1151,7 @@ public class DASHBOARD extends javax.swing.JFrame {
                     servedNum = QUEUEING.queueA.poll();
                     if (servedNum != null) {
                         int index = servedNum - 1;
-                        QUEUEING.servedCountA++;;
+                        QUEUEING.servedCountA++;
                         noOfServedA.setText(String.valueOf(QUEUEING.servedCountA));
                         QUEUEING.showCurrentA();
                         System.out.println(queueA);
@@ -1127,19 +1161,22 @@ public class DASHBOARD extends javax.swing.JFrame {
                         name.setText("");
                         pay.setSelectedItem(null);
                         amount.setText("");
+                        AmountReceived.setText("");
                     }
+
                     name.setEnabled(false);
                     pay.setEnabled(false);
                     amount.setEnabled(false);
 
                     new javax.swing.Timer(5000, e -> {
-
                         ticketFrame.dispose();
                     }).start();
                 }
                 break;
             }
         }
+
+
         
     }//GEN-LAST:event_confirmActionPerformed
 
@@ -1247,6 +1284,7 @@ public class DASHBOARD extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Abg;
     private javax.swing.JLabel Abg1;
+    public static javax.swing.JTextField AmountReceived;
     private javax.swing.JLabel Bbg;
     public static javax.swing.JTextField address1;
     public static javax.swing.JTextField amount;

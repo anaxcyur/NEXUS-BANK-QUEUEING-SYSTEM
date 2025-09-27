@@ -8,13 +8,12 @@ package com.mycompany.queueing;
  *
  * @author lucky
  */
-public class TICKET extends javax.swing.JFrame {
+public class OTPCustomer extends javax.swing.JFrame {
 
     /**
-     * Creates new form TICKET
+     * Creates new form OTP
      */
-    public TICKET() {
-        this.setLocationRelativeTo(null);
+    public OTPCustomer() {
         initComponents();
     }
 
@@ -28,26 +27,19 @@ public class TICKET extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        resibo = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        OTPText = new javax.swing.JLabel();
+        OTPBG = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setBounds(new java.awt.Rectangle(620, 260, 300, 400));
-        setMinimumSize(new java.awt.Dimension(300, 400));
-        setUndecorated(true);
-        setResizable(false);
         getContentPane().setLayout(null);
 
         jPanel1.setLayout(null);
+        jPanel1.add(OTPText);
+        OTPText.setBounds(20, 160, 260, 40);
 
-        resibo.setFont(new java.awt.Font("Segoe UI Historic", 0, 13)); // NOI18N
-        resibo.setVerticalAlignment(javax.swing.SwingConstants.TOP);
-        jPanel1.add(resibo);
-        resibo.setBounds(10, 150, 280, 190);
-
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Final Design/receipt .png"))); // NOI18N
-        jPanel1.add(jLabel2);
-        jLabel2.setBounds(0, 0, 300, 400);
+        OTPBG.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Final Design/Phone.png"))); // NOI18N
+        jPanel1.add(OTPBG);
+        OTPBG.setBounds(0, 0, 300, 400);
 
         getContentPane().add(jPanel1);
         jPanel1.setBounds(0, 0, 300, 400);
@@ -72,27 +64,28 @@ public class TICKET extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(TICKET.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(OTPCustomer.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(TICKET.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(OTPCustomer.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(TICKET.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(OTPCustomer.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(TICKET.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(OTPCustomer.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TICKET().setVisible(true);
+                new OTPCustomer().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel OTPBG;
+    private javax.swing.JLabel OTPText;
     private javax.swing.JPanel jPanel1;
-    public static javax.swing.JLabel resibo;
     // End of variables declaration//GEN-END:variables
 }

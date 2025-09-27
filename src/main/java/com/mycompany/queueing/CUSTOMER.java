@@ -674,7 +674,7 @@ public class CUSTOMER extends javax.swing.JFrame {
     private javax.swing.JTextField amount;
     private javax.swing.JTextField amount3;
     private javax.swing.JButton application;
-    private com.toedter.calendar.JDateChooser bday;
+    public static com.toedter.calendar.JDateChooser bday;
     private javax.swing.JButton bills;
     private javax.swing.JButton cancel;
     private javax.swing.JButton cancel1;
