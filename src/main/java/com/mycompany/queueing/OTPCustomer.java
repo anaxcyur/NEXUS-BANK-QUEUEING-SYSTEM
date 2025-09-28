@@ -9,12 +9,14 @@ package com.mycompany.queueing;
  * @author lucky
  */
 public class OTPCustomer extends javax.swing.JFrame {
-
+    
     /**
      * Creates new form OTP
      */
     public OTPCustomer() {
         initComponents();
+        this.setLocation(1000, 200);
+        
     }
 
     /**
@@ -31,11 +33,18 @@ public class OTPCustomer extends javax.swing.JFrame {
         OTPBG = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMaximumSize(new java.awt.Dimension(300, 400));
+        setMinimumSize(new java.awt.Dimension(300, 400));
+        setUndecorated(true);
         getContentPane().setLayout(null);
 
         jPanel1.setLayout(null);
+
+        OTPText.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
+        OTPText.setForeground(new java.awt.Color(153, 102, 0));
+        OTPText.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jPanel1.add(OTPText);
-        OTPText.setBounds(20, 160, 260, 40);
+        OTPText.setBounds(20, 150, 260, 80);
 
         OTPBG.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Final Design/Phone.png"))); // NOI18N
         jPanel1.add(OTPBG);
@@ -85,7 +94,7 @@ public class OTPCustomer extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel OTPBG;
-    private javax.swing.JLabel OTPText;
+    public static javax.swing.JLabel OTPText;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }

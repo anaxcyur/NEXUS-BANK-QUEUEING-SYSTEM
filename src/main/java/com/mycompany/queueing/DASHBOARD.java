@@ -63,6 +63,7 @@ public class DASHBOARD extends javax.swing.JFrame {
         jScrollPane3.setOpaque(false);
         jScrollPane3.getViewport().setOpaque(false);
         holdListC.setEditable(false);
+       
         
         //edit ng amount sa fe
         amount3.getDocument().addDocumentListener(new javax.swing.event.DocumentListener() {
@@ -73,7 +74,10 @@ public class DASHBOARD extends javax.swing.JFrame {
 
            
             change.addActionListener(e -> QUEUEING.updateConversion());       
+            
+            
    }
+   
      
 
     /**
@@ -432,7 +436,7 @@ public class DASHBOARD extends javax.swing.JFrame {
 
         bday.setEnabled(false);
         applidash.add(bday);
-        bday.setBounds(260, 470, 260, 26);
+        bday.setBounds(260, 470, 260, 22);
 
         inQueueB.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
         inQueueB.setForeground(new java.awt.Color(255, 153, 0));
@@ -476,7 +480,7 @@ public class DASHBOARD extends javax.swing.JFrame {
         jScrollPane2.setViewportView(holdListB);
 
         applidash.add(jScrollPane2);
-        jScrollPane2.setBounds(780, 60, 70, 140);
+        jScrollPane2.setBounds(790, 60, 70, 140);
 
         noOfServedB.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
         noOfServedB.setForeground(new java.awt.Color(255, 153, 0));
@@ -783,8 +787,7 @@ public class DASHBOARD extends javax.swing.JFrame {
     }//GEN-LAST:event_cancel2ActionPerformed
 
     private void confirm1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirm1ActionPerformed
-        
-        while (true) {
+                                       
         String fullname = name1.getText().trim();
         String num = number.getText().trim();
         Date selectedDate = bday.getDate(); 
@@ -792,92 +795,93 @@ public class DASHBOARD extends javax.swing.JFrame {
         String occu = occupation.getText().trim();
         String ema = email.getText().trim();
 
-        // First check if ALL fields are empty
+        // Validation
         if (fullname.isEmpty() && num.isEmpty() && selectedDate == null 
                 && add.isEmpty() && occu.isEmpty() && ema.isEmpty()) {
             JOptionPane.showMessageDialog(null, "Please fill in all fields", "Input Error", JOptionPane.ERROR_MESSAGE);
             return; 
         } 
-        else if (fullname.isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Please input your Name", "Input Error", JOptionPane.ERROR_MESSAGE);
-            return;
-        }
-        // ✅ Validate Name 
-        else if (fullname.length() > 50) {
-            JOptionPane.showMessageDialog(null, "Name must be 50 characters or fewer", "Name Error", JOptionPane.ERROR_MESSAGE);
+        if (fullname.isEmpty() || !fullname.matches("[a-zA-Z\\s]+") || fullname.length() > 50) {
+            JOptionPane.showMessageDialog(null, "Name must be letters only and max 50 chars", "Name Error", JOptionPane.ERROR_MESSAGE);
             name1.setText("");
             return;
         }
-        else if (!fullname.matches("[a-zA-Z\\s]+")) {
-            JOptionPane.showMessageDialog(null, "Name must contain letters only (no numbers or symbols)", "Name Error", JOptionPane.ERROR_MESSAGE);
-            name1.setText("");
+        if (num.isEmpty() || !num.matches("\\+63\\d{10}")) {
+            JOptionPane.showMessageDialog(null, "Contact number must start with +63 and contain exactly 10 digits after it", "Number Error", JOptionPane.ERROR_MESSAGE);
+            number.setText("+63"); 
             return;
         }
-        else if (num.isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Please input your Number", "Input Error", JOptionPane.ERROR_MESSAGE);
-            return;
-        }
-        else if (!num.matches("\\+?63\\d{10}")) {
-            JOptionPane.showMessageDialog(null, "Contact number must start with +63 or 63 and contain exactly 10 digits after it", "Number Format Error", JOptionPane.ERROR_MESSAGE);
-            number.setText(""); 
-            return;
-        }
-        else if (selectedDate == null) { //
+        if (selectedDate == null) {
             JOptionPane.showMessageDialog(null, "Please select your Birthday", "Input Error", JOptionPane.ERROR_MESSAGE);
             return;
         }
-        else if (add.isEmpty()) {
+        if (add.isEmpty()) {
             JOptionPane.showMessageDialog(null, "Please input your Address", "Input Error", JOptionPane.ERROR_MESSAGE);
             return;
-        } 
-        else if (occu.isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Please input your Occupation", "Input Error", JOptionPane.ERROR_MESSAGE);
+        }
+        if (occu.isEmpty() || !occu.matches("[a-zA-Z\\s]+") || occu.length() > 50) {
+            JOptionPane.showMessageDialog(null, "Occupation must be letters only and max 50 chars", "Occupation Error", JOptionPane.ERROR_MESSAGE);
             occupation.setText("");
             return;
         }
-        else if (occu.length() > 50) {
-            JOptionPane.showMessageDialog(null, "Occupation must be 50 characters or fewer", "Occupation Error", JOptionPane.ERROR_MESSAGE);
-            occupation.setText("");
-            return;
-        }
-        else if (!occu.matches("[a-zA-Z\\s]+")) {
-            JOptionPane.showMessageDialog(null, "Occupation must contain letters only (no numbers or symbols)", "Occupation Error", JOptionPane.ERROR_MESSAGE);
-            occupation.setText("");
-            return;
-        }
-        else if (ema.isEmpty()) {
+        if (ema.isEmpty()) {
             JOptionPane.showMessageDialog(null, "Please input your Email", "Input Error", JOptionPane.ERROR_MESSAGE);
             return;
-        } 
-        else {
-            int c = JOptionPane.showConfirmDialog(null, "Are you sure the information is correct?", "Confirmation", JOptionPane.OK_CANCEL_OPTION);
-                
-            if (c == JOptionPane.OK_OPTION) {
-                SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
-                String bda = sdf.format(selectedDate);
+        }
 
-                Integer servedNum = QUEUEING.queueB.peek(); 
-                if (servedNum != null) {
-                    int index = servedNum - 1;
-                    if (index >= 0 && index < QUEUEING.nameA.size()) {
-                        QUEUEING.nameA.set(index, fullname);
-                        QUEUEING.numberA.set(index, num);
-                        QUEUEING.bdayA.set(index, bda);   
-                        QUEUEING.addressA.set(index, add);
-                        QUEUEING.occupationA.set(index, occu);
-                        QUEUEING.emailA.set(index, ema);
-                    }
-                }
+        // Confirm dialog
+        int c = JOptionPane.showConfirmDialog(null, "Are you sure the information is correct?", "Confirmation", JOptionPane.OK_CANCEL_OPTION);
+        if (c != JOptionPane.OK_OPTION) return;
 
-                JOptionPane.showMessageDialog(null,
-                        "Information has been updated and saved.",
-                        "Success",
-                        JOptionPane.INFORMATION_MESSAGE);
-                ((CardLayout)container1.getLayout()).show(container1, "OTPCustomer");
+        // Format birthday
+        SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
+        String bda = sdf.format(selectedDate);
+
+        // Update queue data
+        Integer servedNum = QUEUEING.queueB.peek(); 
+        if (servedNum != null) {
+            int index = servedNum - 1;
+            if (index >= 0 && index < QUEUEING.nameA.size()) {
+                QUEUEING.nameA.set(index, fullname);
+                QUEUEING.numberA.set(index, num);
+                QUEUEING.bdayA.set(index, bda);   
+                QUEUEING.addressA.set(index, add);
+                QUEUEING.occupationA.set(index, occu);
+                QUEUEING.emailA.set(index, ema);
+            }
+        }
+
+        // Generate OTP
+        final String[] otp = { String.format("%06d", new java.util.Random().nextInt(999999)) };
+        OTPCustomer otpFrame = new OTPCustomer();
+        otpFrame.OTPText.setText(otp[0]);
+        otpFrame.setVisible(true);
+
+        OTPEmployee employeeFrame = new OTPEmployee();
+        employeeFrame.setVisible(true);
+
+        final int[] attempts = {0};
+        employeeFrame.enter.addActionListener(e -> {
+            String enteredOTP = employeeFrame.OTPConfirmation.getText().trim();
+            if (enteredOTP.equals(otp[0])) {
+                JOptionPane.showMessageDialog(null, "OTP Verified! Proceeding...", "Success", JOptionPane.INFORMATION_MESSAGE);
+                otpFrame.dispose();
+                employeeFrame.dispose();
+
+                // Show Card first
+                Card cardFrame = new Card();
+                QUEUEING.card(); // generate card number
+                cardFrame.setVisible(true);
+                new javax.swing.Timer(6000, ev -> cardFrame.dispose()).start();
+
+                // Then show Receipt
                 TICKET ticketFrame = new TICKET();
                 ticketFrame.setVisible(true);
+                new javax.swing.Timer(5000, ev -> ticketFrame.dispose()).start();
+
                 QUEUEING.printReceiptB();
 
+                // Disable fields after confirmation
                 name1.setEnabled(false);
                 number.setEnabled(false);
                 bday.setEnabled(false);
@@ -885,10 +889,8 @@ public class DASHBOARD extends javax.swing.JFrame {
                 occupation.setEnabled(false);
                 email.setEnabled(false);
 
-                // NEXT CUSTOMER                
-                servedNum = QUEUEING.queueB.poll();
-                if (servedNum != null) {
-                    int index = servedNum - 1; 
+                Integer sn = QUEUEING.queueB.poll();
+                if (sn != null) {
                     QUEUEING.showCurrentB();
                     QUEUEING.servedCountB++;
                     noOfServedB.setText(String.valueOf(QUEUEING.servedCountB));
@@ -896,20 +898,30 @@ public class DASHBOARD extends javax.swing.JFrame {
                     serveB.setText(null);
                     TV.serveB.setText(null);
                     name1.setText("");
-                    number.setText("");
+                    number.setText("+63");
                     address1.setText("");
                     bday.setDate(null); 
                     occupation.setText("");
                     email.setText("");
                 }
 
-                new javax.swing.Timer(5000, e -> {
-                    ticketFrame.dispose();
-                }).start();
+            } else {
+                attempts[0]++;
+                if (attempts[0] < 3) {
+                    JOptionPane.showMessageDialog(null, "Invalid OTP. Try again! (" + attempts[0] + "/3)", "Error", JOptionPane.ERROR_MESSAGE);
+                    employeeFrame.OTPConfirmation.setText("");
+                } else {
+                    otp[0] = String.format("%06d", new java.util.Random().nextInt(999999));
+                    otpFrame.OTPText.setText(otp[0]);
+                    JOptionPane.showMessageDialog(null, "Maximum attempts reached. A new OTP has been generated.", "New OTP", JOptionPane.INFORMATION_MESSAGE);
+                    attempts[0] = 0;
+                    employeeFrame.OTPConfirmation.setText("");
+                }
             }
-            break;
-        }
-    }
+        });
+
+        ((CardLayout)container1.getLayout()).show(container1, "OTPCustomer");
+
 
     }//GEN-LAST:event_confirm1ActionPerformed
 //FOREIGN EXCHANGE
@@ -964,10 +976,10 @@ public class DASHBOARD extends javax.swing.JFrame {
                 if (servedNum != null) {
                     int index = servedNum - 1;
                     if (index >= 0 && index < QUEUEING.nameFE.size()) {
-                        QUEUEING.nameFE.set(index, nameFE);
-                        QUEUEING.changeFE.set(index, chang);
-                        QUEUEING.amountFE.set(index, am);
-                        QUEUEING.convertFE.set(index, conver);
+                        QUEUEING.nameFE.add(index, nameFE);
+                        QUEUEING.changeFE.add(index, chang);
+                        QUEUEING.amountFE.add(index, am);
+                        QUEUEING.convertFE.add(index, conver);
                         
                         
                         double amount = Double.parseDouble(am);
@@ -1133,10 +1145,10 @@ public class DASHBOARD extends javax.swing.JFrame {
 
                         if (index >= 0 && index < QUEUEING.nameBP.size()) {
                             QUEUEING.receivedBP.add(enteredReceived);
-                            QUEUEING.nameBP.set(index, enteredName);
-                            QUEUEING.payToBP.set(index, enteredPay);
-                            QUEUEING.amountBP.set(index, enteredAmount);
-                            QUEUEING.receivedBP.set(index, enteredReceived);
+                            QUEUEING.nameBP.add(index, enteredName);
+                            QUEUEING.payToBP.add(index, enteredPay);
+                            QUEUEING.amountBP.add(index, enteredAmount);
+                            QUEUEING.receivedBP.add(index, enteredReceived);
                         }
                     }
 

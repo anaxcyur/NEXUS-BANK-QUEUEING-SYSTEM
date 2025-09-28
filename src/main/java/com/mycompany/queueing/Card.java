@@ -4,22 +4,18 @@
  */
 package com.mycompany.queueing;
 
-import java.awt.Color;
-
 /**
  *
- * @author lucky
+ * @author aname
  */
-public class OTPEmployee extends javax.swing.JFrame {
+public class Card extends javax.swing.JFrame {
 
     /**
-     * Creates new form OTPEmployee
+     * Creates new form Card
      */
-    public OTPEmployee() {
+    public Card() {
         initComponents();
-        this.setLocation(50, 200);
-        OTPConfirmation.setBackground(new Color(0, 0, 0, 0)); 
-        enter.setBackground(new Color(0, 0, 0, 0)); 
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -32,33 +28,33 @@ public class OTPEmployee extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        OTPConfirmation = new javax.swing.JTextField();
-        enter = new javax.swing.JButton();
-        OTPEBG = new javax.swing.JLabel();
+        Name = new javax.swing.JLabel();
+        cvc = new javax.swing.JLabel();
+        bg = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMinimumSize(new java.awt.Dimension(400, 200));
+        setMinimumSize(new java.awt.Dimension(500, 300));
         setUndecorated(true);
         getContentPane().setLayout(null);
 
         jPanel1.setLayout(null);
 
-        OTPConfirmation.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        OTPConfirmation.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        OTPConfirmation.setBorder(null);
-        jPanel1.add(OTPConfirmation);
-        OTPConfirmation.setBounds(125, 110, 150, 20);
+        Name.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        Name.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel1.add(Name);
+        Name.setBounds(70, 30, 270, 50);
 
-        enter.setBorder(null);
-        jPanel1.add(enter);
-        enter.setBounds(150, 150, 100, 30);
+        cvc.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        cvc.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel1.add(cvc);
+        cvc.setBounds(80, 170, 340, 60);
 
-        OTPEBG.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Final Design/otp verification .png"))); // NOI18N
-        jPanel1.add(OTPEBG);
-        OTPEBG.setBounds(0, 0, 400, 200);
+        bg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Final Design/NEXUS BANK.png"))); // NOI18N
+        jPanel1.add(bg);
+        bg.setBounds(0, 0, 500, 300);
 
         getContentPane().add(jPanel1);
-        jPanel1.setBounds(0, 0, 400, 200);
+        jPanel1.setBounds(0, 0, 500, 300);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -80,28 +76,28 @@ public class OTPEmployee extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(OTPEmployee.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Card.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(OTPEmployee.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Card.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(OTPEmployee.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Card.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(OTPEmployee.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Card.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new OTPEmployee().setVisible(true);
+                new Card().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public static javax.swing.JTextField OTPConfirmation;
-    private javax.swing.JLabel OTPEBG;
-    public static javax.swing.JButton enter;
+    public static javax.swing.JLabel Name;
+    private javax.swing.JLabel bg;
+    public static javax.swing.JLabel cvc;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }

@@ -69,6 +69,40 @@ public static Queue<Integer> holdB = new LinkedList<>();
 public static Queue<Integer> holdC = new LinkedList<>();
 
   
+    public static void card() {
+        Integer servedNum = queueB.peek();
+        if (servedNum != null) {
+            int index = servedNum - 1;
+            if (index >= 0 && index < nameA.size()) {
+                String servedName = nameA.get(index);
+                Card.Name.setText(servedName);
+
+                java.util.Random rnd = new java.util.Random();
+                StringBuilder sb = new StringBuilder();
+                for (int i = 0; i < 15; i++) sb.append(rnd.nextInt(10));
+                String partial = sb.toString();
+                int sum = 0;
+                int pos = 0;
+                for (int i = partial.length() - 1; i >= 0; i--) {
+                    int d = partial.charAt(i) - '0';
+                    if (pos % 2 == 0) { d *= 2; if (d > 9) d -= 9; }
+                    sum += d;
+                    pos++;
+                }
+                int check = (10 - (sum % 10)) % 10;
+                String raw = partial + check;
+                StringBuilder fmt = new StringBuilder();
+                for (int i = 0; i < raw.length(); i++) {
+                    if (i > 0 && i % 4 == 0) fmt.append(' ');
+                    fmt.append(raw.charAt(i));
+                }
+                Card.cvc.setText(fmt.toString());
+                return;
+            }
+        }
+        Card.Name.setText("");
+        Card.cvc.setText("");
+    }
 
 
     public static void printReceiptA() {
@@ -357,32 +391,36 @@ public static Queue<Integer> holdC = new LinkedList<>();
                 }
             }
             public static void recallHeldA() {
-                 Integer heldNum = holdA.poll();
+                Integer heldNum = holdA.poll();  
                 if (heldNum != null) {
-                    queueA.offer(heldNum);
-                    showCurrentA();
-                    updateHoldListA();
+                    queueA.offer(heldNum);       
+                    updateHoldListA();           
+                    showCurrentA();              
                 }
             }
-            public static void recallHeldB() {
+
+           public static void recallHeldB() {
                 Integer heldNum = holdB.poll();
                 if (heldNum != null) {
                     queueB.offer(heldNum);
-                    showCurrentB();
                     updateHoldListB();
+                    showCurrentB();
                 }
             }
+
             public static void recallHeldC() {
                 Integer heldNum = holdC.poll();
                 if (heldNum != null) {
                     queueC.offer(heldNum);
-                    showCurrentC();
                     updateHoldListC();
+                    showCurrentC();
                 }
             }
+
             public static void updateHoldListA() {
                 if (holdA.isEmpty()) {
-                    DASHBOARD.holdListA.setText("No customers on hold");
+                    DASHBOARD.holdListA.setText("");
+                    TV.TVHoldA.setText("");
                 } else {
                     StringBuilder list = new StringBuilder("\n");
                     for (Integer num : holdA) {
@@ -394,7 +432,8 @@ public static Queue<Integer> holdC = new LinkedList<>();
             }
             public static void updateHoldListB() {
                 if (holdB.isEmpty()) {
-                    DASHBOARD.holdListB.setText("No customers on hold");
+                    DASHBOARD.holdListB.setText("");
+                    TV.TVHoldB.setText("");
                 } else {
                     StringBuilder list = new StringBuilder("\n");
                     for (Integer num : holdB) {
@@ -406,7 +445,8 @@ public static Queue<Integer> holdC = new LinkedList<>();
             }
             public static void updateHoldListC() {
                 if (holdC.isEmpty()) {
-                    DASHBOARD.holdListC.setText("No customers on hold");
+                    DASHBOARD.holdListC.setText("");
+                    TV.TVHoldC.setText("");
                 } else {
                     StringBuilder list = new StringBuilder("\n");
                     for (Integer num : holdC) {
@@ -470,10 +510,7 @@ public static Queue<Integer> holdC = new LinkedList<>();
         }
 
       
-      
-      
-      
-      
+  
       
     public static void main(String[] args) {
            new START_UP().setVisible(true);

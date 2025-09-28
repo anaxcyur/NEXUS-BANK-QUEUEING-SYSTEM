@@ -15,6 +15,8 @@ import javax.swing.Timer;
 import com.toedter.calendar.JDateChooser;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import javax.swing.text.AttributeSet;
+import javax.swing.text.BadLocationException;
 
 /**
 
@@ -43,10 +45,42 @@ public class CUSTOMER extends javax.swing.JFrame {
         bday.setBackground(new Color(0, 0, 0, 0));
         paytoOptions.setBackground(new Color(0, 0, 0, 0));
         paytoOptions.setSelectedItem(null);
+        initNumberField();
         
 
     }
+    private void initNumberField() {
+        number.setText("+63"); // fixed prefix
+        javax.swing.text.AbstractDocument doc = (javax.swing.text.AbstractDocument) number.getDocument();
+        doc.setDocumentFilter(new javax.swing.text.DocumentFilter() {
+            @Override
+            public void insertString(FilterBypass fb, int offset, String string, AttributeSet attr) throws BadLocationException {
+                if (offset < 3) return; // cannot edit +63
+                string = string.replaceAll("[^0-9]", ""); // only digits
+                int currentLength = fb.getDocument().getLength() - 3; // digits after +63
+                if (currentLength + string.length() <= 10) {
+                    super.insertString(fb, offset, string, attr);
+                }
+            }
 
+            @Override
+            public void replace(FilterBypass fb, int offset, int length, String text, AttributeSet attrs) throws BadLocationException {
+                if (offset < 3) return; // cannot edit +63
+                text = text.replaceAll("[^0-9]", "");
+                int currentLength = fb.getDocument().getLength() - length - 3; // digits after +63
+                if (currentLength + text.length() <= 10) {
+                    super.replace(fb, offset, length, text, attrs);
+                }
+            }
+
+            @Override
+            public void remove(FilterBypass fb, int offset, int length) throws BadLocationException {
+                if (offset < 3) return; // cannot remove +63
+                super.remove(fb, offset, length);
+            }
+        });
+    }
+        
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
