@@ -15,7 +15,7 @@ public class Card extends javax.swing.JFrame {
      */
     public Card() {
         initComponents();
-        this.setLocationRelativeTo(null);
+        
     }
 
     /**
@@ -33,6 +33,7 @@ public class Card extends javax.swing.JFrame {
         bg = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBounds(new java.awt.Rectangle(100, 250, 500, 300));
         setMinimumSize(new java.awt.Dimension(500, 300));
         setUndecorated(true);
         getContentPane().setLayout(null);

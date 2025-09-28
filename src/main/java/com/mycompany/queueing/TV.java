@@ -105,10 +105,11 @@ public class TV extends javax.swing.JFrame {
         jScrollPane1.setEnabled(false);
 
         waitingA.setEditable(false);
-        waitingA.setColumns(20);
-        waitingA.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
+        waitingA.setColumns(3);
+        waitingA.setFont(new java.awt.Font("Arial Black", 1, 16)); // NOI18N
         waitingA.setForeground(new java.awt.Color(255, 153, 0));
         waitingA.setRows(5);
+        waitingA.setTabSize(10);
         waitingA.setBorder(null);
         jScrollPane1.setViewportView(waitingA);
 
@@ -121,10 +122,11 @@ public class TV extends javax.swing.JFrame {
         jScrollPane2.setEnabled(false);
 
         waitingB.setEditable(false);
-        waitingB.setColumns(20);
-        waitingB.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
+        waitingB.setColumns(3);
+        waitingB.setFont(new java.awt.Font("Arial Black", 1, 16)); // NOI18N
         waitingB.setForeground(new java.awt.Color(255, 153, 0));
         waitingB.setRows(5);
+        waitingB.setTabSize(10);
         waitingB.setBorder(null);
         jScrollPane2.setViewportView(waitingB);
 
@@ -137,10 +139,11 @@ public class TV extends javax.swing.JFrame {
         jScrollPane3.setEnabled(false);
 
         waitingC.setEditable(false);
-        waitingC.setColumns(20);
-        waitingC.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
+        waitingC.setColumns(3);
+        waitingC.setFont(new java.awt.Font("Arial Black", 1, 16)); // NOI18N
         waitingC.setForeground(new java.awt.Color(255, 153, 0));
         waitingC.setRows(5);
+        waitingC.setTabSize(10);
         waitingC.setBorder(null);
         jScrollPane3.setViewportView(waitingC);
 

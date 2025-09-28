@@ -17,7 +17,7 @@ public class OTPEmployee extends javax.swing.JFrame {
      */
     public OTPEmployee() {
         initComponents();
-        this.setLocation(50, 200);
+        this.setLocation(580, 300);
         OTPConfirmation.setBackground(new Color(0, 0, 0, 0)); 
         enter.setBackground(new Color(0, 0, 0, 0)); 
     }
@@ -37,6 +37,7 @@ public class OTPEmployee extends javax.swing.JFrame {
         OTPEBG = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBounds(new java.awt.Rectangle(500, 300, 400, 200));
         setMinimumSize(new java.awt.Dimension(400, 200));
         setUndecorated(true);
         getContentPane().setLayout(null);
@@ -50,6 +51,12 @@ public class OTPEmployee extends javax.swing.JFrame {
         OTPConfirmation.setBounds(125, 110, 150, 20);
 
         enter.setBorder(null);
+        enter.setContentAreaFilled(false);
+        enter.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                enterActionPerformed(evt);
+            }
+        });
         jPanel1.add(enter);
         enter.setBounds(150, 150, 100, 30);
 
@@ -62,6 +69,10 @@ public class OTPEmployee extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void enterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enterActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_enterActionPerformed
 
     /**
      * @param args the command line arguments
