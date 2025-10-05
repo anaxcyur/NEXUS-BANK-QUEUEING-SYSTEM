@@ -49,6 +49,14 @@ public class CUSTOMER extends javax.swing.JFrame {
         
 
     }
+        private void resetNumberField() {
+        javax.swing.text.AbstractDocument doc = (javax.swing.text.AbstractDocument) number.getDocument();
+        javax.swing.text.DocumentFilter oldFilter = doc.getDocumentFilter(); // Save current filter
+        doc.setDocumentFilter(null); // Temporarily remove filter
+        number.setText("+63"); // Reset cleanly
+        doc.setDocumentFilter(oldFilter); // Reapply filter
+    }
+
     private void initNumberField() {
         number.setText("+63"); // fixed prefix
         javax.swing.text.AbstractDocument doc = (javax.swing.text.AbstractDocument) number.getDocument();
@@ -73,11 +81,16 @@ public class CUSTOMER extends javax.swing.JFrame {
                 }
             }
 
-            @Override
+           @Override
             public void remove(FilterBypass fb, int offset, int length) throws BadLocationException {
-                if (offset < 3) return; // cannot remove +63
+                if (offset == 0 && length == fb.getDocument().getLength()) {
+                    super.remove(fb, offset, length); // allow full clear programmatically
+                    return;
+                }
+                if (offset < 3) return; 
                 super.remove(fb, offset, length);
             }
+
         });
     }
         
@@ -590,7 +603,7 @@ public class CUSTOMER extends javax.swing.JFrame {
         timer.setRepeats(false); 
         timer.start();
         fname.setText(null);
-        number.setText(null);
+        resetNumberField();
         address.setText(null);
         bday.setDate(null); 
         occupation.setText(null);

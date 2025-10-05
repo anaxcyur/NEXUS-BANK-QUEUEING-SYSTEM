@@ -290,7 +290,7 @@ public class DASHBOARD extends javax.swing.JFrame {
         jScrollPane1.setViewportView(holdListA);
 
         billsdash.add(jScrollPane1);
-        jScrollPane1.setBounds(780, 60, 70, 140);
+        jScrollPane1.setBounds(800, 60, 70, 140);
 
         recallA.setContentAreaFilled(false);
         recallA.addActionListener(new java.awt.event.ActionListener() {
@@ -434,12 +434,14 @@ public class DASHBOARD extends javax.swing.JFrame {
         applidash.add(email);
         email.setBounds(630, 370, 220, 20);
 
+        bday.setBackground(new java.awt.Color(255, 255, 255));
         bday.setEnabled(false);
         applidash.add(bday);
         bday.setBounds(260, 470, 260, 22);
 
         inQueueB.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
         inQueueB.setForeground(new java.awt.Color(255, 153, 0));
+        inQueueB.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         applidash.add(inQueueB);
         inQueueB.setBounds(620, 160, 50, 50);
 
@@ -480,7 +482,7 @@ public class DASHBOARD extends javax.swing.JFrame {
         jScrollPane2.setViewportView(holdListB);
 
         applidash.add(jScrollPane2);
-        jScrollPane2.setBounds(790, 60, 70, 140);
+        jScrollPane2.setBounds(800, 60, 70, 140);
 
         noOfServedB.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
         noOfServedB.setForeground(new java.awt.Color(255, 153, 0));
@@ -610,6 +612,7 @@ public class DASHBOARD extends javax.swing.JFrame {
 
         inQueueC.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
         inQueueC.setForeground(new java.awt.Color(255, 153, 0));
+        inQueueC.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         exchangedash.add(inQueueC);
         inQueueC.setBounds(620, 160, 50, 50);
 
@@ -650,7 +653,7 @@ public class DASHBOARD extends javax.swing.JFrame {
         jScrollPane3.setViewportView(holdListC);
 
         exchangedash.add(jScrollPane3);
-        jScrollPane3.setBounds(780, 60, 70, 140);
+        jScrollPane3.setBounds(800, 60, 70, 140);
 
         noOfServedC.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
         noOfServedC.setForeground(new java.awt.Color(255, 153, 0));

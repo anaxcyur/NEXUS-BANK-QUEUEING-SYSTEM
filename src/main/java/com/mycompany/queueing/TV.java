@@ -67,19 +67,19 @@ public class TV extends javax.swing.JFrame {
         TVHoldB.setForeground(new java.awt.Color(255, 153, 0));
         TVHoldB.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jPanel1.add(TVHoldB);
-        TVHoldB.setBounds(330, 330, 150, 40);
+        TVHoldB.setBounds(330, 310, 150, 60);
 
         TVHoldC.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
         TVHoldC.setForeground(new java.awt.Color(255, 153, 0));
         TVHoldC.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jPanel1.add(TVHoldC);
-        TVHoldC.setBounds(590, 330, 150, 40);
+        TVHoldC.setBounds(590, 310, 150, 60);
 
         TVHoldA.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
         TVHoldA.setForeground(new java.awt.Color(255, 153, 0));
         TVHoldA.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jPanel1.add(TVHoldA);
-        TVHoldA.setBounds(100, 330, 150, 40);
+        TVHoldA.setBounds(100, 310, 150, 60);
 
         serveA.setFont(new java.awt.Font("Arial Black", 1, 36)); // NOI18N
         serveA.setForeground(new java.awt.Color(255, 153, 0));
