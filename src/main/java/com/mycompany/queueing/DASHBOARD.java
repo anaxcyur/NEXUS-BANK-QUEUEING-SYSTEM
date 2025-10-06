@@ -435,11 +435,9 @@ public class DASHBOARD extends javax.swing.JFrame {
         email.setBounds(630, 370, 220, 20);
 
         bday.setBackground(new java.awt.Color(255, 255, 255));
-        bday.setForeground(new java.awt.Color(0, 0, 0));
         bday.setEnabled(false);
-        bday.setOpaque(false);
         applidash.add(bday);
-        bday.setBounds(260, 470, 260, 30);
+        bday.setBounds(260, 470, 260, 22);
 
         inQueueB.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
         inQueueB.setForeground(new java.awt.Color(255, 153, 0));
