@@ -436,6 +436,7 @@ public class DASHBOARD extends javax.swing.JFrame {
 
         bday.setBackground(new java.awt.Color(255, 255, 255));
         bday.setEnabled(false);
+        bday.setOpaque(false);
         applidash.add(bday);
         bday.setBounds(260, 470, 260, 22);
 
