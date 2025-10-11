@@ -11,6 +11,9 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStream;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.Period;
+import java.time.ZoneId;
 import java.util.Date;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
@@ -45,6 +48,9 @@ public class DASHBOARD extends javax.swing.JFrame {
         recallA.setBackground(new Color(0, 0, 0, 0)); 
         holdA.setBackground(new Color(0, 0, 0, 0)); 
         recallB.setBackground(new Color(0, 0, 0, 0)); 
+        holdA.setOpaque(false); 
+        holdB.setOpaque(false); 
+        holdC.setOpaque(false); 
         holdB.setBackground(new Color(0, 0, 0, 0)); 
         recallC.setBackground(new Color(0, 0, 0, 0)); 
         holdC.setBackground(new Color(0, 0, 0, 0)); 
@@ -819,6 +825,16 @@ public class DASHBOARD extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Please select your Birthday", "Input Error", JOptionPane.ERROR_MESSAGE);
             return;
         }
+        
+        LocalDate birthDate = selectedDate.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+        LocalDate today = LocalDate.now();
+        int age = Period.between(birthDate, today).getYears();
+        if (age < 18) {
+            JOptionPane.showMessageDialog(null, "You must be at least 18 years old to apply.", "Age Restriction", JOptionPane.ERROR_MESSAGE);
+            bday.setDate(null);
+            return;
+        }
+
         if (add.isEmpty()) {
             JOptionPane.showMessageDialog(null, "Please input your Address", "Input Error", JOptionPane.ERROR_MESSAGE);
             return;

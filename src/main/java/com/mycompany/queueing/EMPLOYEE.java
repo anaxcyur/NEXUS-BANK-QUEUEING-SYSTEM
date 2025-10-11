@@ -19,8 +19,10 @@ public class EMPLOYEE extends javax.swing.JFrame {
     public EMPLOYEE() {
         initComponents();
        this.setLocationRelativeTo(null);
-       uname.setBackground(new Color(0, 0, 0, 0));
-       pass.setBackground(new Color(0, 0, 0, 0));
+       uname.setOpaque(false);
+       uname.setBackground(new Color(255, 255, 255));
+       pass.setBackground(new Color(255, 255, 255));
+       pass.setOpaque(false);
        
        
     }
@@ -65,6 +67,7 @@ public class EMPLOYEE extends javax.swing.JFrame {
         pass.setBackground(new java.awt.Color(255, 255, 255));
         pass.setFont(new java.awt.Font("Leelawadee UI Semilight", 1, 24)); // NOI18N
         pass.setBorder(null);
+        pass.setOpaque(true);
         pass.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 passActionPerformed(evt);

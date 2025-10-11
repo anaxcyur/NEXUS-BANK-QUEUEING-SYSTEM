@@ -14,6 +14,9 @@ import javax.swing.JOptionPane;
 import javax.swing.Timer;
 import com.toedter.calendar.JDateChooser;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.Period;
+import java.time.ZoneId;
 import java.util.Date;
 import javax.swing.text.AttributeSet;
 import javax.swing.text.BadLocationException;
@@ -46,6 +49,20 @@ public class CUSTOMER extends javax.swing.JFrame {
         paytoOptions.setBackground(new Color(0, 0, 0, 0));
         paytoOptions.setSelectedItem(null);
         initNumberField();
+        name.setOpaque(false); 
+        amount.setOpaque(false); 
+        address.setOpaque(false); 
+        fname.setOpaque(false); 
+        bday.setOpaque(false); 
+        email.setOpaque(false); 
+        occupation.setOpaque(false); 
+        number.setOpaque(false); 
+        change.setOpaque(false); 
+        convert.setOpaque(false); 
+        name3.setOpaque(false); 
+        amount3.setOpaque(false); 
+        bday.setOpaque(false); 
+        paytoOptions.setOpaque(false);
         
 
     }
@@ -190,6 +207,7 @@ public class CUSTOMER extends javax.swing.JFrame {
         paytoOptions.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Maynilad", "Meralco", "Globe", "PLDT", "Smart", "" }));
         paytoOptions.setSelectedIndex(-1);
         paytoOptions.setBorder(null);
+        paytoOptions.setOpaque(true);
         BP.add(paytoOptions);
         paytoOptions.setBounds(90, 210, 300, 30);
 
@@ -537,8 +555,16 @@ public class CUSTOMER extends javax.swing.JFrame {
 //         Validate birthday format MKKK
         if (selectedDate == null) {
             JOptionPane.showMessageDialog(null, "Please select a valid birthday", "Date Error", JOptionPane.ERROR_MESSAGE);
-            return;
+            return;      
 }
+        LocalDate birthDate = selectedDate.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+        LocalDate today = LocalDate.now();
+        int age = Period.between(birthDate, today).getYears();
+        if (age < 18) {
+            JOptionPane.showMessageDialog(null, "You must be at least 18 years old to apply.", "Age Restriction", JOptionPane.ERROR_MESSAGE);
+            bday.setDate(null);
+            return;
+        }
 //        MKKKK
         // Validate number: must start with optional + and followed by 12 digits total
         if (!numberVal.matches("\\+?63\\d{10}")) {
