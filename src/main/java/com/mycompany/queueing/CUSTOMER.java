@@ -3,6 +3,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package com.mycompany.queueing;
+import static com.mycompany.queueing.QUEUEING.EURO;
+import static com.mycompany.queueing.QUEUEING.JPY;
+import static com.mycompany.queueing.QUEUEING.USD;
 import static com.mycompany.queueing.QUEUEING.nameA;
 import static com.mycompany.queueing.QUEUEING.queueA;
 import java.awt.CardLayout;
@@ -34,6 +37,7 @@ public class CUSTOMER extends javax.swing.JFrame {
     public CUSTOMER(  ) {
         initComponents();
         name.setBackground(new Color(0, 0, 0, 0));
+        name.getAccessibleContext().setAccessibleDescription("Last name, First name Middle name");
         amount.setBackground(new Color(0, 0, 0, 0));
         address.setBackground(new Color(0, 0, 0, 0));
         fname.setBackground(new Color(0, 0, 0, 0));
@@ -64,7 +68,26 @@ public class CUSTOMER extends javax.swing.JFrame {
         bday.setOpaque(false); 
         paytoOptions.setOpaque(false);
         
-        
+        // USD Label Set
+        if (!USD.isEmpty()) {
+            CUSTOMER.USDrate.setText(USD.get(USD.size() - 1));
+        } else {
+            CUSTOMER.USDrate.setText("56.5"); // Default Conversion Rate
+        }
+
+        // EURO Label Set
+        if (!EURO.isEmpty()) {
+            CUSTOMER.EUROrate.setText(EURO.get(EURO.size() - 1));
+        } else {
+            CUSTOMER.EUROrate.setText("60.2"); // Default Conversion Rate
+        }
+
+        // JPY Label Set
+        if (!JPY.isEmpty()) {
+            CUSTOMER.JPYrate.setText(JPY.get(JPY.size() - 1));
+        } else {
+            CUSTOMER.JPYrate.setText("0.38"); // Default Conversion Rate
+        }
 
     }
         private void resetNumberField() {
@@ -215,10 +238,13 @@ public class CUSTOMER extends javax.swing.JFrame {
         BP.add(paytoOptions);
         paytoOptions.setBounds(90, 210, 300, 30);
 
+        name.setToolTipText("LN, FN MN");
         name.setBorder(null);
+        name.setOpaque(true);
         BP.add(name);
         name.setBounds(80, 160, 320, 30);
 
+        amount.setToolTipText("0.00");
         amount.setBorder(null);
         amount.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -265,6 +291,7 @@ public class CUSTOMER extends javax.swing.JFrame {
         APLI.add(address);
         address.setBounds(110, 260, 270, 20);
 
+        fname.setToolTipText("LN, FN MN");
         fname.setBorder(null);
         APLI.add(fname);
         fname.setBounds(110, 146, 270, 30);
@@ -327,6 +354,7 @@ public class CUSTOMER extends javax.swing.JFrame {
 
         FE.setLayout(null);
 
+        amount3.setToolTipText("0.00");
         amount3.setBorder(null);
         amount3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -336,6 +364,7 @@ public class CUSTOMER extends javax.swing.JFrame {
         FE.add(amount3);
         amount3.setBounds(90, 310, 300, 20);
 
+        name3.setToolTipText("LN, FN MN");
         name3.setBorder(null);
         FE.add(name3);
         name3.setBounds(80, 160, 310, 30);
@@ -343,7 +372,7 @@ public class CUSTOMER extends javax.swing.JFrame {
         convert.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "PHP" }));
         convert.setBorder(null);
         FE.add(convert);
-        convert.setBounds(100, 260, 290, 30);
+        convert.setBounds(100, 260, 290, 20);
 
         confirm3.setBorderPainted(false);
         confirm3.setContentAreaFilled(false);

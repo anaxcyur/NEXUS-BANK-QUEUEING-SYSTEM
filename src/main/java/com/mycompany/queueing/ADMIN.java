@@ -118,6 +118,7 @@ public class ADMIN extends javax.swing.JFrame {
         
         if (option == JOptionPane.OK_OPTION) {
         this.setVisible(false);
+        new EMPLOYEE().setVisible(true);
         }
         
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -130,8 +131,6 @@ public class ADMIN extends javax.swing.JFrame {
         QUEUEING.USD.add(usd);
         QUEUEING.EURO.add(euro);
         QUEUEING.JPY.add(jpy);
-        
-        QUEUEING.showCurrencyRate();
         
         USA.setEnabled(false);
         EURO.setEnabled(false);

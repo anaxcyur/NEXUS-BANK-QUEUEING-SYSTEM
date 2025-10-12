@@ -69,26 +69,6 @@ public static ArrayList<String> USD = new ArrayList<>();
 public static ArrayList<String> EURO = new ArrayList<>();
 public static ArrayList<String> JPY = new ArrayList<>();
 
-public static void showCurrencyRate() {
-    
-    if (!USD.isEmpty()) {
-        CUSTOMER.USDrate.setText(USD.get(USD.size() - 1));
-    } else {
-        CUSTOMER.USDrate.setText("56.5"); // Default Conversion Rate
-    }
-    
-    if (!EURO.isEmpty()) {
-        CUSTOMER.EUROrate.setText(EURO.get(EURO.size() - 1));
-    } else {
-        CUSTOMER.EUROrate.setText("60.2"); // Default Conversion Rate
-    }
-    
-    if (!JPY.isEmpty()) {
-        CUSTOMER.JPYrate.setText(JPY.get(JPY.size() - 1));
-    } else {
-        CUSTOMER.JPYrate.setText("0.38"); // Default Conversion Rate
-    }
-}
 
 // ---------------- HOLD QUEUES ----------------
 public static Queue<Integer> holdA = new LinkedList<>();

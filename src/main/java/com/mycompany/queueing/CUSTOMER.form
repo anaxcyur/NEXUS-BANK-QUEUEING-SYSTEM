@@ -151,9 +151,11 @@
             </Component>
             <Component class="javax.swing.JTextField" name="name">
               <Properties>
+                <Property name="toolTipText" type="java.lang.String" value="LN, FN MN"/>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="null"/>
                 </Property>
+                <Property name="opaque" type="boolean" value="true"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -163,6 +165,7 @@
             </Component>
             <Component class="javax.swing.JTextField" name="amount">
               <Properties>
+                <Property name="toolTipText" type="java.lang.String" value="0.00"/>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="null"/>
                 </Property>
@@ -246,6 +249,7 @@
             </Component>
             <Component class="javax.swing.JTextField" name="fname">
               <Properties>
+                <Property name="toolTipText" type="java.lang.String" value="LN, FN MN"/>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="null"/>
                 </Property>
@@ -370,6 +374,7 @@
           <SubComponents>
             <Component class="javax.swing.JTextField" name="amount3">
               <Properties>
+                <Property name="toolTipText" type="java.lang.String" value="0.00"/>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="null"/>
                 </Property>
@@ -385,6 +390,7 @@
             </Component>
             <Component class="javax.swing.JTextField" name="name3">
               <Properties>
+                <Property name="toolTipText" type="java.lang.String" value="LN, FN MN"/>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="null"/>
                 </Property>
@@ -411,7 +417,7 @@
               </AuxValues>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="100" y="260" width="290" height="30"/>
+                  <AbsoluteConstraints x="100" y="260" width="290" height="20"/>
                 </Constraint>
               </Constraints>
             </Component>
