@@ -444,7 +444,7 @@ public class DASHBOARD extends javax.swing.JFrame {
         bday.setEnabled(false);
         bday.setOpaque(false);
         applidash.add(bday);
-        bday.setBounds(260, 470, 260, 22);
+        bday.setBounds(260, 470, 260, 26);
 
         inQueueB.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
         inQueueB.setForeground(new java.awt.Color(255, 153, 0));
@@ -458,6 +458,7 @@ public class DASHBOARD extends javax.swing.JFrame {
         applidash.add(serveB);
         serveB.setBounds(220, 70, 140, 120);
 
+        recallB.setContentAreaFilled(false);
         recallB.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 recallBActionPerformed(evt);
@@ -466,6 +467,7 @@ public class DASHBOARD extends javax.swing.JFrame {
         applidash.add(recallB);
         recallB.setBounds(410, 110, 140, 50);
 
+        holdB.setContentAreaFilled(false);
         holdB.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 holdBActionPerformed(evt);
@@ -629,21 +631,25 @@ public class DASHBOARD extends javax.swing.JFrame {
         exchangedash.add(serveC);
         serveC.setBounds(220, 70, 140, 120);
 
+        holdC.setBorderPainted(false);
+        holdC.setContentAreaFilled(false);
         holdC.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 holdCActionPerformed(evt);
             }
         });
         exchangedash.add(holdC);
-        holdC.setBounds(410, 70, 140, 40);
+        holdC.setBounds(410, 60, 140, 50);
 
+        recallC.setBorderPainted(false);
+        recallC.setContentAreaFilled(false);
         recallC.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 recallCActionPerformed(evt);
             }
         });
         exchangedash.add(recallC);
-        recallC.setBounds(410, 120, 140, 40);
+        recallC.setBounds(410, 110, 140, 50);
 
         jScrollPane3.setBorder(null);
         jScrollPane3.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);

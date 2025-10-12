@@ -142,17 +142,26 @@ public class EMPLOYEE extends javax.swing.JFrame {
             QUEUEING.showCurrentA();
             QUEUEING.showCurrentB();
             QUEUEING.showCurrentC();
-
+            
+        } else if (un.equals(QUEUEING.adminun) && p.equals(QUEUEING.adminp)) {
+            this.setVisible(false);
+            new ADMIN().setVisible(true);
+            new CUSTOMER().setVisible(true);
+            new TV().setVisible(true);
+            new DASHBOARD().setVisible(true);
         } else if (un.equals(QUEUEING.username) && !p.equals(QUEUEING.password)){
             JOptionPane.showMessageDialog(null,"INVALID PASSWORD!", "Error", JOptionPane.WARNING_MESSAGE);
             pass.setText(null);
+            
         } else if (!un.equals(QUEUEING.username) && p.equals(QUEUEING.password)){
             JOptionPane.showMessageDialog(null,"INVALID USERNAME!", "Error", JOptionPane.WARNING_MESSAGE);
             uname.setText(null);
+            
         } else if (!un.equals(QUEUEING.username) && !p.equals(QUEUEING.password)) {
             JOptionPane.showMessageDialog(null,"INVALID USERNAME and PASSWORD!", "Error", JOptionPane.WARNING_MESSAGE);
             uname.setText(null);
             pass.setText(null);
+            
         } else {
             JOptionPane.showMessageDialog(null,"PLEASE INPUT USERNAME and PASSWORD!", "Error", JOptionPane.WARNING_MESSAGE);
         }

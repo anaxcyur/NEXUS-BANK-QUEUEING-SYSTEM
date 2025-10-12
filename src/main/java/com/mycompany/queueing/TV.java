@@ -114,7 +114,7 @@ public class TV extends javax.swing.JFrame {
         jScrollPane1.setViewportView(waitingA);
 
         jPanel1.add(jScrollPane1);
-        jScrollPane1.setBounds(110, 220, 130, 110);
+        jScrollPane1.setBounds(130, 220, 110, 110);
 
         jScrollPane2.setBorder(null);
         jScrollPane2.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
@@ -131,7 +131,7 @@ public class TV extends javax.swing.JFrame {
         jScrollPane2.setViewportView(waitingB);
 
         jPanel1.add(jScrollPane2);
-        jScrollPane2.setBounds(350, 220, 130, 110);
+        jScrollPane2.setBounds(380, 220, 100, 110);
 
         jScrollPane3.setBorder(null);
         jScrollPane3.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
@@ -148,7 +148,7 @@ public class TV extends javax.swing.JFrame {
         jScrollPane3.setViewportView(waitingC);
 
         jPanel1.add(jScrollPane3);
-        jScrollPane3.setBounds(610, 220, 130, 110);
+        jScrollPane3.setBounds(630, 220, 110, 110);
 
         TVbg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Final Design/TV.png"))); // NOI18N
         jPanel1.add(TVbg);

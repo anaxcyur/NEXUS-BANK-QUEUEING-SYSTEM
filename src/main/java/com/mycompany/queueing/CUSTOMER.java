@@ -64,6 +64,7 @@ public class CUSTOMER extends javax.swing.JFrame {
         bday.setOpaque(false); 
         paytoOptions.setOpaque(false);
         
+        
 
     }
         private void resetNumberField() {
@@ -150,6 +151,9 @@ public class CUSTOMER extends javax.swing.JFrame {
         confirm3 = new javax.swing.JButton();
         cancel3 = new javax.swing.JButton();
         change = new javax.swing.JComboBox<>();
+        USDrate = new javax.swing.JLabel();
+        EUROrate = new javax.swing.JLabel();
+        JPYrate = new javax.swing.JLabel();
         FEbg = new javax.swing.JLabel();
         queue = new javax.swing.JPanel();
         queuenum = new javax.swing.JLabel();
@@ -330,7 +334,7 @@ public class CUSTOMER extends javax.swing.JFrame {
             }
         });
         FE.add(amount3);
-        amount3.setBounds(470, 210, 290, 30);
+        amount3.setBounds(90, 310, 300, 20);
 
         name3.setBorder(null);
         FE.add(name3);
@@ -339,7 +343,7 @@ public class CUSTOMER extends javax.swing.JFrame {
         convert.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "PHP" }));
         convert.setBorder(null);
         FE.add(convert);
-        convert.setBounds(470, 160, 290, 30);
+        convert.setBounds(100, 260, 290, 30);
 
         confirm3.setBorderPainted(false);
         confirm3.setContentAreaFilled(false);
@@ -366,6 +370,27 @@ public class CUSTOMER extends javax.swing.JFrame {
         change.setBorder(null);
         FE.add(change);
         change.setBounds(150, 210, 240, 30);
+
+        USDrate.setFont(new java.awt.Font("Leelawadee UI Semilight", 1, 18)); // NOI18N
+        USDrate.setForeground(new java.awt.Color(0, 0, 0));
+        USDrate.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        USDrate.setText("56.5");
+        FE.add(USDrate);
+        USDrate.setBounds(637, 216, 70, 20);
+
+        EUROrate.setFont(new java.awt.Font("Leelawadee UI Semilight", 1, 18)); // NOI18N
+        EUROrate.setForeground(new java.awt.Color(0, 0, 0));
+        EUROrate.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        EUROrate.setText("60.2");
+        FE.add(EUROrate);
+        EUROrate.setBounds(637, 256, 70, 20);
+
+        JPYrate.setFont(new java.awt.Font("Leelawadee UI Semilight", 1, 18)); // NOI18N
+        JPYrate.setForeground(new java.awt.Color(0, 0, 0));
+        JPYrate.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        JPYrate.setText("0.38");
+        FE.add(JPYrate);
+        JPYrate.setBounds(640, 300, 70, 20);
 
         FEbg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Final Design/customer foreign exchange.png"))); // NOI18N
         FE.add(FEbg);
@@ -741,8 +766,11 @@ public class CUSTOMER extends javax.swing.JFrame {
     private javax.swing.JLabel APLIbg;
     private javax.swing.JPanel BP;
     private javax.swing.JLabel BPbg;
+    public static javax.swing.JLabel EUROrate;
     private javax.swing.JPanel FE;
     private javax.swing.JLabel FEbg;
+    public static javax.swing.JLabel JPYrate;
+    public static javax.swing.JLabel USDrate;
     private javax.swing.JTextField address;
     private javax.swing.JTextField amount;
     private javax.swing.JTextField amount3;
