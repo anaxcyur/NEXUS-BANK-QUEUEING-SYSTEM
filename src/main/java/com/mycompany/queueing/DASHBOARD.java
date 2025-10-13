@@ -1002,27 +1002,29 @@ public class DASHBOARD extends javax.swing.JFrame {
                 if (servedNum != null) {
                     int index = servedNum - 1;
                     if (index >= 0 && index < QUEUEING.nameFE.size()) {
-                        QUEUEING.nameFE.add(index, nameFE);
-                        QUEUEING.changeFE.add(index, chang);
-                        QUEUEING.amountFE.add(index, am);
-                        QUEUEING.convertFE.add(index, conver);
+                        QUEUEING.nameFE.set(index, nameFE);
+                        QUEUEING.changeFE.set(index, chang);
+                        QUEUEING.amountFE.set(index, am);
+                        QUEUEING.convertFE.set(index, conver);
                         
                         
                         double amount = Double.parseDouble(am);
-                        double convertedAmount = 0.0;
+                        double rate = 1.0;
                         switch (chang.toUpperCase()) {
                             case "USD":
-                                convertedAmount = amount * 56.5;
+                                rate = Double.parseDouble(QUEUEING.USD.get(QUEUEING.USD.size() - 1));
                                 break;
                             case "EUR":
-                                convertedAmount = amount * 60.2;
+                                rate = Double.parseDouble(QUEUEING.EURO.get(QUEUEING.EURO.size() - 1));
                                 break;
                             case "JPY":
-                                convertedAmount = amount * 0.38;
+                                rate = Double.parseDouble(QUEUEING.JPY.get(QUEUEING.JPY.size() - 1));
                                 break;
                             default:
-                                convertedAmount = amount;
+                                rate = 1.0; // fallback
                         }
+
+                        double convertedAmount = amount * rate;
 
                         String formattedCon = String.format("%.2f", convertedAmount);
 
@@ -1047,7 +1049,7 @@ public class DASHBOARD extends javax.swing.JFrame {
                 change.setEnabled(false);
                 amount3.setEnabled(false);
                 convert.setEnabled(false);
-                conAmount.setEnabled(false);
+                
                 
 //NEXTCUSTOMER               
             servedNum = QUEUEING.queueC.poll();
@@ -1056,6 +1058,7 @@ public class DASHBOARD extends javax.swing.JFrame {
                QUEUEING.showCurrentC();
                QUEUEING.servedCountC++;;
               noOfServedC.setText(String.valueOf(QUEUEING.servedCountC));
+              conAmount.setText("");
             } else {
                 serveC.setText(null);
                 TV.serveC.setText(null);
@@ -1072,6 +1075,7 @@ public class DASHBOARD extends javax.swing.JFrame {
             break;
         }
         }
+
     }//GEN-LAST:event_confirm2ActionPerformed
 
     private void call1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_call1ActionPerformed
@@ -1103,7 +1107,6 @@ public class DASHBOARD extends javax.swing.JFrame {
     }//GEN-LAST:event_editActionPerformed
 
     private void confirmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmActionPerformed
-
         while (true) {
             String enteredName = name.getText().trim();
             String enteredPay = (String) pay.getSelectedItem();
@@ -1161,7 +1164,7 @@ public class DASHBOARD extends javax.swing.JFrame {
                     AmountReceived.setText("");
                     return;
                 }
-
+//
                 int c = JOptionPane.showConfirmDialog(null,"Are you sure the information is correct?","Confirmation",JOptionPane.OK_CANCEL_OPTION);
 
                 if (c == JOptionPane.OK_OPTION) {
@@ -1171,10 +1174,10 @@ public class DASHBOARD extends javax.swing.JFrame {
 
                         if (index >= 0 && index < QUEUEING.nameBP.size()) {
                             QUEUEING.receivedBP.add(enteredReceived);
-                            QUEUEING.nameBP.add(index, enteredName);
-                            QUEUEING.payToBP.add(index, enteredPay);
-                            QUEUEING.amountBP.add(index, enteredAmount);
-                            QUEUEING.receivedBP.add(index, enteredReceived);
+                            QUEUEING.nameBP.set(index, enteredName);
+                            QUEUEING.payToBP.set(index, enteredPay);
+                            QUEUEING.amountBP.set(index, enteredAmount);
+                            QUEUEING.receivedBP.set(index, enteredReceived);
                         }
                     }
 
@@ -1213,9 +1216,6 @@ public class DASHBOARD extends javax.swing.JFrame {
                 break;
             }
         }
-
-
-        
     }//GEN-LAST:event_confirmActionPerformed
 
     private void cancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelActionPerformed

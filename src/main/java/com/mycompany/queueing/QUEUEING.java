@@ -69,6 +69,12 @@ public static ArrayList<String> USD = new ArrayList<>();
 public static ArrayList<String> EURO = new ArrayList<>();
 public static ArrayList<String> JPY = new ArrayList<>();
 
+// Default Conversion Value
+static {
+    USD.add("56.5");
+    EURO.add("60.2");
+    JPY.add("0.38");
+}
 
 // ---------------- HOLD QUEUES ----------------
 public static Queue<Integer> holdA = new LinkedList<>();
@@ -258,12 +264,7 @@ public static Queue<Integer> holdC = new LinkedList<>();
                 TV.serveA.setText("");
             }
         }
-        public static void holdA() {
-
-
-
-
-        }
+        
 //FOR COUNTER B SYNC :)))
         public static void showCurrentB() {
             if (queueB.size() > 1) {
@@ -476,21 +477,24 @@ public static Queue<Integer> holdC = new LinkedList<>();
 
             try {
                 double amount = Double.parseDouble(am);
-                double convertedAmount = 0.0;
+                double rate = 1.0;
 
+                // ✅ Get latest conversion rate from QUEUEING
                 switch (chang.toUpperCase()) {
                     case "USD":
-                        convertedAmount = amount * 56.5; // USD → PHP
+                        rate = !QUEUEING.USD.isEmpty() ? Double.parseDouble(QUEUEING.USD.get(QUEUEING.USD.size() - 1)) : 56.5;
                         break;
                     case "EUR":
-                        convertedAmount = amount * 60.2; // EUR → PHP
+                        rate = !QUEUEING.EURO.isEmpty() ? Double.parseDouble(QUEUEING.EURO.get(QUEUEING.EURO.size() - 1)) : 60.2;
                         break;
                     case "JPY":
-                        convertedAmount = amount * 0.38; // JPY → PHP
+                        rate = !QUEUEING.JPY.isEmpty() ? Double.parseDouble(QUEUEING.JPY.get(QUEUEING.JPY.size() - 1)) : 0.38;
                         break;
                     default:
-                        convertedAmount = amount;
+                        rate = 1.0;
                 }
+
+                double convertedAmount = amount * rate;
                 DASHBOARD.conAmount.setText(String.format("%.2f PHP", convertedAmount));
 
             } catch (NumberFormatException e) {

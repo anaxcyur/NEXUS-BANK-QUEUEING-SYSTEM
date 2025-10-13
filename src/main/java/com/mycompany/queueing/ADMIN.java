@@ -4,6 +4,9 @@
  */
 package com.mycompany.queueing;
 
+import static com.mycompany.queueing.QUEUEING.EURO;
+import static com.mycompany.queueing.QUEUEING.JPY;
+import static com.mycompany.queueing.QUEUEING.USD;
 import javax.swing.JOptionPane;
 
 /**
@@ -17,6 +20,14 @@ public class ADMIN extends javax.swing.JFrame {
      */
     public ADMIN() {
         initComponents();
+        
+        String latestUSD = QUEUEING.USD.get(QUEUEING.USD.size() - 1);
+        String latestEURO = QUEUEING.EURO.get(QUEUEING.EURO.size() - 1);
+        String latestJPY = QUEUEING.JPY.get(QUEUEING.JPY.size() - 1);
+        
+        USA.setText(latestUSD);
+        EURO.setText(latestEURO);
+        JPY.setText(latestJPY);
     }
 
     /**
@@ -131,6 +142,8 @@ public class ADMIN extends javax.swing.JFrame {
         QUEUEING.USD.add(usd);
         QUEUEING.EURO.add(euro);
         QUEUEING.JPY.add(jpy);
+        
+        JOptionPane.showMessageDialog(null,"Successfully changed the conversion rate.","Success",JOptionPane.INFORMATION_MESSAGE);
         
         USA.setEnabled(false);
         EURO.setEnabled(false);

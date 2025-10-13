@@ -37,7 +37,6 @@ public class CUSTOMER extends javax.swing.JFrame {
     public CUSTOMER(  ) {
         initComponents();
         name.setBackground(new Color(0, 0, 0, 0));
-        name.getAccessibleContext().setAccessibleDescription("Last name, First name Middle name");
         amount.setBackground(new Color(0, 0, 0, 0));
         address.setBackground(new Color(0, 0, 0, 0));
         fname.setBackground(new Color(0, 0, 0, 0));
@@ -513,21 +512,23 @@ public class CUSTOMER extends javax.swing.JFrame {
 
     else {
         double amount = Double.parseDouble(enteredAmount);
-        double convertedAmount = 0.0;
+        double rate = 1.0;
 
         switch (selectedChange.toUpperCase()) {
             case "USD":
-                convertedAmount = amount * 56.5;
+                rate = !QUEUEING.USD.isEmpty() ? Double.parseDouble(QUEUEING.USD.get(QUEUEING.USD.size() - 1)) : 56.5;
                 break;
             case "EUR":
-                convertedAmount = amount * 60.2;
+                rate = !QUEUEING.EURO.isEmpty() ? Double.parseDouble(QUEUEING.EURO.get(QUEUEING.EURO.size() - 1)) : 60.2;
                 break;
             case "JPY":
-                convertedAmount = amount * 0.38;
+                rate = !QUEUEING.JPY.isEmpty() ? Double.parseDouble(QUEUEING.JPY.get(QUEUEING.JPY.size() - 1)) : 0.38;
                 break;
             default:
-                convertedAmount = amount; 
+                rate = 1.0;
         }
+
+        double convertedAmount = amount * rate;
 
         // ✅ Save all details
         QUEUEING.nameFE.add(enteredName);
