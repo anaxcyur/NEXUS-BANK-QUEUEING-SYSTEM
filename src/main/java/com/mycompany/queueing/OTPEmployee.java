@@ -17,7 +17,7 @@ public class OTPEmployee extends javax.swing.JFrame {
      */
     public OTPEmployee() {
         initComponents();
-        this.setLocation(580, 300);
+        this.setLocation(300, 150);
         OTPConfirmation.setBackground(new Color(0, 0, 0, 0)); 
         enter.setBackground(new Color(0, 0, 0, 0)); 
     }
@@ -37,18 +37,18 @@ public class OTPEmployee extends javax.swing.JFrame {
         OTPEBG = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setBounds(new java.awt.Rectangle(500, 300, 400, 200));
-        setMinimumSize(new java.awt.Dimension(400, 200));
+        setBounds(new java.awt.Rectangle(200, 100, 400, 200));
+        setMinimumSize(new java.awt.Dimension(600, 500));
         setUndecorated(true);
         getContentPane().setLayout(null);
 
         jPanel1.setLayout(null);
 
-        OTPConfirmation.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        OTPConfirmation.setFont(new java.awt.Font("Leelawadee UI Semilight", 1, 36)); // NOI18N
         OTPConfirmation.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         OTPConfirmation.setBorder(null);
         jPanel1.add(OTPConfirmation);
-        OTPConfirmation.setBounds(125, 110, 150, 20);
+        OTPConfirmation.setBounds(170, 340, 240, 40);
 
         enter.setBorder(null);
         enter.setContentAreaFilled(false);
@@ -58,14 +58,14 @@ public class OTPEmployee extends javax.swing.JFrame {
             }
         });
         jPanel1.add(enter);
-        enter.setBounds(150, 150, 100, 30);
+        enter.setBounds(240, 420, 100, 30);
 
-        OTPEBG.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Final Design/otp verification .png"))); // NOI18N
+        OTPEBG.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Final Design/otpemp.png"))); // NOI18N
         jPanel1.add(OTPEBG);
-        OTPEBG.setBounds(0, 0, 400, 200);
+        OTPEBG.setBounds(0, 0, 600, 500);
 
         getContentPane().add(jPanel1);
-        jPanel1.setBounds(0, 0, 400, 200);
+        jPanel1.setBounds(0, 0, 600, 500);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

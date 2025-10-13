@@ -15,7 +15,7 @@ public class OTPCustomer extends javax.swing.JFrame {
      */
     public OTPCustomer() {
         initComponents();
-        this.setLocation(1000, 200);
+        this.setLocation(1000, 100);
         
     }
 
@@ -34,24 +34,24 @@ public class OTPCustomer extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(300, 400));
-        setMinimumSize(new java.awt.Dimension(300, 400));
+        setMinimumSize(new java.awt.Dimension(400, 600));
         setUndecorated(true);
         getContentPane().setLayout(null);
 
         jPanel1.setLayout(null);
 
-        OTPText.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
+        OTPText.setFont(new java.awt.Font("Leelawadee UI Semilight", 1, 36)); // NOI18N
         OTPText.setForeground(new java.awt.Color(153, 102, 0));
         OTPText.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jPanel1.add(OTPText);
-        OTPText.setBounds(20, 150, 260, 80);
+        OTPText.setBounds(60, 430, 270, 50);
 
-        OTPBG.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Final Design/Phone.png"))); // NOI18N
+        OTPBG.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Final Design/otpcus.png"))); // NOI18N
         jPanel1.add(OTPBG);
-        OTPBG.setBounds(0, 0, 300, 400);
+        OTPBG.setBounds(0, 0, 400, 600);
 
         getContentPane().add(jPanel1);
-        jPanel1.setBounds(0, 0, 300, 400);
+        jPanel1.setBounds(0, 0, 400, 600);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
